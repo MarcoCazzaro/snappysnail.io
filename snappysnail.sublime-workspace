@@ -1,0 +1,1390 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"backgr",
+				"background-size\tproperty"
+			],
+			[
+				"fot",
+				"font-weight\tproperty"
+			],
+			[
+				"sessio",
+				"session_start"
+			],
+			[
+				"unse",
+				"unset"
+			],
+			[
+				"_SE",
+				"_SESSION"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"box",
+				"boxsize"
+			],
+			[
+				"fo",
+				"for\tAttr"
+			],
+			[
+				"attributi",
+				"attributi_and"
+			],
+			[
+				"curren",
+				"currentInput"
+			],
+			[
+				"snail",
+				"snail-nome"
+			],
+			[
+				"snail-toggle",
+				"snail-toggle-panel"
+			],
+			[
+				"text",
+				"text-transform"
+			],
+			[
+				"grupp",
+				"gruppo_attuale"
+			],
+			[
+				"query",
+				"query_attributi"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"attru",
+				"attributi_gruppi"
+			],
+			[
+				"el",
+				"else"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"prodotto",
+				"prodotto_isfood"
+			],
+			[
+				"inta",
+				"intval"
+			],
+			[
+				"prodo",
+				"prodotto_isfood"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"mysql_e",
+				"mysql_error"
+			],
+			[
+				"mysql_num",
+				"mysql_num_rows"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"tr",
+				"try\tWrap in try { … } catch (…) { … }"
+			],
+			[
+				"arro",
+				"arrotondamento_iva"
+			],
+			[
+				"totale",
+				"totalefatturaiva"
+			],
+			[
+				"over",
+				"overflow-x"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"user",
+				"user_profile"
+			],
+			[
+				"tipo",
+				"tipo_spedizione"
+			],
+			[
+				"impor",
+				"important"
+			],
+			[
+				"folde",
+				"folder_name"
+			],
+			[
+				"error",
+				"error_message"
+			],
+			[
+				"str",
+				"strSQL"
+			],
+			[
+				"idpro",
+				"id_produttore"
+			],
+			[
+				"q",
+				"q_prodotti_produttore"
+			],
+			[
+				"msql_num",
+				"msql_num_rows"
+			],
+			[
+				"mysqlfet",
+				"mysql_fetch_array"
+			],
+			[
+				"id",
+				"id_regione_eccellenza"
+			],
+			[
+				"numrow",
+				"msql_numrows"
+			],
+			[
+				"regione",
+				"regione_attuale"
+			],
+			[
+				"co",
+				"cover"
+			],
+			[
+				"overf",
+				"overflow-y"
+			],
+			[
+				"tem",
+				"tmp_name"
+			],
+			[
+				"salva",
+				"salva_pwd"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"noin",
+				"noindex_string"
+			],
+			[
+				"gooruf",
+				"gooruf-providers"
+			],
+			[
+				"API",
+				"API_URL"
+			],
+			[
+				"array",
+				"array_pop"
+			],
+			[
+				"end",
+				"ends_with"
+			],
+			[
+				"first",
+				"first_name"
+			],
+			[
+				"provider",
+				"provider_id"
+			],
+			[
+				"profile",
+				"profile-picture"
+			],
+			[
+				"targe",
+				"target_user"
+			],
+			[
+				"image",
+				"imageLoaded"
+			],
+			[
+				"margi",
+				"margin"
+			],
+			[
+				"too",
+				"tooltip"
+			],
+			[
+				"padd",
+				"padding: "
+			],
+			[
+				"this",
+				"thisModal"
+			],
+			[
+				"sitema",
+				"sitemap_content"
+			],
+			[
+				"goto",
+				"gotogooruf"
+			],
+			[
+				"Go",
+				"GoToGooruf"
+			],
+			[
+				"max",
+				"max-height: "
+			],
+			[
+				"start",
+				"start_date"
+			],
+			[
+				"star",
+				"start_date"
+			],
+			[
+				"sta",
+				"start_date"
+			],
+			[
+				"curre",
+				"current_url"
+			],
+			[
+				"resu",
+				"results"
+			],
+			[
+				"sideba",
+				"sidebar_start"
+			],
+			[
+				"meta",
+				"meta_content"
+			],
+			[
+				"wp_",
+				"wp_system"
+			],
+			[
+				"pro",
+				"provider"
+			],
+			[
+				"prepe",
+				"prepend_locale"
+			],
+			[
+				"loca",
+				"locale_from_url"
+			],
+			[
+				"langu",
+				"language_from_url"
+			],
+			[
+				"json",
+				"parseJSON"
+			],
+			[
+				"al",
+				"alt\tAttr"
+			],
+			[
+				"premiu",
+				"premium_providers"
+			],
+			[
+				"pop",
+				"popular_providers"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"excleu",
+				"exclude_body"
+			],
+			[
+				"log",
+				"log_actions"
+			],
+			[
+				"wpra",
+				"wp_raw_url"
+			],
+			[
+				"refresh",
+				"refreshTags"
+			],
+			[
+				"tagUsed",
+				"tagUsedForType"
+			],
+			[
+				"provide",
+				"provider_tags"
+			],
+			[
+				"data",
+				"data_loaded"
+			],
+			[
+				"colo",
+				"color_background_extra"
+			],
+			[
+				"min",
+				"min-height: "
+			],
+			[
+				"post",
+				"post_tags"
+			],
+			[
+				"padding",
+				"padding: "
+			],
+			[
+				"i",
+				"i\tTag"
+			],
+			[
+				"selec",
+				"selectedCountries"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"strto",
+				"strtolower"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"vie",
+				"view_name"
+			],
+			[
+				"isse",
+				"isset"
+			],
+			[
+				"provi",
+				"providerType"
+			],
+			[
+				"discu",
+				"discussions"
+			],
+			[
+				"insta",
+				"instanceID"
+			],
+			[
+				"ins",
+				"instancesArray"
+			],
+			[
+				"auto",
+				"autocompleteSuggestions"
+			],
+			[
+				"scope",
+				"scopeSelect"
+			],
+			[
+				"hea",
+				"head_start"
+			],
+			[
+				"head",
+				"head_end"
+			],
+			[
+				"paddin",
+				"padding: "
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"bfc-sele",
+				"bfc-selected-tags"
+			],
+			[
+				"search",
+				"searchParameters"
+			],
+			[
+				"sear",
+				"searchArray"
+			],
+			[
+				"find",
+				"findCategory"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"sugge",
+				"suggestions"
+			],
+			[
+				"firs",
+				"firstSuggestion"
+			],
+			[
+				"select",
+				"selectCategory"
+			],
+			[
+				"country",
+				"country_id"
+			],
+			[
+				"main",
+				"main_market"
+			],
+			[
+				"bfc-notifi",
+				"bfc-notification-title"
+			],
+			[
+				"funct",
+				"function"
+			],
+			[
+				"notifi",
+				"notification_subject"
+			],
+			[
+				"notifica",
+				"notification_link"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "routes/web.php",
+			"settings":
+			{
+				"buffer_size": 624,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "tailwind.config.js",
+			"settings":
+			{
+				"buffer_size": 662,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"grunt",
+				"Grunt"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"gru",
+				"Grunt"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 497.0
+	},
+	"console":
+	{
+		"height": 121.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/var/www/snappysnail.io",
+		"/var/www/snappysnail.io/resources",
+		"/var/www/snappysnail.io/resources/views"
+	],
+	"file_history":
+	[
+		"/var/www/snappysnail.io/.env",
+		"/var/www/snappysnail.io.boh.non.funzia/.env",
+		"/var/www/snappysnail.io/package.json",
+		"/var/www/snappysnail.io/resources/views/home.blade.php",
+		"/var/www/bfcvideo/vlog-child-theme/BlueVlog/template-show-schedule-plugin-content.php",
+		"/home/ge/Documents/Lavoro/BFC/Colori ufficiali.txt",
+		"/var/www/snappysnail.io/resources/sass/_variables.scss",
+		"/var/www/snappysnail.io/resources/sass/app.scss",
+		"/var/www/snappysnail.io/resources/views/ajeje-brazorf.blade.php",
+		"/var/www/snappysnail.io/resources/views/welcome.blade.php",
+		"/var/www/snappysnail.io/routes/web.php",
+		"/var/www/snappysnail.io.NEW/README.md",
+		"/var/www/snappysnail.io/README.md",
+		"/var/www/snappysnail.io/golden-rules.txt",
+		"/var/www/snappysnail.io/webpack.mix.js",
+		"/home/ge/Documents/Lavoro/Snappysnail LTD/Laravel Forge/aws.txt",
+		"/var/www/snappysnail.io/composer.json",
+		"/var/www/snappysnail.io/app/Exceptions/Handler.php",
+		"/var/www/bfcvideo/show-schedule-plugin/bfcvideo-show-schedule-plugin.php",
+		"/var/www/gooruf.com/.env",
+		"/home/ge/.ssh/id_rsa.pub",
+		"/var/www/snappysnail.io/resources/views/tmfwitw.blade.php",
+		"/var/www/babababa/index.php",
+		"/var/www/isfood/iscrizione-newsletter.php",
+		"/var/www/isfood/pulsanti-prodotti.php",
+		"/var/www/isfood/index.php",
+		"/var/www/isfood/headerbottom.php",
+		"/var/www/isfood/settacapmanuale.php",
+		"/var/www/isfood/profilo.php",
+		"/var/www/isfood/footer.php",
+		"/var/www/isfood/scegli.php",
+		"/var/www/isfood/imposta-comune.php",
+		"/var/www/isfood/alert-consegna.php",
+		"/var/www/isfood/gestione-comune-sistema.php",
+		"/var/www/isfood/aggiungi-carrello-prodotti-script.php",
+		"/var/www/isfood/aggiungi-carrello-prodotti.php",
+		"/var/www/isfood/aggiungicarrello.php",
+		"/var/www/isfood/files/snappysnail_2018_03_11.css",
+		"/var/www/isfood/comefunziona.php",
+		"/var/www/isfood/boxmobile.php",
+		"/var/www/isfood/box.php",
+		"/var/www/isfood/infoabbonamenti.php",
+		"/var/www/isfood/boxslogan.php",
+		"/var/www/isfood/files/bootstrap-override.css",
+		"/var/www/isfood/docs/fatturaphp.php",
+		"/var/www/isfood/invia-comunicazioni.php",
+		"/var/www/isfood/dettaglioordine.php",
+		"/var/www/isfood/billinginfologgato.php",
+		"/var/www/isfood/billinginfologgatom.php",
+		"/var/www/isfood/prodotti.php",
+		"/var/www/isfood/mobiledetect/Mobile_Detect.php",
+		"/var/www/isfood/suggerimento_prodotti.php",
+		"/var/www/isfood/produttorimobile.php",
+		"/var/www/isfood/produttori.php",
+		"/var/www/isfood/produttori-cerca.php",
+		"/var/www/isfood/suggerimento_produttori.php",
+		"/var/www/isfood/gestione_impostazioni.php",
+		"/var/www/isfood/cartacredito/response.php",
+		"/var/www/isfood/cartacredito/responses2s.php",
+		"/var/www/isfood/cartacredito/index.php",
+		"/var/www/isfood/pezzocartacredito.php",
+		"/var/www/isfood/carrello.php",
+		"/var/www/isfood/cartacredito/registra_pagamento.php",
+		"/var/www/isfood/nuovo-numero-fattura.php",
+		"/var/www/isfood/riservato/impostazioni.php",
+		"/var/www/isfood/riservato/modificabox.php",
+		"/var/www/isfood/riservato/modificaprodotto.php",
+		"/var/www/isfood/confermaordine.php",
+		"/var/www/isfood/pagamentispedizioni.php",
+		"/var/www/isfood/.git/config",
+		"/var/www/isfood/.git/index",
+		"/var/www/isfood/.git/HEAD",
+		"/var/www/isfood/.git/FETCH_HEAD",
+		"/var/www/isfood/.git/description",
+		"/home/ge/Desktop/parametri isfood.txt",
+		"/var/www/isfood/riservato/modificaattributogruppo.php",
+		"/var/www/isfood/riservato/prodotti.php",
+		"/var/www/isfood/riservato/modificaspedizioni.php",
+		"/var/www/isfood/files/snappysnail.css",
+		"/var/www/isfood/files/scripts.js",
+		"/var/www/isfood/prodotto.php",
+		"/var/www/isfood/riservato/modificaattributo.php",
+		"/var/www/isfood/riservato/attributi.php",
+		"/var/www/isfood/riservato/abbonamenti.php",
+		"/var/www/isfood/riservato/nuovoattributogruppo.php",
+		"/var/www/isfood/prodotti-redirect.php",
+		"/var/www/isfood/cron/aggiungi-spedizioni-mese.php",
+		"/var/www/isfood/facebook-login.php",
+		"/var/www/isfood/facebook-callback.php",
+		"/var/www/isfood/login.php",
+		"/var/www/isfood/pezzospedizionim.php",
+		"/var/www/isfood/pezzospedizioni.php",
+		"/var/www/isfood/carrellom.php",
+		"/var/www/isfood/riservato/margini.php",
+		"/var/www/isfood/pezzocouponm.php",
+		"/var/www/isfood/pezzocoupon.php",
+		"/var/www/isfood/calcoloblocchi.php",
+		"/var/www/isfood/autocompletecap2.php",
+		"/var/www/isfood/billinginfononloggato.php",
+		"/var/www/isfood/invioemailtecnica.php",
+		"/var/www/isfood/paypal/paypal_response.php",
+		"/var/www/deboraantonello.com/v1/gallery/index.php",
+		"/var/www/deboraantonello.com/v1/bio/index.html",
+		"/var/www/deboraantonello.com/v1/contact/index.html",
+		"/var/www/deboraantonello.com/v1/gallery/index.html",
+		"/var/www/deboraantonello.com/v1/works/index.html",
+		"/tmp/fz3temp-2/index.html",
+		"/var/www/deboraantonello.com/v1/index.html",
+		"/home/ge/Desktop/install.sh",
+		"/var/www/isfood/docs/checklistphp.php",
+		"/var/www/isfood/docs/ddtadesivophp.php",
+		"/var/www/isfood/files/style.css",
+		"/var/www/isfood/infochef.php",
+		"/var/www/isfood/invia-comunicazioni-template.php",
+		"/var/www/isfood/la-nostra-azienda-agricola.php",
+		"/var/www/isfood/recuperapassword.php",
+		"/var/www/isfood/registrazione.php",
+		"/var/www/isfood/ricette.php",
+		"/var/www/isfood/riservato/login.php",
+		"/var/www/isfood/cron/scaricadaticampoverde.php",
+		"/var/www/isfood/riservato/nuovoprodotto.php",
+		"/var/www/isfood/riservato/nuovoprodotto-test.php",
+		"/var/www/isfood/cron/aggiungi-spedizioni-mese-test.php",
+		"/var/www/isfood/riservato/modificaspedizioni9.php",
+		"/var/www/isfood/riservato/dettagliordine.php",
+		"/var/www/isfood/riservato/coupon.php",
+		"/media/ge/Dati/Lavoro/Snappysnail LTD/HMRC/GovernmentGateway.txt",
+		"/tmp/fz3temp-2/laravel-2017-12-22.log"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+			"/var/www/snappysnail.io",
+			"/var/www/isfood",
+			"/var/www/isfood/files",
+			"/var/www/isfood",
+			"/var/www/isfood/riservato",
+			"/var/www/isfood/cartacredito",
+			"/var/www/isfood",
+			"/var/www/isfood/riservato",
+			"/var/www/isfood",
+			"/var/www/isfood/files",
+			"/var/www/isfood",
+			"/var/www/isfood/docs/html2pdf/examples",
+			"/var/www/isfood",
+			"/var/www/isfood/src",
+			"/var/www/isfood",
+			"/var/www/isfood/src",
+			"/var/www/isfood",
+			"/var/www/isfood/files",
+			"/var/www/isfood",
+			"/var/www/isfood/riservato",
+			"/var/www/isfood",
+			"/var/www/isfood/riservato",
+			"/var/www/isfood",
+			"/var/www/isfood/riservato",
+			"/var/www/isfood",
+			"/var/www/gooruf.com/resources",
+			"/var/www/gooruf.com",
+			"/var/www/gooruf.com/resources/assets",
+			"/var/www/gooruf.com/resources",
+			"/var/www/gooruf.com/resources/assets",
+			"/var/www/gooruf.com/resources",
+			"/var/www/gooruf.com",
+			"/var/www/gooruf.com/resources",
+			"/var/www/gooruf.com/routes",
+			"/var/www/gooruf.com/app",
+			"/var/www/gooruf.com/wp_theme",
+			"/var/www/gooruf.com/resources",
+			"/var/www/gooruf.com",
+			"/var/www/gooruf.com/resources",
+			"/var/www/gooruf.com",
+			"/var/www/gooruf.com/app",
+			"/var/www/gooruf.com",
+			"/var/www/gooruf.com/app",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/views",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/views",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/lang/it",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/views",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/lang/uk",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/views",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/app/Http/Controllers",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/vendor",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/app",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/lang",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/app",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/app/Http/Controllers",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/app",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/app",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/views",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com, - /media/ge/Dati/Lavoro/htdocs/gooruf.com/vendor",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/views",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme/gooruf",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/app",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme/gooruf",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme/gooruf/sass",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme/gooruf",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/app",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/routes",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/views",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/app",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com,-/media/ge/Dati/Lavoro/htdocs/gooruf.com/vendor, -/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/views",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/views/partials",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/views",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/app",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/app",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/vendor/laravel/framework/src/Illuminate",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/app",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/app",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/views/partials",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/app",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets/snippets",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme/gooruf",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme/gooruf",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets/global/sass",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com",
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/views"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"--hide-modules",
+			"antonello",
+			"deboraantonello.com",
+			"get_site_url()",
+			"test",
+			"Exception",
+			"636b6f",
+			"002687",
+			"fcbe03",
+			"href=\"/",
+			"test",
+			"ricette",
+			"capsis",
+			"capsistema",
+			"form",
+			"$_SESSION['capsistema']=",
+			"$_SESSION['capsistema']",
+			"snailShowMessage",
+			"snail-form-coupon",
+			"inseris",
+			"abbon",
+			"scegli",
+			"Comune",
+			"snail-menu-utente",
+			"pull-right",
+			"pull-left",
+			"Ciao",
+			"loginbar",
+			"@media",
+			"snail-pulsanti-prodotti",
+			"boxsize",
+			"dcarrello",
+			"box",
+			"scegli",
+			"contanti",
+			"cerca",
+			".select",
+			"select",
+			"joinprodotticategorie",
+			"pezzoquery",
+			"loghibox",
+			"stile",
+			"eccellenze biologiche",
+			"h1",
+			"cerca-prodotto",
+			"Attenzione filtro",
+			"vai",
+			"src",
+			"cerca-prodotto",
+			"src",
+			"suggerimento_prodotti_id_input",
+			"ordinaListaCaratteristiche",
+			"theList",
+			"filter",
+			"raffina",
+			"dettaglioordine",
+			"<select",
+			"select",
+			"nome",
+			"header",
+			"Conferma l'ordine",
+			"conferma l",
+			"279",
+			"snappysnail.css",
+			"snail-toggle-panel",
+			"query_attributi",
+			"Attenzione filtro caratteristiche",
+			"applica_filtri",
+			"isMobile",
+			"applica_filtri",
+			"snail-filtro",
+			"theList",
+			"query_attributi",
+			"theList",
+			"ordinaListaCaratteristiche",
+			"attributi_input",
+			"filtro_attributi",
+			"arrayattr",
+			"arraytestuale",
+			"arrayfinale",
+			"arrayattr",
+			"from prodotti",
+			"$_get[",
+			"$_get[h",
+			"ajeje",
+			"nuovo",
+			"snail-caratt",
+			" onClick=\"checkNuovoEPromo('nuovo')\"",
+			"checkNuovoEPromo",
+			"$(",
+			"$",
+			"jquery",
+			"checkNuovoEPromo",
+			"snail-nome",
+			"checkNuovoEPromo",
+			"idcat",
+			"promo",
+			"nuovo",
+			"theList",
+			"attenzion",
+			"theList",
+			"snail-filtro",
+			"applica_filtri",
+			".snail-toggle-panel",
+			"applica_filtri",
+			"query_attributi",
+			"from attri",
+			"qcat",
+			"FROM attributi",
+			"toggle",
+			"aprianteprima",
+			"data-toggle",
+			"collapse",
+			"collapseFive",
+			"fetch_array",
+			"fetch:array",
+			"combo",
+			"combobox",
+			"attributi",
+			"FROM attributi",
+			"vai",
+			"submittamarchi",
+			"applica_filtri",
+			"submittamarchi",
+			"vai",
+			"$_get[t",
+			"$_get['t",
+			"$_get[t"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"deb.snappysnail.io",
+			"$landing_page_url",
+			"131313",
+			"002687",
+			"href=\"",
+			"Attenzione<br>Filtro",
+			"attributi_input",
+			"",
+			"attributi_gruppi",
+			"applica_filtri",
+			"qproduttori",
+			"<?=$larghezza_colonne_pagamento?>",
+			"messaggio_notifica",
+			"",
+			"isfood_logo_rettangolare_f918",
+			"isfood_logo_circolare_f918.jpg",
+			"isfood_logo_rettangolare_f918.jpg",
+			"$idutente",
+			"</h5></a></li>",
+			"><h5>",
+			">",
+			"#sopracategorie\">",
+			"<li><a href=\"",
+			" ",
+			"",
+			"$NUMERO_PRODOTTI_PER_PAGINA",
+			"",
+			"<td style=\"width: 100%;",
+			"PUT/PATCH",
+			"GET/HEAD",
+			"user",
+			"data-bfc-target",
+			"<a href=\"#news-title\">@lang('common.news') [{{$news_count}}]</a>",
+			" . \"]\";",
+			". \" [\" .",
+			"",
+			" @endslot @endcomponent",
+			" @endslot @slot('icon') ",
+			"@component('components.tool-button') @slot('command') ",
+			"toolButton",
+			"_",
+			"",
+			"\"aaaaaaaaaa\"))</li>",
+			"<li>@php",
+			"btn-floating tooltipped ",
+			"<a class=\"btn-floating bfc-command",
+			"",
+			"fa fa-2x ",
+			"targetType",
+			"imageUploadModal",
+			"bfcImageUpload",
+			"thisModal",
+			"IMAGEUPLOAD",
+			"bfc-imageupload-old",
+			"Carbon",
+			"{{$provider_url}}",
+			"\\Cache::",
+			"sidebar",
+			"$meta_",
+			"Milano_2017_11",
+			"<h2><img src=\"{{asset('img/logotype_ori.png')}}\" alt=\"Gooruf\"></h2>",
+			"data-bfc-tag-filter-",
+			"data-bfc-subcat=",
+			"data-bfc-cat=",
+			"$current_locale",
+			"':",
+			"locale",
+			"thisWpWrapper",
+			"wpWrapperInstance",
+			"bfc-wp-wrapper",
+			"WPWRAPPER",
+			"externalfolder",
+			"mysite",
+			"return $this->belongsTo(Gprovider::class)->withoutGlobalScopes();",
+			"https://gooruf.com",
+			"",
+			"country",
+			"g2g_users",
+			"Premium Provider",
+			"current_provider",
+			"https://",
+			"refreshTags",
+			" = bfcTagSelector",
+			".svg')}}\"",
+			"data-icon=\"{{asset('img/assets",
+			".svg)}}\"",
+			" data-icon=\"img/assets/website/xxxxxxxxxxxxx.svg\" class=\"left\">@lang",
+			"')?></span>@lang(",
+			"<span class=\"bfc-icon\"><?=getGoorufSVGIcon(",
+			"')?> @lang",
+			"<?=getGoorufSVGIcon",
+			"refreshCategories",
+			"currentTag",
+			"tagsArray",
+			"findTag",
+			"$(thisEngine).find(\"",
+			"tagSelector",
+			"bfc-search-engine",
+			"thisEngine",
+			"engineInstance",
+			"bfcSearchEngine",
+			".run",
+			"SEARCHENGINE",
+			"",
+			";",
+			"",
+			"#",
+			" ",
+			";",
+			"$search_keywords .= $search_tags[0];",
+			"\n&& curl",
+			"clearCacheByPath",
+			"clearCacheByFolder",
+			"getTagTextByID",
+			"-wp-",
+			"->getKey()",
+			"pagespersession",
+			"img/gooruf-for-users",
+			"h4",
+			"$end_date_rif",
+			"$start_date_rif",
+			"div",
+			"@lang('stats.range_",
+			"<b>@lang(",
+			"\"",
+			"/uk/goorufgiveaway",
+			"it",
+			"uk"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "routes/web.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 624,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"function_name_status_row": 0,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "tailwind.config.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 662,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								530,
+								530
+							]
+						],
+						"settings":
+						{
+							"function_name_status_row": 20,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 94.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 90.0
+	},
+	"pinned_build_system": "",
+	"project": "snappysnail.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"web",
+				"routes/web.php"
+			],
+			[
+				"sugge",
+				"suggerimento_prodotti.php"
+			],
+			[
+				"prodott",
+				"prodotti.php"
+			],
+			[
+				"prodot",
+				"prodotti.php"
+			],
+			[
+				"prodo",
+				"prodotti.php"
+			],
+			[
+				"invia",
+				"invia-comunicazioni.php"
+			],
+			[
+				"conferma",
+				"confermaordine.php"
+			],
+			[
+				"",
+				"gestione-comune-sistema.php"
+			],
+			[
+				"comune",
+				"gestione-comune-sistema.php"
+			],
+			[
+				"modificapro",
+				"riservato/modificaproduttore.php"
+			],
+			[
+				"footer",
+				"footer.php"
+			],
+			[
+				"header",
+				"headerbottom.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"/var/www/deboraantonello.com/2.0/deboraantonello.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "grunt",
+		"selected_items":
+		[
+			[
+				"grunt",
+				"grunt"
+			]
+		],
+		"width": 594.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 362.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
