@@ -2,6 +2,9 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-.snail-logo {
-	height: 31px;
-}
+// General
+@import 'typography';
+@import 'website';
+
+// Pages
+@import 'pages/home';

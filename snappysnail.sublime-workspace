@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"for",
+				"for\tfor (…) {…}"
+			],
+			[
+				"text",
+				"text-center"
+			],
+			[
+				"sugges",
+				"suggestions"
+			],
+			[
+				"Sugges",
+				"Suggestion"
+			],
+			[
+				"class",
+				"classList"
+			],
+			[
+				"se",
+				"search_text"
+			],
+			[
+				"te",
+				"text-center"
+			],
+			[
+				"anima",
+				"animation-duration\tproperty"
+			],
+			[
+				"trans",
+				"transform\tproperty"
+			],
+			[
 				"backgr",
 				"background-size\tproperty"
 			],
@@ -28,10 +64,6 @@
 				"margin-bottom"
 			],
 			[
-				"te",
-				"text-align"
-			],
-			[
 				"box",
 				"boxsize"
 			],
@@ -54,10 +86,6 @@
 			[
 				"snail-toggle",
 				"snail-toggle-panel"
-			],
-			[
-				"text",
-				"text-transform"
 			],
 			[
 				"grupp",
@@ -344,10 +372,6 @@
 				"popular_providers"
 			],
 			[
-				"for",
-				"foreach\tforeach …"
-			],
-			[
 				"excleu",
 				"exclude_body"
 			],
@@ -490,49 +514,53 @@
 			[
 				"select",
 				"selectCategory"
-			],
-			[
-				"country",
-				"country_id"
-			],
-			[
-				"main",
-				"main_market"
-			],
-			[
-				"bfc-notifi",
-				"bfc-notification-title"
-			],
-			[
-				"funct",
-				"function"
-			],
-			[
-				"notifi",
-				"notification_subject"
-			],
-			[
-				"notifica",
-				"notification_link"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "routes/web.php",
+			"file": "resources/sass/_website.scss",
 			"settings":
 			{
-				"buffer_size": 624,
+				"buffer_size": 222,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "tailwind.config.js",
+			"file": "resources/views/home.blade.php",
 			"settings":
 			{
-				"buffer_size": 662,
+				"buffer_size": 3176,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/livewire/snail-search.blade.php",
+			"settings":
+			{
+				"buffer_size": 1126,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "storage/logs/laravel.log",
+			"settings":
+			{
+				"buffer_size": 0,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Livewire/SnailSearch.php",
+			"settings":
+			{
+				"buffer_size": 509,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -612,32 +640,68 @@
 	"expanded_folders":
 	[
 		"/var/www/snappysnail.io",
+		"/var/www/snappysnail.io/app",
+		"/var/www/snappysnail.io/app/Http",
+		"/var/www/snappysnail.io/app/Http/Livewire",
 		"/var/www/snappysnail.io/resources",
-		"/var/www/snappysnail.io/resources/views"
+		"/var/www/snappysnail.io/resources/sass",
+		"/var/www/snappysnail.io/resources/views",
+		"/var/www/snappysnail.io/resources/views/layouts",
+		"/var/www/snappysnail.io/resources/views/livewire",
+		"/var/www/snappysnail.io/storage",
+		"/var/www/snappysnail.io/storage/logs"
 	],
 	"file_history":
 	[
+		"/var/www/snappysnail.io/resources/views/partials/works/forbes.blade.php",
+		"/var/www/snappysnail.io/resources/sass/pages/_home.scss",
+		"/var/www/snappysnail.io/app/Models/Suggestion.php",
+		"/var/www/snappysnail.io/resources/views/pagination.blade.php",
+		"/var/www/snappysnail.io/resources/views/livewire/suggestions.blade.php",
+		"/var/www/snappysnail.io/app/Http/Livewire/Suggestions.php",
 		"/var/www/snappysnail.io/.env",
+		"/var/www/snappysnail.io/routes/web.php",
+		"/var/www/snappysnail.io/resources/views/layouts/app.blade.php",
+		"/var/www/snappysnail.io/resources/views/home.blade.php",
+		"/var/www/snappysnail.io/resources/sass/_website.scss",
+		"/var/www/snappysnail.io/app/Http/Livewire/SnailSearch.php",
+		"/var/www/snappysnail.io/resources/views/livewire/snail-search.blade.php",
+		"/var/www/snappysnail.io/resources/views/navigation-menu.blade.php",
+		"/home/ge/Desktop/Altro/ITForum/themeforest-VlEGH8yf-eventchamp-multiple-event-conference-wordpress-theme/eventchamp-wp-theme/Main Theme/eventchamp/include/header.php",
+		"/var/www/snappysnail.io/database/migrations/2021_05_06_132632_create_suggestions_table.php",
+		"/var/www/snappysnail.io/config/livewire.php",
+		"/var/www/bfc_events_theme_config/bfc-events-theme-config-plugin.php",
+		"/var/www/snappysnail.io/resources/sass/app.scss",
+		"/var/www/snappysnail.io/webpack.mix.js",
+		"/var/www/snappysnail.io/resources/views/partials/seo.blade.php",
+		"/var/www/snappysnail.io/resources/sass/_typography.scss",
+		"/home/ge/Documents/Lavoro/Snappysnail/UK/Laravel Forge/aws.txt",
+		"/var/www/snappysnail.io/resources/css/app.css",
+		"/var/www/snappysnail.io/resources/views/vendor/jetstream/components/application-logo.blade.php",
+		"/var/www/snappysnail.io/resources/views/vendor/jetstream/components/authentication-card-logo.blade.php",
+		"/var/www/snappysnail.io/resources/views/vendor/jetstream/components/application-mark.blade.php",
+		"/home/ge/.ssh/id_rsa.pub",
+		"/home/ge/Documents/Lavoro/Snappysnail/UK/ZZZ-closing-to-do.txt",
+		"/var/www/snappysnail.io/.gitignore",
+		"/var/www/snappysnail.io.eliminami/resources/views/home.blade.php",
+		"/var/www/snappysnail.io.eliminami/resources/views/welcome.blade.php",
+		"/var/www/snappysnail.io.boh.non.funzia/resources/views/welcome.blade.php",
+		"/var/www/snappysnail.io/tailwind.config.js",
 		"/var/www/snappysnail.io.boh.non.funzia/.env",
 		"/var/www/snappysnail.io/package.json",
-		"/var/www/snappysnail.io/resources/views/home.blade.php",
 		"/var/www/bfcvideo/vlog-child-theme/BlueVlog/template-show-schedule-plugin-content.php",
 		"/home/ge/Documents/Lavoro/BFC/Colori ufficiali.txt",
 		"/var/www/snappysnail.io/resources/sass/_variables.scss",
-		"/var/www/snappysnail.io/resources/sass/app.scss",
 		"/var/www/snappysnail.io/resources/views/ajeje-brazorf.blade.php",
 		"/var/www/snappysnail.io/resources/views/welcome.blade.php",
-		"/var/www/snappysnail.io/routes/web.php",
 		"/var/www/snappysnail.io.NEW/README.md",
 		"/var/www/snappysnail.io/README.md",
 		"/var/www/snappysnail.io/golden-rules.txt",
-		"/var/www/snappysnail.io/webpack.mix.js",
 		"/home/ge/Documents/Lavoro/Snappysnail LTD/Laravel Forge/aws.txt",
 		"/var/www/snappysnail.io/composer.json",
 		"/var/www/snappysnail.io/app/Exceptions/Handler.php",
 		"/var/www/bfcvideo/show-schedule-plugin/bfcvideo-show-schedule-plugin.php",
 		"/var/www/gooruf.com/.env",
-		"/home/ge/.ssh/id_rsa.pub",
 		"/var/www/snappysnail.io/resources/views/tmfwitw.blade.php",
 		"/var/www/babababa/index.php",
 		"/var/www/isfood/iscrizione-newsletter.php",
@@ -716,45 +780,18 @@
 		"/var/www/isfood/calcoloblocchi.php",
 		"/var/www/isfood/autocompletecap2.php",
 		"/var/www/isfood/billinginfononloggato.php",
-		"/var/www/isfood/invioemailtecnica.php",
-		"/var/www/isfood/paypal/paypal_response.php",
-		"/var/www/deboraantonello.com/v1/gallery/index.php",
-		"/var/www/deboraantonello.com/v1/bio/index.html",
-		"/var/www/deboraantonello.com/v1/contact/index.html",
-		"/var/www/deboraantonello.com/v1/gallery/index.html",
-		"/var/www/deboraantonello.com/v1/works/index.html",
-		"/tmp/fz3temp-2/index.html",
-		"/var/www/deboraantonello.com/v1/index.html",
-		"/home/ge/Desktop/install.sh",
-		"/var/www/isfood/docs/checklistphp.php",
-		"/var/www/isfood/docs/ddtadesivophp.php",
-		"/var/www/isfood/files/style.css",
-		"/var/www/isfood/infochef.php",
-		"/var/www/isfood/invia-comunicazioni-template.php",
-		"/var/www/isfood/la-nostra-azienda-agricola.php",
-		"/var/www/isfood/recuperapassword.php",
-		"/var/www/isfood/registrazione.php",
-		"/var/www/isfood/ricette.php",
-		"/var/www/isfood/riservato/login.php",
-		"/var/www/isfood/cron/scaricadaticampoverde.php",
-		"/var/www/isfood/riservato/nuovoprodotto.php",
-		"/var/www/isfood/riservato/nuovoprodotto-test.php",
-		"/var/www/isfood/cron/aggiungi-spedizioni-mese-test.php",
-		"/var/www/isfood/riservato/modificaspedizioni9.php",
-		"/var/www/isfood/riservato/dettagliordine.php",
-		"/var/www/isfood/riservato/coupon.php",
-		"/media/ge/Dati/Lavoro/Snappysnail LTD/HMRC/GovernmentGateway.txt",
-		"/tmp/fz3temp-2/laravel-2017-12-22.log"
+		"/var/www/isfood/invioemailtecnica.php"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
 		"height": 101.0,
 		"where_history":
 		[
+			"/var/www/snappysnail.io/app",
 			"/var/www/snappysnail.io",
 			"/var/www/isfood",
 			"/var/www/isfood/files",
@@ -881,8 +918,7 @@
 			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme/gooruf",
 			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/assets/global/sass",
 			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/wp_theme",
-			"/media/ge/Dati/Lavoro/htdocs/gooruf.com",
-			"/media/ge/Dati/Lavoro/htdocs/gooruf.com/resources/views"
+			"/media/ge/Dati/Lavoro/htdocs/gooruf.com"
 		]
 	},
 	"find_state":
@@ -890,6 +926,31 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"suggestions",
+			"popover",
+			"Popover",
+			"path",
+			"Path",
+			"locale",
+			"Locale",
+			"description",
+			"Description",
+			"keywords",
+			"Keywords",
+			"Name",
+			"name",
+			"closeModal",
+			"isOpen",
+			"Title",
+			"title",
+			"companies",
+			"company",
+			"Companies",
+			"Company",
+			"eventchamp_mobile_header_logo",
+			"student",
+			"Student",
+			"welcome",
 			"--hide-modules",
 			"antonello",
 			"deboraantonello.com",
@@ -992,32 +1053,7 @@
 			"attenzion",
 			"theList",
 			"snail-filtro",
-			"applica_filtri",
-			".snail-toggle-panel",
-			"applica_filtri",
-			"query_attributi",
-			"from attri",
-			"qcat",
-			"FROM attributi",
-			"toggle",
-			"aprianteprima",
-			"data-toggle",
-			"collapse",
-			"collapseFive",
-			"fetch_array",
-			"fetch:array",
-			"combo",
-			"combobox",
-			"attributi",
-			"FROM attributi",
-			"vai",
-			"submittamarchi",
-			"applica_filtri",
-			"submittamarchi",
-			"vai",
-			"$_get[t",
-			"$_get['t",
-			"$_get[t"
+			"applica_filtri"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1025,6 +1061,27 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
+			"view",
+			"View",
+			"path",
+			"Path",
+			"locale",
+			"Locale",
+			"description",
+			"Description",
+			"Keywords",
+			"keywords",
+			"closeModalPopover",
+			"isModalOpen",
+			"Name",
+			"name",
+			"suggestions",
+			"suggestion",
+			"Suggestions",
+			"Suggestion",
+			"suggestion",
+			"Suggestion",
 			"deb.snappysnail.io",
 			"$landing_page_url",
 			"131313",
@@ -1131,28 +1188,7 @@
 			"",
 			";",
 			"",
-			"#",
-			" ",
-			";",
-			"$search_keywords .= $search_tags[0];",
-			"\n&& curl",
-			"clearCacheByPath",
-			"clearCacheByFolder",
-			"getTagTextByID",
-			"-wp-",
-			"->getKey()",
-			"pagespersession",
-			"img/gooruf-for-users",
-			"h4",
-			"$end_date_rif",
-			"$start_date_rif",
-			"div",
-			"@lang('stats.range_",
-			"<b>@lang(",
-			"\"",
-			"/uk/goorufgiveaway",
-			"it",
-			"uk"
+			"#"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1163,16 +1199,112 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "routes/web.php",
+					"file": "resources/sass/_website.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 624,
+						"buffer_size": 222,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								144,
+								144
+							]
+						],
+						"settings":
+						{
+							"function_name_status_row": 8,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "resources/views/home.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3176,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3098,
+								3098
+							]
+						],
+						"settings":
+						{
+							"function_name_status_row": 72,
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 504.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "resources/views/livewire/snail-search.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1126,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								956,
+								956
+							]
+						],
+						"settings":
+						{
+							"function_name_status_row": 20,
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "storage/logs/laravel.log",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -1186,36 +1318,36 @@
 						"settings":
 						{
 							"function_name_status_row": 0,
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "tailwind.config.js",
+					"buffer": 4,
+					"file": "app/Http/Livewire/SnailSearch.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 662,
+						"buffer_size": 509,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								530,
-								530
+								509,
+								509
 							]
 						],
 						"settings":
 						{
-							"function_name_status_row": 20,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"function_name_status_row": 22,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -1223,14 +1355,9 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
@@ -1288,7 +1415,7 @@
 	"project": "snappysnail.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 68.0
 	},
 	"save_all_on_build": true,
 	"select_file":

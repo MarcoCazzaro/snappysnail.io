@@ -1,0 +1,90 @@
+.snail-page-home {
+    .snail-search {
+        max-width: 1px;
+        animation-name: intro-search;
+        animation-duration: 13s;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+    }
+
+    @keyframes intro-search {
+        from {
+            max-width: 1px;
+        }
+        to {
+            max-width: 100%;
+        }
+    }
+
+    .snail-logo {
+        animation-name: intro-logo;
+        animation-duration: 0.31s;
+        animation-fill-mode: both;
+        animation-delay: 15.3s
+    }
+
+    @keyframes intro-logo {
+        from {
+            transform: rotate(-359deg);
+        }
+        to {
+            transform: rotate(0);
+        }
+    }
+
+    .snail-explanation {
+        position: relative;
+        p {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            animation-name: intro-explanation;
+            animation-fill-mode: both;
+            &.snail-1 {
+                animation-duration: 3s;
+                animation-delay: 1s;
+            }
+            &.snail-2 {
+                animation-duration: 4s;
+                animation-delay: 6s;
+            }
+            &.snail-3 {
+                animation-duration: 3s;
+                animation-delay: 11s;
+            }
+        }
+    }
+
+    @keyframes intro-explanation {
+        0% {
+            opacity: 0;
+        }
+        5% {
+            opacity: 1;
+        }
+        75% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .snail-web-development {
+        overflow: hidden;
+        animation-name: intro-webdev;
+        animation-duration: 0.49s;
+        animation-fill-mode: both;
+        animation-delay: 15s
+    }
+
+    @keyframes intro-webdev {
+        from {
+            max-height: 0;
+        }
+        to {
+            max-height: 2rem;
+        }
+    }
+}
