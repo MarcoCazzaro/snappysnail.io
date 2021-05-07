@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="md:fixed bottom-0 min-w-full bg-gray-100 dark:bg-gray-900 p-4">
-            <p class="text-center text-gray-400">&copy;{{ date('Y') }} Snappysnail di Marco Cazzaro | Via IV Novembre 9 22045 Lambrugo (CO) | P.IVA 03919560130</p>
+            <p class="text-center text-gray-400">&copy;{{ date('Y') }} Snappysnail di Marco Cazzaro | Via IV Novembre 9 22045 Lambrugo (CO) Italy | P.IVA 03919560130</p>
         </div>
 
         @livewireScripts
