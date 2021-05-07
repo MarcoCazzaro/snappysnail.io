@@ -1,7 +1,7 @@
 <div>
 	<div class="md:max-w-6xl mx-auto my-9 px-6">
 	    <div class="snail-search">
-	        <input type="text" class="mt-1 block w-full rounded-md bg-white border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 shadow-lg" wire:model="searchTerms" >
+	        <input type="text" class="mt-1 block w-full rounded-md bg-white border-transparent focus:border-gray-200 focus:bg-white focus:ring-0 shadow-lg" wire:model="searchTerms" >
 	    </div>
 	</div>
 	<div class="md:max-w-6xl mx-auto text-gray-400 text-center">
@@ -18,7 +18,6 @@
 	            	@if($suggestion->path)
 	            		<a href="{{ url($suggestion->path) }}">{{ $suggestion->description }}</a>
 	            	@elseif($suggestion->view)
-	            		<p class="my-3">{{ $suggestion->description }}</p>
 	            		@include($suggestion->view)
 	            	@endif
 	            </li>

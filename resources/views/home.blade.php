@@ -53,8 +53,11 @@
                 @livewire('snail-search')
                 
             </div>
-            
         </div>
+        <div class="md:fixed bottom-0 min-w-full bg-gray-100 dark:bg-gray-900 p-4">
+            <p class="text-center text-gray-400">&copy;{{ date('Y') }} Snappysnail di Marco Cazzaro | Via IV Novembre 9 22045 Lambrugo (CO) | P.IVA 03919560130</p>
+        </div>
+
         @livewireScripts
 
         <script>
@@ -71,6 +74,8 @@
                     }
                     element = document.getElementsByClassName("snail-search");
                     element[0].setAttribute("style", "animation-duration: 1s; animation-timing-function: ease;");
+                    element = document.getElementsByClassName("snail-web-development");
+                    element[0].setAttribute("style", "animation-delay: 0.13s;");
                 })
             });
         </script>
