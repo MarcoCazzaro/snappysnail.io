@@ -1,6 +1,8 @@
 <link rel="preload" href="{{ asset('img/snappysnail-logo.png') }}" as="image">
 <link rel="preload" href="{{ url(mix('css/app.css')) }}" as="style">
+<?php /*
 <link rel="preload" href="{{ url(mix('js/app.js')) }}" as="script">
+*/ ?>
 <link
     rel="preload"
     href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
