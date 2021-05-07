@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'home');
+Route::view('/', 'home')->middleware('cache.headers:public;max_age=2628000;etag');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
   	Route::get('/dashboard', function () {

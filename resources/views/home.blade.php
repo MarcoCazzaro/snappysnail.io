@@ -8,7 +8,7 @@
         @include('partials.seo')
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <link href="{{ url(mix('css/app.css')) }}" rel="stylesheet">
@@ -44,7 +44,7 @@
             <div class="container">
                 <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                     <div class="flex justify-center pt-8">
-                        <h1 class="flex justify-center items-center"><img src="{{asset('img/snappysnail-logo.png')}}" class="snail-logo mr-3"> Snappysnail</h1>
+                        <h1 class="flex justify-center items-center"><img src="{{asset('img/snappysnail-logo.png')}}" class="snail-logo mr-3" width="31" height="31"> Snappysnail</h1>
                     </div>
                     <div>
                         <h2 class="text-center text-sm snail-web-development">Web development</h2>
