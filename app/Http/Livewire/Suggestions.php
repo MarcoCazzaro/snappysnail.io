@@ -91,8 +91,16 @@ class Suggestions extends Component
     
     public function delete($id)
     {
-    	$this->suggestion_id = $id;
+        $this->suggestion_id = $id;
         Suggestion::find($id)->delete();
         session()->flash('message', 'Suggestion deleted.');
+    }
+    
+    public function clone($id)
+    {
+        $new = Suggestion::findOrFail($id)->replicate();
+        $new->name .= " (copy)";
+        $new->save();
+        $this->suggestion_id = $new->id;
     }
 }

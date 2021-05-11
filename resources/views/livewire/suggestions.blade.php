@@ -23,6 +23,10 @@
                         <tr>
                             <th
                                 class="px-5 py-3 border-b-2 border-black bg-black text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                {{ __('ID') }}
+                            </th>
+                            <th
+                                class="px-5 py-3 border-b-2 border-black bg-black text-left text-xs font-semibold text-white uppercase tracking-wider">
                                 {{ __('Name') }}
                             </th>
                             <th
@@ -34,11 +38,15 @@
                         @foreach($suggestions as $suggestion) 
                             <tr>
                                 <td class="px-5 py-5 bg-white text-sm @if (!$loop->last) border-gray-200 border-b @endif">
+                                    {{ $suggestion->id }}
+                                </td>
+                                <td class="px-5 py-5 bg-white text-sm @if (!$loop->last) border-gray-200 border-b @endif">
                                     {{ Str::limit($suggestion->name, 25) }}
                                 </td>
                                 <td class="px-5 py-5 bg-white text-sm @if (!$loop->last) border-gray-200 border-b @endif text-right">
                                     <div class="inline-block whitespace-no-wrap">
                                         <button wire:click="edit({{ $suggestion->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
+                                        <button wire:click="clone({{ $suggestion->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Clone</button>
                                         <button wire:click="$emit('triggerDelete',{{ $suggestion->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                                     </div>
                                 </td>
