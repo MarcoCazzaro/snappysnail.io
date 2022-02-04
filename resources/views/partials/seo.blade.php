@@ -1,6 +1,6 @@
 <?php
-	$seo_title = "Snappynsail";
-	$seo_description = "Snappynsail is a web development company";
+	$seo_title = "Snappysnail";
+	$seo_description = "Snappysnail is a web development company";
 ?>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
