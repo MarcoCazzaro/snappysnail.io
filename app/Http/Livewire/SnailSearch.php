@@ -16,6 +16,7 @@ class SnailSearch extends Component
     	if ($searchTerms === "%%") {
     		$suggestions->whereRaw("0=1");
     	}
+        $suggestions->orderByRaw('CASE WHEN id=4 THEN 0 ELSE id END ASC');
     	$suggestions = $suggestions->get();
         return view('livewire.snail-search', compact('suggestions'));
     }
