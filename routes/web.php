@@ -15,9 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['cache.headers:public;max_age=2628000;etag'])->group(function () {
   	Route::view('/', 'home');
-  	Route::get('/search/{whatever}', function ($whatever) {
-		return view('home', compact('whatever'));
-	});
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
@@ -25,4 +22,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 		return view('dashboard');
 	})->name('dashboard');
 	Route::get('/suggestions', App\Http\Livewire\Suggestions::class)->name('suggestions');
+});
+
+Route::middleware(['cache.headers:public;max_age=2628000;etag'])->group(function () {
+  	Route::get('/{whatever}', function ($whatever) {
+		return view('home', compact('whatever'));
+	});
 });
