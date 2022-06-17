@@ -21,5 +21,13 @@ mix.js('resources/js/app.js', 'public/js')
 if (mix.inProduction()) {
     mix.version();
 } else {
-	mix.browserSync('snappysnail.local');
+    console.log('GOING LOCAL');
+	mix.browserSync({
+        host: 'snappysnail.local',
+        port: 3131,
+        open: 'external',
+        proxy: {
+            target: 'http://snappysnail.local'
+        }
+    });
 }

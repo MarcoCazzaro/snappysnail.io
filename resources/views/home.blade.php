@@ -51,8 +51,8 @@
                     </div>
                 </div>
 
-                @livewire('snail-search')
-                
+                @livewire('snail-search', ['searchTerms' => $whatever ?? null])
+
             </div>
         </div>
         <div class="md:fixed bottom-0 min-w-full bg-gray-100 dark:bg-gray-900 p-4">
@@ -62,21 +62,27 @@
         @livewireScripts
 
         <script>
+            var ssnailPageAnimation = function(){
+                var element = document.getElementById("snailMainWrapper");
+                if (element && !element.classList.contains("items-top")) {
+                    element.classList.remove("items-center");
+                    element.classList.add("items-top");
+                }
+                for (var i = 1; i <= 3; i++) {
+                    element = document.getElementsByClassName("snail-" + i);
+                    element[0].setAttribute("style", "animation-play-state: paused; display: none");
+                }
+                element = document.getElementsByClassName("snail-search");
+                element[0].setAttribute("style", "animation-duration: 1s; animation-timing-function: ease;");
+                element = document.getElementsByClassName("snail-web-development");
+                element[0].setAttribute("style", "animation-delay: 0.13s;");
+            };
+            @if($whatever ?? false)
+                ssnailPageAnimation();
+            @endif
             document.addEventListener("DOMContentLoaded", () => {
                 Livewire.hook('element.updated', (el, component) => {
-                    var element = document.getElementById("snailMainWrapper");
-                    if (element && !element.classList.contains("items-top")) {
-                        element.classList.remove("items-center");
-                        element.classList.add("items-top");
-                    }
-                    for (var i = 1; i <= 3; i++) {
-                        element = document.getElementsByClassName("snail-" + i);
-                        element[0].setAttribute("style", "animation-play-state: paused; display: none");
-                    }
-                    element = document.getElementsByClassName("snail-search");
-                    element[0].setAttribute("style", "animation-duration: 1s; animation-timing-function: ease;");
-                    element = document.getElementsByClassName("snail-web-development");
-                    element[0].setAttribute("style", "animation-delay: 0.13s;");
+                    ssnailPageAnimation();
                 })
             });
         </script>
