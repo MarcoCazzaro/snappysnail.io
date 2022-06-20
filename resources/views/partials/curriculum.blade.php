@@ -1,0 +1,138 @@
+<div class="snail-curriculum">
+	<h1 class="text-center mt-5">Curriculum</h1>
+	<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
+		<div class="md:flex">
+			<div class="md:flex-shrink-0">
+				<img class="h-48 w-full object-cover md:h-full md:w-48" src="{{ asset('img/marco-cazzaro.jpg') }}" alt="Marco Cazzaro">
+			</div>
+			<div class="p-8">
+				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2>Info</h2></div>
+				<div class="mt-2 text-gray-500 flex flex-wrap">
+					<table class="table-fixed md:w-6/12">
+						<tbody>
+							<tr>
+								<td><h5 class="font-bold w-28">First Name</h5></td>
+								<td>Marco</td>
+							</tr>
+							<tr>
+								<td><h5 class="font-bold w-28">Last Name</h5></td>
+								<td>Cazzaro</td>
+							</tr>
+							<tr>
+								<td><h5 class="font-bold w-28">Year of birth</h5></td>
+								<td>1983</td>
+							</tr>
+							<tr>
+								<td><h5 class="font-bold w-28">Nationality</h5></td>
+								<td>Italian</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="table-fixed md:w-6/12">
+						<tbody>
+							<tr>
+								<td><h5 class="font-bold w-28">Company</h5></td>
+								<td>Snappysnail</td>
+							</tr>
+							<tr>
+								<td><h5 class="font-bold w-28">Since</h5></td>
+								<td>2016</td>
+							</tr>
+							<tr>
+								<td><h5 class="font-bold w-28">Address</h5></td>
+								<td>Via IV Novembre 9, 22045 Lambrugo (CO) - Italy</td>
+							</tr>
+							<tr>
+								<td><h5 class="font-bold w-28">Email</h5></td>
+								<td>info@snappysnail.io</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
+		<div class="md:flex">
+			<div class="p-8">
+				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2>Tech stuff</h2></div>
+				<p class="my-2 text-gray-500">
+					Here is a list of things I am comfortable with.
+				</p>
+				<table class="table-fixed text-gray-500">
+					<tbody>
+						<tr>
+							<td><h5 class="font-bold w-56">Front end</h5></td>
+							<td>HTML5 - CSS3 - SCSS/SASS - jQuery - Javascript - Twitter Bootstrap - TailwindCSS - Livewire - Jetstream - MaterializeCSS</td>
+						</tr>
+						<tr>
+							<td><h5 class="font-bold w-56">Back end / Full stack</h5></td>
+							<td>PHP - Laravel - WordPress - MySQL</td>
+						</tr>
+						<tr>
+							<td><h5 class="font-bold w-56">E-commerce</h5></td>
+							<td>Shopify - WooCommerce</td>
+						</tr>
+						<tr>
+							<td><h5 class="font-bold w-56">Stack & Deploy</h5></td>
+							<td>LAMP - VPS - AWS - Laravel Forge - SiteGround</td>
+						</tr>
+						<tr>
+							<td><h5 class="font-bold w-56">Dev tools</h5></td>
+							<td>Webpack - Laravel Mix - Grunt - Composer</td>
+						</tr>
+						<tr>
+							<td><h5 class="font-bold w-56">Version control</h5></td>
+							<td>git - GitHub - BitBucket</td>
+						</tr>
+						<tr>
+							<td><h5 class="font-bold w-56">Project Management</h5></td>
+							<td>Trello - Slack - Jira - Freshdesk</td>
+						</tr>
+						<tr>
+							<td><h5 class="font-bold w-56">Google stuff</h5></td>
+							<td>SEO - Analytics - Tag Manager - Ad Manager</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
+		<div class="md:flex">
+			<div class="p-8">
+				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2>Bio</h2></div>
+				<p class="mt-2 text-gray-500">
+					Born in Germany (but I don't speak German, sorry) in 1983. I had my Diploma di Perito Informatico at I.T.I.S. E. Barsanti in Castelfranco Veneto (TV) on 2002.
+				</p>
+				<p class="mt-2 text-gray-500">
+					Since then I always worked as a programmer, mainly on desktop environment. Then in 2013 I got bored of doing always the same stuff and started learning web development, which in my mind had to be more entertaining due to its dynamic nature, for sure, and I was not disappointed.
+				</p>
+				<p class="mt-2 text-gray-500">
+					In late 2015 I moved to London, following my wife to be, and I started working for Guru Graphics LTD as a front end developer, since July 2016 when I got hired as a freelance developer by Gooruf LTD. This is when <a href="https://find-and-update.company-information.service.gov.uk/company/10435853" rel="nofollow">Snappysnail LTD</a> was born.
+				</p>
+				<p class="mt-2 text-gray-500">
+					I had mainly 1 customer, BFC Media S.p.A., an Italian publishing company specialised in finance. With Gooruf project, they wanted to create a community around the financial sector: providers, banks, insurances, experts, and average Janes and Joes, with questions, answers, mini-sites, products, reputation system, and (almost) a cryptocurrency.
+				</p>
+				<p class="mt-2 text-gray-500">
+					In early 2019 BFC Media wanted me in Milan to be the main developer for all their websites: Forbes.it, Bluerating.com, and many more, so I moved in Italy and started working on all their projects. For instance I created the new WordPress theme for Forbes.it (<a href="https://forbes.it/?who-made-this-website=snappy" rel="nofollow">Easter Egg, shush!</a>).
+				</p>
+				<p class="mt-2 text-gray-500">
+					In 2020 I closed Snappysnail LTD because of Brexit, and I switched to Italian, by creating Snappysnail di Marco Cazzaro. Since then I've been working under the hood for many other projects (for instance I had to create a custom interface for shipping products on a Shopify website), and many more to come.
+				</p>
+				<p class="mt-2 text-gray-500 font-bold">
+					I am available for working on a project level as a freelance.
+				</p>
+				<p class="mt-2 text-gray-500">
+					Here are a couple of paragraphs from lipsum.pro, just because I fancy it. Nostra scelerisque a a consectetur volutpat a a pulvinar consectetur faucibus elementum montes vulputate eros parturient non a tristique enim suspendisse nunc at ad aliquam massa condimentum. Metus feugiat aptent natoque scelerisque suspendisse odio ullamcorper orci dapibus vulputate per sapien posuere feugiat. Risus a scelerisque eros parturient arcu habitant scelerisque sapien adipiscing est a a condimentum in a risus et vulputate quam mus phasellus nam a malesuada mi. Orci risus pharetra sit a suspendisse a parturient tristique id a integer integer vestibulum a suspendisse eu parturient adipiscing dictum a taciti torquent parturient bibendum iaculis aliquam. Euismod quisque integer cras blandit vestibulum in a phasellus dolor dui parturient condimentum turpis mus elementum montes commodo.
+				</p>
+				<p class="mt-2 text-gray-500">
+					Eu ullamcorper interdum eget adipiscing suspendisse neque blandit a aliquet ut nisl a rhoncus ligula suspendisse molestie cras. Parturient nam venenatis dolor quis nam vestibulum scelerisque sed odio orci nunc diam ac sem mi aliquet ridiculus at amet consectetur a vestibulum parturient consequat augue. Fringilla ornare nascetur hendrerit placerat fringilla lorem donec etiam gravida ad quis ornare rhoncus cum ultricies suspendisse.
+				</p>
+				<p class="mt-2 text-gray-500 text-right">
+					Cheers!
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
