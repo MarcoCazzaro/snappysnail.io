@@ -62,35 +62,35 @@
 				<table class="table-fixed text-gray-500">
 					<tbody>
 						<tr>
-							<td><h5 class="hfont-bold w-28 md:w-56">Front end</h5></td>
+							<td><h5 class="font-bold w-28 md:w-56">Front end</h5></td>
 							<td>HTML5 - CSS3 - SCSS/SASS - jQuery - Javascript - Twitter Bootstrap - TailwindCSS - Livewire - Jetstream - MaterializeCSS</td>
 						</tr>
 						<tr>
-							<td><h5 class="hfont-bold w-28 md:w-56">Back end / Full stack</h5></td>
+							<td><h5 class="font-bold w-28 md:w-56">Back end / Full stack</h5></td>
 							<td>PHP - Laravel - WordPress - MySQL</td>
 						</tr>
 						<tr>
-							<td><h5 class="hfont-bold w-28 md:w-56">E-commerce</h5></td>
+							<td><h5 class="font-bold w-28 md:w-56">E-commerce</h5></td>
 							<td>Shopify - WooCommerce</td>
 						</tr>
 						<tr>
-							<td><h5 class="hfont-bold w-28 md:w-56">Stack & Deploy</h5></td>
+							<td><h5 class="font-bold w-28 md:w-56">Stack & Deploy</h5></td>
 							<td>LAMP - VPS - AWS - Laravel Forge - SiteGround</td>
 						</tr>
 						<tr>
-							<td><h5 class="hfont-bold w-28 md:w-56">Dev tools</h5></td>
+							<td><h5 class="font-bold w-28 md:w-56">Dev tools</h5></td>
 							<td>Webpack - Laravel Mix - Grunt - Composer</td>
 						</tr>
 						<tr>
-							<td><h5 class="hfont-bold w-28 md:w-56">Version control</h5></td>
+							<td><h5 class="font-bold w-28 md:w-56">Version control</h5></td>
 							<td>git - GitHub - BitBucket</td>
 						</tr>
 						<tr>
-							<td><h5 class="hfont-bold w-28 md:w-56">Project Management</h5></td>
+							<td><h5 class="font-bold w-28 md:w-56">Project Management</h5></td>
 							<td>Trello - Slack - Jira - Freshdesk</td>
 						</tr>
 						<tr>
-							<td><h5 class="hfont-bold w-28 md:w-56">Google stuff</h5></td>
+							<td><h5 class="font-bold w-28 md:w-56">Google stuff</h5></td>
 							<td>SEO - Analytics - Tag Manager - Ad Manager</td>
 						</tr>
 					</tbody>
