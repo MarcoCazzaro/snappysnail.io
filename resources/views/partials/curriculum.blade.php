@@ -1,12 +1,12 @@
 <div class="snail-curriculum">
-	<h1 class="text-center mt-5">Curriculum</h1>
+	<h2 class="text-center mt-5">Curriculum</h2>
 	<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
 			<div class="md:flex-shrink-0">
 				<img class="h-48 w-full object-cover md:h-full md:w-48" src="{{ asset('img/marco-cazzaro.jpg') }}" alt="Marco Cazzaro">
 			</div>
 			<div class="p-8">
-				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2>Info</h2></div>
+				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h3>Info</h3></div>
 				<div class="mt-2 text-gray-500 flex flex-wrap">
 					<table class="table-fixed md:w-6/12">
 						<tbody>
@@ -55,7 +55,7 @@
 	<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
 			<div class="p-8">
-				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2>Tech stuff</h2></div>
+				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h3>Tech stuff</h3></div>
 				<p class="my-2 text-gray-500">
 					Here is a list of things I am comfortable with.
 				</p>
@@ -101,7 +101,7 @@
 	<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
 			<div class="p-8">
-				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2>Bio</h2></div>
+				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h3>Bio</h3></div>
 				<p class="mt-2 text-gray-500">
 					Born in Germany (but I don't speak German, sorry) in 1983. I had my Diploma di Perito Informatico at I.T.I.S. E. Barsanti in Castelfranco Veneto (TV) on 2002.
 				</p>
