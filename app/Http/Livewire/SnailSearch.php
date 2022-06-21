@@ -13,18 +13,24 @@ class SnailSearch extends Component
     {
         $no_results = false;
         $too_short = false;
-    	$searchTerms = '%' . $this->searchTerms . '%';
-    	$suggestions = Suggestion::where('keywords', 'like' , $searchTerms );
-    	if (strlen($searchTerms) < 5) {
-    		$suggestions->whereRaw("0=1");
-            if (strlen($searchTerms) > 0) {
+        $suggestions = false;
+        switch (true) {
+            case (strlen($this->searchTerms) === 0):
+                break;
+
+            case (strlen($this->searchTerms) < 3):
                 $too_short = true;
-            }
-    	}
-        $suggestions->orderByRaw('CASE WHEN id=4 THEN 0 ELSE id END ASC');
-    	$suggestions = $suggestions->get();
-        if ($suggestions->count() === 0 && strlen($searchTerms) >= 5) {
-            $no_results = true;
+                break;
+            
+            default:
+                $searchTerms = '%' . $this->searchTerms . '%';
+                $suggestions = Suggestion::where('keywords', 'like' , $searchTerms );
+                $suggestions->orderByRaw('CASE WHEN id=4 THEN 0 ELSE id END ASC');
+                $suggestions = $suggestions->get();
+                if ($suggestions->count() === 0) {
+                    $no_results = true;
+                }
+                break;
         }
         return view('livewire.snail-search', compact('suggestions', 'no_results', 'too_short'));
     }

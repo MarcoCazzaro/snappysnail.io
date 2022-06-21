@@ -14,21 +14,23 @@
 	</div>
 	<div class="md:max-w-6xl mx-auto my-9 px-6">
 		@if($no_results ?? false)
-			<p class="my-9 text-gray-500">Sorry, no results for your query</p>
+			<p class="my-9 text-gray-500">Sorry, no results for your query. Suggestions? <a href="{{ url('portfolio') }}">portfolio</a> or <a href="{{ url('curriculum') }}">curriculum</a> or maybe <a href="{{ url('contact') }}">contact</a></p>
 		@elseif($too_short ?? false)
 			<p class="my-9 text-gray-500">Go on...</p>
 		@else
-		    <ul>
-		        @foreach($suggestions as $suggestion)
-		            <li class="my-9">
-		            	@if($suggestion->path)
-		            		<a href="{{ url($suggestion->path) }}">{{ $suggestion->description }}</a>
-		            	@elseif($suggestion->view)
-		            		@include($suggestion->view)
-		            	@endif
-		            </li>
-		        @endforeach
-		    </ul>
+			@if($suggestions)
+				<ul>
+			        @foreach($suggestions as $suggestion)
+			            <li class="my-9">
+			            	@if($suggestion->path)
+			            		<a href="{{ url($suggestion->path) }}">{{ $suggestion->description }}</a>
+			            	@elseif($suggestion->view)
+			            		@include($suggestion->view)
+			            	@endif
+			            </li>
+			        @endforeach
+			    </ul>
+			@endif
 		@endif
 	</div>
 </div>
