@@ -4,7 +4,7 @@
 			<div class="md:flex-shrink-0">
 				<img class="h-48 w-full object-cover md:h-full md:w-48" src="{{ asset('img/works/equos.jpg') }}" alt="Equos.it WordPress theme">
 			</div>
-			<div class="p-8">
+			<div class="p-8 text-justify">
 				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand">Works</div>
 				<a href="https://equos.it/?who-made-this-website=snappy" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline" target="_blank">Equos.it WordPress theme</a>
 				<p class="mt-2 text-gray-500">In 2022 I created Equos.it WordPress theme, starting from <a href="https://underscores.me/" target="_blank" rel="nofollow">Underscores</a>, and adding <a href="https://getbootstrap.com/" target="_blank" rel="nofollow">Bootstrap</a>.</p>

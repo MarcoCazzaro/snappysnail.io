@@ -54,7 +54,7 @@
 	</div>
 	<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
-			<div class="p-8">
+			<div class="p-8 text-justify">
 				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2 class="mb-7">Mission</h2></div>
 				<h3 class="my-2">Why Snappysnail?</h3>
 				<p class="my-2 text-gray-500">
@@ -114,7 +114,7 @@
 	</div>
 	<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
-			<div class="p-8">
+			<div class="p-8 text-justify">
 				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2 class="mb-7">Bio</h2></div>
 				<p class="mt-2 text-gray-500">
 					Born in Germany (but I don't speak German, sorry) in 1983. I had my Diploma di Perito Informatico at I.T.I.S. E. Barsanti in Castelfranco Veneto (TV) on 2002.
@@ -151,7 +151,7 @@
 	</div>
 	<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
-			<div class="p-8">
+			<div class="p-8 text-justify">
 				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2 class="mb-7">Portfolio</h2></div>
 				<p class="mt-2 text-gray-500">
 					Why don't you have a look at my <a href="{{ url('/portfolio') }}">portfolio</a>?
