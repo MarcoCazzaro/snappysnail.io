@@ -37,13 +37,21 @@
                         if (Request::is('/')) {
                             $first_title_tag = "h1";
                             $second_title_tag = "h2";
+                            $wrapper_tag = false;
                         } else {
                             $first_title_tag = "h2";
                             $second_title_tag = "h3";
+                            $wrapper_tag = "a";
                         }
                     ?>
                     <div class="flex justify-center pt-8">
-                        <{{$first_title_tag}} class="flex justify-center items-center"><img src="{{asset('img/snappysnail-logo.png')}}" class="snail-logo mr-3" width="31" height="31" alt="Snappysnail"> Snappysnail</{{$first_title_tag}}>
+                        @if($wrapper_tag === 'a')
+                            <a href="{{ url('/') }}">
+                        @endif
+                            <{{$first_title_tag}} class="flex justify-center items-center"><img src="{{asset('img/snappysnail-logo.png')}}" class="snail-logo mr-3" width="31" height="31" alt="Snappysnail"> Snappysnail</{{$first_title_tag}}>
+                        @if($wrapper_tag === 'a')
+                            </a>
+                        @endif
                     </div>
                     <div>
                         <{{$second_title_tag}} class="text-center text-sm snail-web-development">Web development</{{$second_title_tag}}>
