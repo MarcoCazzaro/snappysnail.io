@@ -6,45 +6,45 @@
 				<img class="h-48 w-full object-cover md:h-full md:w-48" src="{{ asset('img/marco-cazzaro.jpg') }}" alt="Marco Cazzaro">
 			</div>
 			<div class="p-8">
-				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2>Info</h2></div>
+				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2 class="mb-7">Info</h2></div>
 				<div class="mt-2 text-gray-500 flex flex-wrap">
-					<table class="table-fixed md:w-6/12">
+					<table class="table-fixed lg:w-6/12">
 						<tbody>
 							<tr>
-								<td><h5 class="font-bold w-28">First Name</h5></td>
-								<td>Marco</td>
+								<td class="align-top w-28 h-12"><h5 class="font-bold">First Name</h5></td>
+								<td class="align-top leading-7">Marco</td>
 							</tr>
 							<tr>
-								<td><h5 class="font-bold w-28">Last Name</h5></td>
-								<td>Cazzaro</td>
+								<td class="align-top w-28 h-12"><h5 class="font-bold">Last Name</h5></td>
+								<td class="align-top leading-7">Cazzaro</td>
 							</tr>
 							<tr>
-								<td><h5 class="font-bold w-28">Year of birth</h5></td>
-								<td>1983</td>
+								<td class="align-top w-28 h-12"><h5 class="font-bold">Year of birth</h5></td>
+								<td class="align-top leading-7">1983</td>
 							</tr>
 							<tr>
-								<td><h5 class="font-bold w-28">Nationality</h5></td>
-								<td>Italian</td>
+								<td class="align-top w-28 h-12"><h5 class="font-bold">Nationality</h5></td>
+								<td class="align-top leading-7">Italian</td>
 							</tr>
 						</tbody>
 					</table>
-					<table class="table-fixed md:w-6/12">
+					<table class="table-fixed lg:w-6/12">
 						<tbody>
 							<tr>
-								<td><h5 class="font-bold w-28">Company</h5></td>
-								<td>Snappysnail</td>
+								<td class="align-top w-28 h-12"><h5 class="font-bold">Company</h5></td>
+								<td class="align-top leading-7">Snappysnail</td>
 							</tr>
 							<tr>
-								<td><h5 class="font-bold w-28">Since</h5></td>
-								<td>2016</td>
+								<td class="align-top w-28 h-12"><h5 class="font-bold">Since</h5></td>
+								<td class="align-top leading-7">2016</td>
 							</tr>
 							<tr>
-								<td><h5 class="font-bold w-28">Address</h5></td>
-								<td>Via IV Novembre 9, 22045 Lambrugo (CO) - Italy</td>
+								<td class="align-top w-28 h-12"><h5 class="font-bold">Address</h5></td>
+								<td class="align-top leading-7">Via IV Novembre 9, 22045 Lambrugo (CO) - Italy</td>
 							</tr>
 							<tr>
-								<td><h5 class="font-bold w-28">Email</h5></td>
-								<td>info@snappysnail.io</td>
+								<td class="align-top w-28 h-12"><h5 class="font-bold">Email</h5></td>
+								<td class="align-top leading-7">info@snappysnail.io</td>
 							</tr>
 						</tbody>
 					</table>
@@ -55,13 +55,13 @@
 	<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
 			<div class="p-8">
-				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2>Mission</h2></div>
+				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2 class="mb-7">Mission</h2></div>
 				<h3 class="my-2">Why Snappysnail?</h3>
 				<p class="my-2 text-gray-500">
 					A <b>snail</b> takes its time to do things, but it's very reliable because it has a strong shell. So I always take the proper pace with the purpose of give my clients a solid piece of software.
 				</p>
 				<p class="my-2 text-gray-500">
-					But <b>snappy</b> means that the snail must be quick to change path if something happens. Inspired by Agile practices, I must promptly react when my client's needs change, and I must provide the quickest answers and help my client understand how to obtain their needs fulfilled.
+					But if something happens, the snail should be quick to change path, in other words it's <b>snappy</b>. Inspired by Agile practices, I promptly react when my client's needs change, providing quick answers, helping my client understand how to obtain their needs fulfilled.
 				</p>
 			</div>
 		</div>
@@ -69,9 +69,9 @@
 	<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
 			<div class="p-8">
-				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2>Tech stuff</h2></div>
+				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2 class="mb-7">Tech stuff</h2></div>
 				<p class="my-2 text-gray-500">
-					Here is a list of things I am comfortable with.
+					Here is a list of things I have for breakfast.
 				</p>
 				<table class="table-fixed text-gray-500">
 					<tbody>
@@ -115,7 +115,7 @@
 	<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
 			<div class="p-8">
-				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2>Bio</h2></div>
+				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2 class="mb-7">Bio</h2></div>
 				<p class="mt-2 text-gray-500">
 					Born in Germany (but I don't speak German, sorry) in 1983. I had my Diploma di Perito Informatico at I.T.I.S. E. Barsanti in Castelfranco Veneto (TV) on 2002.
 				</p>
@@ -129,7 +129,7 @@
 					I had mainly 1 customer, BFC Media S.p.A., an Italian publishing company specialised in finance. With Gooruf project, they wanted to create a community around the financial sector: providers, banks, insurances, experts, and average Janes and Joes, with questions, answers, mini-sites, products, reputation system, and (almost) a cryptocurrency.
 				</p>
 				<p class="mt-2 text-gray-500">
-					In early 2019 BFC Media wanted me in Milan to be the main developer for all their websites: Forbes.it, Bluerating.com, and many more, so I moved in Italy and started working on all their projects. For instance I created the new WordPress theme for Forbes.it (<a href="https://forbes.it/?who-made-this-website=snappy" rel="nofollow">Easter Egg, shush!</a>).
+					In early 2019 BFC Media wanted me in Milan to be the main developer for all their websites: Forbes.it, Bluerating.com, and many more, so I moved in Italy and started working on all their projects. For instance I created the new WordPress theme for Forbes.it (<a href="https://forbes.it/?who-made-this-website=snappy" rel="nofollow">it's an Easter egg, don't tell anyone!</a>).
 				</p>
 				<p class="mt-2 text-gray-500">
 					In 2020 I closed Snappysnail LTD because of Brexit, and I switched to Italian, by creating Snappysnail di Marco Cazzaro. Since then I've been working under the hood for many other projects (for instance I had to create a custom interface for shipping products on a Shopify website), and many more to come.
