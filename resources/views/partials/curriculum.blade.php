@@ -71,7 +71,7 @@
 			<div class="p-8">
 				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2 class="mb-7">Tech stuff</h2></div>
 				<p class="my-2 text-gray-500">
-					Here is a list of things I have for breakfast.
+					Here is a list of things I usually enjoy.
 				</p>
 				<table class="table-fixed text-gray-500">
 					<tbody>
