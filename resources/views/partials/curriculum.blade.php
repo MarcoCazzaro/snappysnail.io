@@ -149,4 +149,14 @@
 			</div>
 		</div>
 	</div>
+	<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
+		<div class="md:flex">
+			<div class="p-8">
+				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2 class="mb-7">Portfolio</h2></div>
+				<p class="mt-2 text-gray-500">
+					Why don't you have a look at my <a href="{{ url('/portfolio') }}">portfolio</a>?
+				</p>
+			</div>
+		</div>
+	</div>
 </div>
