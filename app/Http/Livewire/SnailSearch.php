@@ -19,12 +19,13 @@ class SnailSearch extends Component
     		$suggestions->whereRaw("0=1");
             if (strlen($searchTerms) > 0) {
                 $too_short = true;
-            } else {
-                $no_results = true;
             }
     	}
         $suggestions->orderByRaw('CASE WHEN id=4 THEN 0 ELSE id END ASC');
     	$suggestions = $suggestions->get();
+        if ($suggestions->count() === 0 && strlen($searchTerms) >= 5) {
+            $no_results = true;
+        }
         return view('livewire.snail-search', compact('suggestions', 'no_results', 'too_short'));
     }
 }
