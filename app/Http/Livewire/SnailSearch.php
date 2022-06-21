@@ -11,13 +11,20 @@ class SnailSearch extends Component
 
     public function render()
     {
+        $no_results = false;
+        $too_short = false;
     	$searchTerms = '%' . $this->searchTerms . '%';
     	$suggestions = Suggestion::where('keywords', 'like' , $searchTerms );
-    	if ($searchTerms === "%%") {
+    	if (strlen($searchTerms) < 5) {
     		$suggestions->whereRaw("0=1");
+            if (strlen($searchTerms) > 0) {
+                $too_short = true;
+            } else {
+                $no_results = true;
+            }
     	}
         $suggestions->orderByRaw('CASE WHEN id=4 THEN 0 ELSE id END ASC');
     	$suggestions = $suggestions->get();
-        return view('livewire.snail-search', compact('suggestions'));
+        return view('livewire.snail-search', compact('suggestions', 'no_results', 'too_short'));
     }
 }

@@ -13,16 +13,22 @@
 	    </div>
 	</div>
 	<div class="md:max-w-6xl mx-auto my-9 px-6">
-	    <ul>
-	        @foreach($suggestions as $suggestion)
-	            <li class="my-9">
-	            	@if($suggestion->path)
-	            		<a href="{{ url($suggestion->path) }}">{{ $suggestion->description }}</a>
-	            	@elseif($suggestion->view)
-	            		@include($suggestion->view)
-	            	@endif
-	            </li>
-	        @endforeach
-	    </ul>
+		@if($no_results ?? false)
+			<p class="my-9 text-gray-500">Sorry, no results for your query</p>
+		@elseif($too_short ?? false)
+			<p class="my-9 text-gray-500">Go on...</p>
+		@else
+		    <ul>
+		        @foreach($suggestions as $suggestion)
+		            <li class="my-9">
+		            	@if($suggestion->path)
+		            		<a href="{{ url($suggestion->path) }}">{{ $suggestion->description }}</a>
+		            	@elseif($suggestion->view)
+		            		@include($suggestion->view)
+		            	@endif
+		            </li>
+		        @endforeach
+		    </ul>
+		@endif
 	</div>
 </div>
