@@ -123,10 +123,10 @@
 					Since then I always worked as a programmer, mainly on desktop environment. Then in 2013 I got bored of doing always the same stuff and started learning web development, which in my mind had to be more entertaining due to its dynamic nature, for sure, and I was not disappointed.
 				</p>
 				<p class="mt-2 text-gray-500">
-					In late 2015 I moved to London, following my wife to be, and I started working for Guru Graphics LTD as a front end developer, since July 2016 when I got hired as a freelance developer by Gooruf LTD. This is when <a href="https://find-and-update.company-information.service.gov.uk/company/10435853" rel="nofollow">Snappysnail LTD</a> was born.
+					In late 2015 I moved to London, following my wife to be, and I started working for Guru Graphics LTD as a front end developer, since July 2016 when I got hired as a freelance developer by Gooruf LTD, controlled by BFC Media S.p.A. (an Italian publishing company specialised in finance). This is when <a href="https://find-and-update.company-information.service.gov.uk/company/10435853" rel="nofollow">Snappysnail LTD</a> was born.
 				</p>
 				<p class="mt-2 text-gray-500">
-					I had mainly 1 customer, BFC Media S.p.A., an Italian publishing company specialised in finance. With Gooruf project, they wanted to create a community around the financial sector: providers, banks, insurances, experts, and average Janes and Joes, with questions, answers, mini-sites, products, reputation system, and (almost) a cryptocurrency.
+					I had mainly 1 customer, BFC Media. With Gooruf project, they wanted to create a community around the financial sector: providers, banks, insurances, experts, and average Janes and Joes, with questions, answers, mini-sites, products, reputation system, and (almost) a cryptocurrency.
 				</p>
 				<p class="mt-2 text-gray-500">
 					In early 2019 BFC Media wanted me in Milan to be the main developer for all their websites: Forbes.it, Bluerating.com, and many more, so I moved in Italy and started working on all their projects. For instance I created the new WordPress theme for Forbes.it (<a href="https://forbes.it/?who-made-this-website=snappy" rel="nofollow">it's an Easter egg, don't tell anyone!</a>).
