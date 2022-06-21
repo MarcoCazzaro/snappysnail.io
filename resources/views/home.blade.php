@@ -13,16 +13,6 @@
         <!-- Styles -->
         <link href="{{ url(mix('css/app.css')) }}" rel="stylesheet">
 
-        <style>
-            html, body {
-                height: 100vh;
-            }
-            h1, h2 {
-                font-weight: 100;
-                color: #fcbe03;
-            }
-        </style>
-
         @livewireStyles
     </head>
     <body class="antialiased snail-page-home">
@@ -42,12 +32,21 @@
             @endif
 
             <div class="container pb-5">
-                <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+                <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 ssnail-header">
+                    <?php
+                        if (Request::is('/')) {
+                            $first_title_tag = "h1";
+                            $second_title_tag = "h2";
+                        } else {
+                            $first_title_tag = "h2";
+                            $second_title_tag = "h3";
+                        }
+                    ?>
                     <div class="flex justify-center pt-8">
-                        <h1 class="flex justify-center items-center"><img src="{{asset('img/snappysnail-logo.png')}}" class="snail-logo mr-3" width="31" height="31" alt="Snappysnail"> Snappysnail</h1>
+                        <{{$first_title_tag}} class="flex justify-center items-center"><img src="{{asset('img/snappysnail-logo.png')}}" class="snail-logo mr-3" width="31" height="31" alt="Snappysnail"> Snappysnail</{{$first_title_tag}}>
                     </div>
                     <div>
-                        <h2 class="text-center text-sm snail-web-development">Web development</h2>
+                        <{{$second_title_tag}} class="text-center text-sm snail-web-development">Web development</{{$second_title_tag}}>
                     </div>
                 </div>
 
