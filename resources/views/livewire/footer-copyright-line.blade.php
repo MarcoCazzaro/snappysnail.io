@@ -1,0 +1,1 @@
+<p class="text-center text-gray-400">&copy;{{ date('Y') }} Snappysnail di Marco Cazzaro | Via IV Novembre 9 22045 Lambrugo (CO) Italy | P.IVA 03919560130 | <a href="{{ url('/dear-googlebot') }}">Dear GoogleBot</a></p>

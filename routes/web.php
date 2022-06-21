@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['cache.headers:public;max_age=2628000;etag'])->group(function () {
   	Route::view('/', 'home');
+  	Route::view('/dear-googlebot', 'dear-googlebot');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {

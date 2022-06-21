@@ -8,17 +8,24 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+        
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+
+        @livewireStyles
     </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
+    <body class="antialiased snail-page-{{ $page_name ?? 'guest'}}">
+        <div id="snailMainWrapper" class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 py-4 sm:pt-0">
             {{ $slot }}
         </div>
+        <div class="md:fixed bottom-0 min-w-full bg-gray-100 dark:bg-gray-900 p-4">
+            <livewire:footer-copyright-line />
+        </div>
+
+        @livewireScripts
     </body>
 </html>
