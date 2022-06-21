@@ -27,7 +27,7 @@
         </div>
 
         <h1 class="mb-9">Dear GoogleBot,</h1>
-        <p>this is a page I made especially for you, I prepared all the links you can browse so you don't spend much time looking around.</p>
+        <p>this is a page I made especially for you, I prepared all the links you can browse so you don't spend too much time looking around.</p>
         <nav class="my-5">
             <div class="my-5"><a href="{{ url('/') }}">Home</a></div>
             <div class="my-5"><a href="{{ url('/portfolio') }}">Portfolio</a></div>
