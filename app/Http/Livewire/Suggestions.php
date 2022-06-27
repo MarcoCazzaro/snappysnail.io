@@ -8,15 +8,21 @@ use App\Models\Suggestion;
 
 class Suggestions extends Component
 {
-	use WithPagination;
+    use WithPagination;
 
-	public $suggestion_id, $name, $keywords, $description, $locale, $path, $view;
+    public $suggestion_id;
+    public $name;
+    public $keywords;
+    public $description;
+    public $locale;
+    public $path;
+    public $view;
     public $isModalOpen = 0;
 
     public function render()
     {
         return view('livewire.suggestions', [
-        	'suggestions' => Suggestion::orderBy('id', 'desc')->paginate(20)
+            'suggestions' => Suggestion::orderBy('id', 'desc')->paginate(20)
         ]);
     }
 
@@ -30,7 +36,7 @@ class Suggestions extends Component
     {
         $this->isModalOpen = true;
         $this->resetErrorBag();
-		$this->resetValidation();
+        $this->resetValidation();
     }
 
     public function closeModal()
@@ -48,7 +54,7 @@ class Suggestions extends Component
         $this->path = '';
         $this->view = '';
     }
-    
+
     public function store()
     {
         $this->validate([
@@ -59,7 +65,7 @@ class Suggestions extends Component
             'path' => 'nullable',
             'view' => 'nullable',
         ]);
-    
+
         Suggestion::updateOrCreate(['id' => $this->suggestion_id], [
             'name' => $this->name,
             'keywords' => $this->keywords,
@@ -85,17 +91,17 @@ class Suggestions extends Component
         $this->locale = $suggestion->locale;
         $this->path = $suggestion->path;
         $this->view = $suggestion->view;
-    
+
         $this->openModal();
     }
-    
+
     public function delete($id)
     {
         $this->suggestion_id = $id;
         Suggestion::find($id)->delete();
         session()->flash('message', 'Suggestion deleted.');
     }
-    
+
     public function clone($id)
     {
         $new = Suggestion::findOrFail($id)->replicate();

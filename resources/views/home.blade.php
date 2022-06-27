@@ -14,6 +14,8 @@
         <link href="{{ url(mix('css/app.css')) }}" rel="stylesheet">
 
         @livewireStyles
+        
+        <script src="https://kit.fontawesome.com/fea9be3e02.js" crossorigin="anonymous" defer></script>
     </head>
     <body class="antialiased snail-page-home">
         <div id="snailMainWrapper" class="relative flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 py-4 sm:pt-0">

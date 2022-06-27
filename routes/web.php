@@ -14,19 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['cache.headers:public;max_age=2628000;etag'])->group(function () {
-  	Route::view('/', 'home');
-  	Route::view('/dear-googlebot', 'dear-googlebot');
+    Route::view('/', 'home');
+    Route::view('/dear-googlebot', 'dear-googlebot');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-  	Route::get('/dashboard', function () {
-		return view('dashboard');
-	})->name('dashboard');
-	Route::get('/suggestions', App\Http\Livewire\Suggestions::class)->name('suggestions');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/suggestions', App\Http\Livewire\Suggestions::class)->name('suggestions');
 });
 
 Route::middleware(['cache.headers:public;max_age=2628000;etag'])->group(function () {
-  	Route::get('/{whatever}', function ($whatever) {
-		return view('home', compact('whatever'));
-	});
+    Route::get('/{whatever}', function ($whatever) {
+        return view('home', compact('whatever'));
+    });
 });

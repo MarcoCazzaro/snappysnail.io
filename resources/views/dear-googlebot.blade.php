@@ -27,10 +27,11 @@
         </div>
 
         <div class="p-8">
-            <h1 class="mb-9">Dear GoogleBot,</h1>
+            <h1 class="mb-9"><i class="fas fa-robot"></i> Dear GoogleBot,</h1>
             <p>this is a page I made especially for you, I prepared all the links you can browse so you don't spend too much time looking around.</p>
             <nav class="my-5">
                 <div class="my-5"><a href="{{ url('/') }}">Home</a></div>
+                <div class="my-5"><a href="{{ url('/services') }}">Services</a></div>
                 <div class="my-5"><a href="{{ url('/portfolio') }}">Portfolio</a></div>
                 <div class="my-5"><a href="{{ url('/curriculum') }}">Curriculum</a></div>
                 <div class="my-5"><a href="{{ url('/contact') }}">Contact</a></div>

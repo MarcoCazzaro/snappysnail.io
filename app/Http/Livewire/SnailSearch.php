@@ -7,7 +7,7 @@ use App\Models\Suggestion;
 
 class SnailSearch extends Component
 {
-	public $searchTerms;
+    public $searchTerms;
 
     public function render()
     {
@@ -18,13 +18,13 @@ class SnailSearch extends Component
             case (strlen($this->searchTerms) === 0):
                 break;
 
-            case (strlen($this->searchTerms) < 3):
+            case (strlen($this->searchTerms) < 3) && (strtolower($this->searchTerms) !== 'cv'):
                 $too_short = true;
                 break;
-            
+
             default:
                 $searchTerms = '%' . $this->searchTerms . '%';
-                $suggestions = Suggestion::where('keywords', 'like' , $searchTerms );
+                $suggestions = Suggestion::where('keywords', 'like', $searchTerms);
                 $suggestions->orderByRaw('CASE WHEN id=4 THEN 0 ELSE id END ASC');
                 $suggestions = $suggestions->get();
                 if ($suggestions->count() === 0) {
