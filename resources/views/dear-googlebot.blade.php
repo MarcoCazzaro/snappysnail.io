@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout page-name="dear-googlebot"  :whatever="true" >
     <div class="container pb-5">
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 ssnail-header">
             <?php

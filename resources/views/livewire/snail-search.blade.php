@@ -2,7 +2,7 @@
 	<div class="md:max-w-6xl mx-auto my-9 px-6">
 	    <div class="snail-search">
 	    	<label for="searchField" class="hidden">Search</label>
-	        <input type="text" class="mt-1 block w-full rounded-md bg-white border-transparent focus:border-gray-200 focus:bg-white focus:ring-0 shadow-lg" wire:model="searchTerms" id="searchField">
+	        <input type="text" class="mt-1 block w-full rounded-md bg-white border-transparent focus:border-gray-200 focus:bg-white focus:ring-0 shadow-lg" wire:model.debounce.500ms="searchTerms" id="searchField">
 	    </div>
 	</div>
 	<div class="md:max-w-6xl mx-auto text-gray-400 text-center">
@@ -16,7 +16,7 @@
 		@if($no_results ?? false)
 			<p class="my-9 text-gray-500">Sorry, no results for your query. Suggestions? <a href="{{ url('portfolio') }}">portfolio</a> or <a href="{{ url('curriculum') }}">curriculum</a> or maybe <a href="{{ url('contact') }}">contact</a></p>
 		@elseif($too_short ?? false)
-			<p class="my-9 text-gray-500">Go on...</p>
+			<p class="my-9 text-gray-500">Please go on...</p>
 		@else
 			@if($suggestions)
 				<ul>

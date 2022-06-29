@@ -14,6 +14,7 @@ class SnailSearch extends Component
         $no_results = false;
         $too_short = false;
         $suggestions = false;
+        $keywords = [];
         switch (true) {
             case (strlen($this->searchTerms) === 0):
                 break;
@@ -30,8 +31,14 @@ class SnailSearch extends Component
                 if ($suggestions->count() === 0) {
                     $no_results = true;
                 }
+                if ($suggestions && $suggestions->count() > 0) {
+                    foreach ($suggestions as $suggestion) {
+                        $keywords = array_merge($keywords, explode(',', $suggestion->keywords));
+                    }
+                }
                 break;
         }
+        $this->emit('searchUpdated', array_unique($keywords));
         return view('livewire.snail-search', compact('suggestions', 'no_results', 'too_short'));
     }
 }
