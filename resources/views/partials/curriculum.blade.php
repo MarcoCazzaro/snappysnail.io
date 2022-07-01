@@ -1,6 +1,6 @@
 <div class="snail-curriculum">
 	<h1 class="text-center mt-5">Curriculum</h1>
-	<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
+	<div class="max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
 			<div class="md:flex-shrink-0">
 				<img class="h-48 w-full object-cover md:h-full md:w-48" src="{{ asset('img/cv/marco-cazzaro.jpg') }}" alt="Marco Cazzaro">
