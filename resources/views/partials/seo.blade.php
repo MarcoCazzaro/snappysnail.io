@@ -16,7 +16,7 @@
 <link rel="canonical" href="{{url()->current()}}" />
 <?php
 	if (\File::exists(public_path('img/seo/' . $page_name . '.jpg'))) {
-		$image_path = asset('img/seo/services.jpg');
+		$image_path = asset('img/seo/' . $page_name . '.jpg');
 	} else {
 		$image_path = asset('img/snappysnail-splash.jpg');
 	}
