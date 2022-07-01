@@ -15,7 +15,7 @@ class GuestLayout extends Component
      * @param  string  $pageName
      * @return void
      */
-    public function __construct(string $pageName, $whatever = null)
+    public function __construct(string $pageName = 'home', $whatever = null)
     {
         $this->page_name = $pageName;
         $this->whatever = $whatever;
