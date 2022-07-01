@@ -7,22 +7,22 @@
 	<div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
 		<livewire:service-card 
 			title="Website development"
-			image_path="{{ asset('img/services-0.jpg') }}"
+			image_path="{{ asset('img/services/services-0.jpg') }}"
 			description="If you are a small company or a sole trader and you need your professional website, we are glad to help!"
 		/>
 		<livewire:service-card 
 			title="Outsourcing"
-			image_path="{{ asset('img/services-1.jpg') }}"
+			image_path="{{ asset('img/services/services-1.jpg') }}"
 			description="If you are a web agency and need some extra development power, let's discuss it! You can find more details on my CV."
 		/>
 		<livewire:service-card 
 			title="Landing pages"
-			image_path="{{ asset('img/services-2.jpg') }}"
+			image_path="{{ asset('img/services/services-2.jpg') }}"
 			description="Do you just need a landing page for your campaign? Check!"
 		/>
 		<livewire:service-card 
 			title="Consulting"
-			image_path="{{ asset('img/services-3.jpg') }}"
+			image_path="{{ asset('img/services/services-3.jpg') }}"
 			description="We can also give you any professional advice related to web development."
 		/>
 	</div>

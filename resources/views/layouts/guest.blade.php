@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         @include('partials.preloads')
-        @include('partials.seo')
+        @include('partials.seo', ['page_name' => $page_name ?? 'guest'])
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">

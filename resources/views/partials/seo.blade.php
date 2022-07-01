@@ -11,7 +11,15 @@
 <meta name="twitter:description" content="{{$SNAIL_SEO_DESCRIPTION}}"></meta>
 <meta name="theme-color" content="#fcbe03" />
 <title>{{ $SNAIL_SEO_TITLE }}</title>
-@yield('open-graph')
 <link rel="favicon" href="{{asset('favicon.ico')}}" type="image/x-icon"/>
 <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon"/>
 <link rel="canonical" href="{{url()->current()}}" />
+<?php
+	if (\File::exists(public_path('img/seo/' . $page_name . '.jpg'))) {
+		$image_path = asset('img/seo/services.jpg');
+	} else {
+		$image_path = asset('img/snappysnail-splash.jpg');
+	}
+?>
+<meta property="og:image" content="{{ $image_path }}" />
+<meta name="twitter:image" content="{{ $image_path }}"></meta>
