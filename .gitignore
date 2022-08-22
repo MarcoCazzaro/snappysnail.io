@@ -11,3 +11,8 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+
+#SublimeText Project
+*.sublime-project
+*.sublime-workspace
+.sublime-grunt.cache
