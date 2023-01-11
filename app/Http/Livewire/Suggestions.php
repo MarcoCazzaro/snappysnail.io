@@ -17,12 +17,13 @@ class Suggestions extends Component
     public $locale;
     public $path;
     public $view;
+    public $sorting;
     public $isModalOpen = 0;
 
     public function render()
     {
         return view('livewire.suggestions', [
-            'suggestions' => Suggestion::orderBy('id', 'desc')->paginate(20)
+            'suggestions' => Suggestion::orderBy('sorting', 'asc')->paginate(20)
         ]);
     }
 
@@ -53,6 +54,7 @@ class Suggestions extends Component
         $this->locale = '';
         $this->path = '';
         $this->view = '';
+        $this->sorting = 0;
     }
 
     public function store()
@@ -64,6 +66,7 @@ class Suggestions extends Component
             'locale' => 'nullable|string|in:en,it',
             'path' => 'nullable',
             'view' => 'nullable',
+            'sorting' => 'required',
         ]);
 
         Suggestion::updateOrCreate(['id' => $this->suggestion_id], [
@@ -73,6 +76,7 @@ class Suggestions extends Component
             'locale' => $this->locale,
             'path' => $this->path,
             'view' => $this->view,
+            'sorting' => $this->sorting,
         ]);
 
         session()->flash('message', $this->suggestion_id ? 'Suggestion updated.' : 'Suggestion created.');
@@ -91,6 +95,7 @@ class Suggestions extends Component
         $this->locale = $suggestion->locale;
         $this->path = $suggestion->path;
         $this->view = $suggestion->view;
+        $this->sorting = $suggestion->sorting;
 
         $this->openModal();
     }

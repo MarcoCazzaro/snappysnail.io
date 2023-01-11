@@ -15,6 +15,7 @@ class Suggestion extends Model
         'description',
         'locale',
         'path',
-        'view'
+        'view',
+        'sorting'
     ];
 }

@@ -26,7 +26,8 @@ class SnailSearch extends Component
             default:
                 $searchTerms = '%' . $this->searchTerms . '%';
                 $suggestions = Suggestion::where('keywords', 'like', $searchTerms);
-                $suggestions->orderByRaw('CASE WHEN id=4 THEN 0 ELSE id END ASC');
+                //$suggestions->orderByRaw('CASE WHEN id=4 THEN 0 ELSE id END ASC');
+                $suggestions->orderBy('sorting', 'asc');
                 $suggestions = $suggestions->get();
                 if ($suggestions->count() === 0) {
                     $no_results = true;

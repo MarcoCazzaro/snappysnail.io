@@ -27,6 +27,10 @@
                             </th>
                             <th
                                 class="px-5 py-3 border-b-2 border-black bg-black text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                {{ __('Sorting') }}
+                            </th>
+                            <th
+                                class="px-5 py-3 border-b-2 border-black bg-black text-left text-xs font-semibold text-white uppercase tracking-wider">
                                 {{ __('Name') }}
                             </th>
                             <th
@@ -39,6 +43,9 @@
                             <tr>
                                 <td class="px-5 py-5 bg-white text-sm @if (!$loop->last) border-gray-200 border-b @endif">
                                     {{ $suggestion->id }}
+                                </td>
+                                <td class="px-5 py-5 bg-white text-sm @if (!$loop->last) border-gray-200 border-b @endif">
+                                    {{ $suggestion->sorting }}
                                 </td>
                                 <td class="px-5 py-5 bg-white text-sm @if (!$loop->last) border-gray-200 border-b @endif">
                                     {{ Str::limit($suggestion->name, 25) }}
@@ -113,6 +120,15 @@
                         				</div>
                         			</div>
                         		</div>
+                                <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                    <div class="flex flex-wrap mx-3 mb-6">
+                                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                            <label for="pathInput" class="block text-gray-700 text-sm font-bold mb-2">Sorting:</label>
+                                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pathInput" placeholder="Enter Sorting" wire:model="sorting">
+                                            @error('sorting') <span class="text-red-500">{{ $message }}</span>@enderror
+                                        </div>
+                                    </div>
+                                </div>
                         		<div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         			<div class="flex flex-wrap mx-3 mb-6">
                         				<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
