@@ -6,6 +6,7 @@
             {!!
                 \QrCode::size(300)
                     ->format('svg')
+                    ->margin('13px')
                     ->generate('BEGIN:VCARD
 VERSION:4.0
 FN:Marco Cazzaro
