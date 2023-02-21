@@ -2,11 +2,12 @@
     <h1 class="text-center mt-5">Contact</h1>
     <div class="text-center dark:text-gray-400">
         <p class="m-3">To contact me, please send an email to info [at] snappysnail.io</p>
+        <?php /* https://www.simplesoftware.io/#/docs/simple-qrcode */ ?>
         <div class="p-8 flex justify-center">
             {!!
                 \QrCode::size(300)
                     ->format('svg')
-                    ->margin('13px')
+                    ->margin(13)
                     ->generate('BEGIN:VCARD
 VERSION:4.0
 FN:Marco Cazzaro
