@@ -77,35 +77,35 @@
 					<tbody>
 						<tr>
 							<td class="align-top"><h5 class="font-bold w-28 md:w-56">Front end</h5></td>
-							<td class="align-top leading-7">HTML5 - CSS3 - SCSS/SASS - jQuery - Javascript - Twitter Bootstrap - TailwindCSS - Livewire - Jetstream - MaterializeCSS</td>
+							<td class="align-top leading-7">TailwindCSS | AlpineJS | Livewire | Bootstrap | Jetstream | MaterializeCSS | HTML5 + CSS3 + SCSS/SASS + Javascript | jQuery</td>
 						</tr>
 						<tr>
 							<td class="align-top"><h5 class="font-bold w-28 md:w-56">Back end / Full stack</h5></td>
-							<td class="align-top leading-7">PHP - Laravel - WordPress - MySQL</td>
+							<td class="align-top leading-7">PHP | Laravel | WordPress | MySQL | SQLite</td>
 						</tr>
 						<tr>
 							<td class="align-top"><h5 class="font-bold w-28 md:w-56">E-commerce</h5></td>
-							<td class="align-top leading-7">Shopify - WooCommerce</td>
+							<td class="align-top leading-7">Shopify | WooCommerce</td>
 						</tr>
 						<tr>
 							<td class="align-top"><h5 class="font-bold w-28 md:w-56">Stack & Deploy</h5></td>
-							<td class="align-top leading-7">LAMP - VPS - AWS - Laravel Forge - SiteGround</td>
+							<td class="align-top leading-7">LAMP | TALL | VPS | AWS | Laravel Forge | SiteGround | Plesk | CPanel</td>
 						</tr>
 						<tr>
 							<td class="align-top"><h5 class="font-bold w-28 md:w-56">Dev tools</h5></td>
-							<td class="align-top leading-7">Webpack - Laravel Mix - Grunt - Composer</td>
+							<td class="align-top leading-7">Vite | Webpack | Laravel Mix | Grunt | Composer | npm</td>
 						</tr>
 						<tr>
 							<td class="align-top"><h5 class="font-bold w-28 md:w-56">Version control</h5></td>
-							<td class="align-top leading-7">git - GitHub - BitBucket</td>
+							<td class="align-top leading-7">git | GitHub | BitBucket | Gitlab</td>
 						</tr>
 						<tr>
 							<td class="align-top"><h5 class="font-bold w-28 md:w-56">Project Management</h5></td>
-							<td class="align-top leading-7">Trello - Slack - Jira - Freshdesk</td>
+							<td class="align-top leading-7">Trello | Slack | Jira | Freshdesk</td>
 						</tr>
 						<tr>
 							<td class="align-top"><h5 class="font-bold w-28 md:w-56">Google stuff</h5></td>
-							<td class="align-top leading-7">SEO - Analytics - Tag Manager - Ad Manager</td>
+							<td class="align-top leading-7">SEO | Analytics | Tag Manager | Ad Manager</td>
 						</tr>
 					</tbody>
 				</table>
@@ -132,7 +132,7 @@
 					In early 2019 BFC Media wanted me in Milan to be the main developer for all their websites: Forbes.it, Bluerating.com, and many more, so I moved in Italy and started working on all their projects. For instance I created the new WordPress theme for Forbes.it (<a href="https://forbes.it/?who-made-this-website=snappy" rel="nofollow">it's an Easter egg, don't tell anyone!</a>).
 				</p>
 				<p class="mt-2 text-gray-500">
-					In 2020 I closed Snappysnail LTD because of Brexit, and I switched to Italian, by creating Snappysnail di Marco Cazzaro. Since then I've been working under the hood for many other projects (for instance I had to create a custom interface for shipping products on a Shopify website), and many more to come.
+					In 2020 I closed Snappysnail LTD because of Brexit, and I switched to Italian, by creating Snappysnail di Marco Cazzaro. Since then I've been working under the hood for many other projects, and hopefully many more to come.
 				</p>
 				<p class="mt-2 text-gray-500 font-bold">
 					I am available for working on a project level as a freelance.
