@@ -1,12 +1,12 @@
 <div class="snail-work equos">
-	<div class="max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden md:max-w-2xl">
+	<div class="max-w-md mx-auto bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden md:max-w-2xl">
 		<div class="md:flex">
 			<div class="md:flex-shrink-0">
 				<img class="h-48 w-full object-cover md:h-full md:w-48" src="{{ asset('img/works/equos.jpg') }}" alt="Equos.it WordPress theme">
 			</div>
 			<div class="p-8 text-justify">
 				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand">Works</div>
-				<a href="https://equos.it/?who-made-this-website=snappy" class="block mt-1 text-lg leading-tight font-medium text-black dark:text-gray-400 hover:underline" target="_blank">Equos.it WordPress theme</a>
+				<a href="https://equos.it/?who-made-this-website=snappy" class="block mt-1 text-lg leading-tight font-medium text-black dark:text-gray-300 hover:underline" target="_blank">Equos.it WordPress theme</a>
 				<p class="mt-2 text-gray-500">In 2022 I created Equos.it WordPress theme, starting from <a href="https://underscores.me/" target="_blank" rel="nofollow">Underscores</a>, and adding <a href="https://getbootstrap.com/" target="_blank" rel="nofollow">Bootstrap</a>.</p>
 				<p class="mt-2 text-gray-500">The website provides horse races stats from a MySQL custom database, using GraphQL. Users management is made with <a href="https://memberful.com/" target="_blank" rel="nofollow">Memberful</a>. Magazine web reader is made with <a href="https://flippingbook.com/" target="_blank" rel="nofollow">FlippingBook</a>.</p>
 			</div>

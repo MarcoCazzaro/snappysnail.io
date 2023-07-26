@@ -1,6 +1,6 @@
 <div class="snail-curriculum">
 	<h1 class="text-center mt-5">Curriculum</h1>
-	<div class="max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
+	<div class="max-w-md mx-auto bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
 			<div class="md:flex-shrink-0">
 				<img class="h-48 w-full object-cover md:h-full md:w-48" src="{{ asset('img/cv/marco-cazzaro.jpg') }}" alt="Marco Cazzaro">
@@ -52,7 +52,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
+	<div class="max-w-md mx-auto bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
 			<div class="p-8 text-justify">
 				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2 class="mb-7">Mission</h2></div>
@@ -66,7 +66,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
+	<div class="max-w-md mx-auto bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
 			<div class="p-8">
 				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2 class="mb-7">Tech stuff</h2></div>
@@ -112,7 +112,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
+	<div class="max-w-md mx-auto bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
 			<div class="p-8 text-justify">
 				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2 class="mb-7">Bio</h2></div>
@@ -149,7 +149,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
+	<div class="max-w-md mx-auto bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
 			<div class="p-8 text-justify">
 				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2 class="mb-7">Portfolio</h2></div>

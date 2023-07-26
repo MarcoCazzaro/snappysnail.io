@@ -1,6 +1,6 @@
 <div class="snail-services">
 	<h1 class="text-center mt-5">Services</h1>
-	<div class="text-center dark:text-gray-400">
+	<div class="text-center dark:text-gray-300">
 		<p class="m-3">Snappysnail is a web development company based near the lake of Como. We provide web development services aimed to small businesses and other web agencies.</p>
 		<p class="mb-3">Please contact us if you need a quote, or just to say hi: <livewire:button url="{{ url('contact') }}" label="Contact" /></p>
 	</div>

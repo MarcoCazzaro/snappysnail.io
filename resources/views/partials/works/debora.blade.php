@@ -1,12 +1,12 @@
 <div class="snail-work debora">
-	<div class="max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden md:max-w-2xl">
+	<div class="max-w-md mx-auto bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden md:max-w-2xl">
 		<div class="md:flex">
 			<div class="md:flex-shrink-0">
 				<img class="h-48 w-full object-cover md:h-full md:w-48" src="{{ asset('img/works/debora.jpg') }}" alt="Debora Antonello website">
 			</div>
 			<div class="p-8 text-justify">
 				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand">Works</div>
-				<a href="https://deboraantonello.com" class="block mt-1 text-lg leading-tight font-medium text-black dark:text-gray-400 hover:underline" target="_blank">Debora Antonello's website</a>
+				<a href="https://deboraantonello.com" class="block mt-1 text-lg leading-tight font-medium text-black dark:text-gray-300 hover:underline" target="_blank">Debora Antonello's website</a>
 				<p class="mt-2 text-gray-500">For Debora Antonello, an Italian contemporary artist, I created the whole website with <a href="https://laravel.com/" target="_blank">Laravel</a> and <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>, taking care of every aspect, from design to backoffice to SEO.</p>
 			</div>
 		</div>

@@ -1,4 +1,4 @@
-<div class="ssnail-service-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden mt-5">
+<div class="ssnail-service-card bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden mt-5">
     <div class="p-3">
         <div class="">
             <div class="">
