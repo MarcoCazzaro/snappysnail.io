@@ -21,10 +21,10 @@
 
     </head>
     <body class="antialiased snail-page-{{ $page_name ?? 'guest'}}">
-        <div id="snailMainWrapper" class="relative flex items-center justify-center min-h-screen bg-gray-100 dark:bg-zinc-950 py-4 sm:pt-0">
+        <div id="snailMainWrapper" class="relative flex items-center justify-center min-h-screen bg-gradient-radial from-zinc-100 to-zinc-200 dark:bg-gradient-radial dark:from-zinc-900 dark:to-zinc-950 py-4 sm:pt-0">
             {{ $slot }}
         </div>
-        <div class="md:fixed bottom-0 min-w-full bg-gray-100 dark:bg-zinc-950 p-4">
+        <div class="md:fixed bottom-0 min-w-full bg-zinc-200 dark:bg-zinc-950 p-4">
             <livewire:footer-copyright-line />
         </div>
 
