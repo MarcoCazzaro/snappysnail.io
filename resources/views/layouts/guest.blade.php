@@ -20,12 +20,50 @@
         <script src="https://kit.fontawesome.com/fea9be3e02.js" crossorigin="anonymous" defer></script>
 
     </head>
-    <body class="antialiased snail-page-{{ $page_name ?? 'guest'}}">
+    <body class="relative antialiased snail-page-{{ $page_name ?? 'guest'}}">
         <div id="snailMainWrapper" class="relative flex items-center justify-center min-h-screen bg-gradient-radial from-zinc-100 to-zinc-200 dark:bg-gradient-radial dark:from-zinc-900 dark:to-zinc-950 py-4 sm:pt-0">
             {{ $slot }}
         </div>
+        <div class="absolute top-0 right-0 px-6 py-4">
+            <button
+                type="button"
+                x-data="{
+                    currentTheme: 'dark',
+                    applyTheme() {
+                        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                            document.documentElement.classList.add('dark');
+                            this.currentTheme = 'dark';
+                        } else {
+                            document.documentElement.classList.remove('dark');
+                            this.currentTheme = 'light';
+                        }
+                    },
+                    toggleTheme() {
+                        this.currentTheme = (this.currentTheme == 'light' ? 'dark' : 'light');
+                        document.documentElement.classList.toggle('dark');
+                        localStorage.theme = this.currentTheme;
+                    }
+                }"
+                x-init="applyTheme()"
+                class="border rounded-full px-2 border-zinc-400 dark:border-zinc-900"
+                @click="toggleTheme"
+            ><i class="fas fa-moon mr-2" :class="(currentTheme == 'light') ? 'opacity-25' : 'opacity-100'"></i><i class="fas fa-sun" :class="(currentTheme == 'dark') ? 'opacity-50' : 'opacity-100'"></i></button>
+        </div>
         <div class="md:fixed bottom-0 min-w-full bg-zinc-200 dark:bg-zinc-950 p-4">
             <livewire:footer-copyright-line />
+            @if (Route::has('login'))
+                <div class="hidden absolute top-0 right-5 px-6 py-4 sm:block">
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm text-zinc-100 dark:text-zinc-900 underline">Log in</a>
+
+                        @if (false && Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
         </div>
 
         @livewireScripts
@@ -52,7 +90,7 @@
             document.addEventListener("DOMContentLoaded", () => {
                 Livewire.hook('element.updated', (el, component) => {
                     ssnailPageAnimation();
-                })
+                });
             });
         </script>
 

@@ -1,18 +1,4 @@
 <x-guest-layout :page-name="$whatever ?? 'home'" :whatever="$whatever ?? null" >
-    @if (Route::has('login'))
-        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            @auth
-                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
-            @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-100 underline">Log in</a>
-
-                @if (false && Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                @endif
-            @endauth
-        </div>
-    @endif
-
     <div class="container pb-5">
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 ssnail-header">
             <?php
