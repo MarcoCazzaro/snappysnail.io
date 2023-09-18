@@ -3,7 +3,7 @@
 	<div class="max-w-md mx-auto bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden md:max-w-6xl mt-5">
 		<div class="md:flex">
 			<div class="md:flex-shrink-0">
-				<img class="h-48 w-full object-cover md:h-full md:w-48" src="{{ asset('img/cv/marco-cazzaro.jpg') }}" alt="Marco Cazzaro">
+				<img class="h-96 w-full object-cover md:h-full md:w-96" src="{{ asset('img/cv/marco-cazzaro.jpg') }}" alt="Marco Cazzaro">
 			</div>
 			<div class="p-8">
 				<div class="tracking-wide text-sm font-semibold snail-fg-color-brand"><h2 class="mb-7">Info</h2></div>
