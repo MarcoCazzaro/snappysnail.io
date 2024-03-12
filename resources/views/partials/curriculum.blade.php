@@ -40,7 +40,7 @@
 							</tr>
 							<tr>
 								<td class="align-top w-28 h-12"><h5 class="font-bold">Address</h5></td>
-								<td class="align-top leading-7">Via IV Novembre 9, 22045 Lambrugo (CO) - Italy</td>
+								<td class="align-top leading-7">Via Monte Grappa 119, 35018 San Martino di Lupari (PD) - Italy</td>
 							</tr>
 							<tr>
 								<td class="align-top w-28 h-12"><h5 class="font-bold">Email</h5></td>
