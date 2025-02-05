@@ -1,25 +1,20 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{{$SNAIL_SEO_DESCRIPTION}}">
 <meta name="keywords" content="{{$SNAIL_SEO_KEYWORDS}}">
 <meta property="og:type" content="website" />
-<meta property="og:locale" content="en" />
-<meta property="og:site_name" content="snappysnail.io" />
+<meta property="og:locale" content="{{$SNAIL_SEO_LANGUAGE}}" />
+<meta property="og:site_name" content="{{ config('app.name') }}" />
 <meta property="og:title" content="{{$SNAIL_SEO_TITLE}}" />
 <meta property="og:url" content="{{request()->url()}}" />
 <meta property="og:description" content="{{$SNAIL_SEO_DESCRIPTION}}" />
+<meta property="og:image" content="{{ asset('img/placeholder.jpg') }}" />
 <meta name="twitter:card" content="summary"></meta>
 <meta name="twitter:title" content="{{$SNAIL_SEO_TITLE}}"></meta>
 <meta name="twitter:description" content="{{$SNAIL_SEO_DESCRIPTION}}"></meta>
-<meta name="theme-color" content="#fcbe03" />
-<title>{{ $SNAIL_SEO_TITLE }}</title>
+<meta name="twitter:image" content="{{ asset('img/placeholder.jpg') }}"></meta>
+<meta name="theme-color" content="#f59e0b" />
+<title>{{ $SNAIL_SEO_TITLE_FULL }}</title>
+@yield('open-graph')
 <link rel="favicon" href="{{asset('favicon.ico')}}" type="image/x-icon"/>
 <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon"/>
-<link rel="canonical" href="{{url()->current()}}" />
-<?php
-	if (\File::exists(public_path('img/seo/' . $page_name . '.jpg'))) {
-		$image_path = asset('img/seo/' . $page_name . '.jpg');
-	} else {
-		$image_path = asset('img/snappysnail-splash.jpg');
-	}
-?>
-<meta property="og:image" content="{{ $image_path }}" />
-<meta name="twitter:image" content="{{ $image_path }}"></meta>

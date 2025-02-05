@@ -1,0 +1,104 @@
+.ssnail-page-home {
+    height: 100vh;
+
+    .ssnail-animation {
+        .ssnail-search {
+            max-width: 1px;
+            animation-name: home-intro-search;
+            animation-duration: 13s;
+            animation-timing-function: linear;
+            animation-fill-mode: both;
+        }
+
+        .ssnail-logo {
+            animation-name: home-intro-logo;
+            animation-duration: 0.31s;
+            animation-fill-mode: both;
+            animation-delay: 15.3s
+        }
+
+        .ssnail-explanation {
+            position: relative;
+
+            p {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                animation-name: home-intro-explanation;
+                animation-fill-mode: both;
+
+                &.ssnail-1 {
+                    animation-duration: 3s;
+                    animation-delay: 1s;
+                }
+
+                &.ssnail-2 {
+                    animation-duration: 4s;
+                    animation-delay: 6s;
+                }
+
+                &.ssnail-3 {
+                    animation-duration: 3s;
+                    animation-delay: 11s;
+                }
+            }
+        }
+
+        .ssnail-web-development {
+            overflow: hidden;
+            animation-name: home-intro-webdev;
+            animation-duration: 0.49s;
+            animation-fill-mode: both;
+            animation-delay: 15s
+        }
+    }
+}
+
+@keyframes home-intro-search {
+    from {
+        max-width: 1px;
+    }
+
+    to {
+        max-width: 100%;
+    }
+}
+
+@keyframes home-intro-logo {
+    from {
+        transform: rotate(-359deg);
+    }
+
+    to {
+        transform: rotate(0);
+    }
+}
+
+@keyframes home-intro-explanation {
+    0% {
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes home-intro-webdev {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 2rem;
+    }
+}

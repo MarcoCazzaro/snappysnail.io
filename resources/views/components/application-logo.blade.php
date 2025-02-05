@@ -1,0 +1,1 @@
+<div><img src="{{asset('img/snappysnail-logo.png')}}" class="ssnail-logo mr-3" width="31" height="31" alt="Snappysnail"></div>

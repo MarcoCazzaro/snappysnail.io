@@ -1,1 +1,0 @@
-<p class="text-center text-gray-400">&copy;{{ date('Y') }} Snappysnail di Marco Cazzaro | Via Monte Grappa 119, San Martino di Lupari (PD) Italy | P.IVA 03919560130 | <a href="{{ url('/dear-googlebot') }}">Dear GoogleBot <i class="fas fa-robot"></i></a></p>

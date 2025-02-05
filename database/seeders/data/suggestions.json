@@ -1,0 +1,178 @@
+[
+    {
+        "title": "Contact",
+        "keywords": "contact,quote",
+        "description": "views.partials.pages.contact",
+        "locale": "en",
+        "sorting": 0,
+        "url": null
+    },
+    {
+        "title": "Curriculum",
+        "keywords": "curriculum,mission,tech,bio,who i am,who am i,cv",
+        "description": "views.partials.pages.curriculum",
+        "locale": "en",
+        "sorting": 0,
+        "url": null
+    },
+    {
+        "title": "Services",
+        "keywords": "services,service",
+        "description": "views.partials.pages.services",
+        "locale": "en",
+        "sorting": 0,
+        "url": null
+    },
+    {
+        "title": "This website",
+        "keywords": "works,portfolio,Snappysnail,Laravel,Livewire,Jetstream,TailwindCSS,AlpineJS",
+        "description": "<p>I made this website.</p>",
+        "locale": "en",
+        "sorting": 200000,
+        "url": null
+    },
+    {
+        "title": "Gooruf.com",
+        "keywords": "works,portfolio,gooruf.com,Laravel,Bootstrap,WordPress",
+        "description": "<p>In 2016 I created Gooruf.com, a social network for finance. The project was based in Londod and it was aimed to bring together all the players of the world of finance: financial providers, banks, insurances, brokers, final users. It had all the features of a social network, with a custom reputation system that allowed users to be trusted in the community. Unfortunately the project did not make it and it has been abandoned in 2021.</p>",
+        "locale": "en",
+        "sorting": 201601,
+        "url": null
+    },
+    {
+        "title": "Forbes (2021)",
+        "keywords": "works,portfolio,forbes.it-2021,WordPress,Bootstrap",
+        "description": "<p>In 2021 I created Forbes Italia's WordPress theme, starting from <a href=\"https://underscores.me/\" target=\"_blank\">Underscores</a>, adding <a href=\"https://getbootstrap.com/\" target=\"_blank\">Bootstrap</a> and customising it furthermore, keeping consistency with the brand.</p>",
+        "locale": "en",
+        "sorting": 202102,
+        "url": "https://forbes.it"
+    },
+    {
+        "title": "Debora Antonello",
+        "keywords": "works,portfolio,deboraantonello.com,debora antonello,Laravel,Bootstrap,management system",
+        "description": "<p>For Debora Antonello, an Italian contemporary artist, I created the whole website with <a href=\"https://laravel.com/\" target=\"_blank\">Laravel</a> and <a href=\"https://getbootstrap.com/\" target=\"_blank\">Bootstrap</a>, taking care of every aspect, from design to backoffice to SEO.</p>",
+        "locale": "en",
+        "sorting": 202001,
+        "url": "https://deboraantonello.com"
+    },
+    {
+        "title": "Osteopata Piazza",
+        "keywords": "works,portfolio,osteopatapiazza.it,WordPress,Bootstrap",
+        "description": "<p>In 2022 I created Osteopatapiazza.it, starting from <a href=\"https://underscores.me/\" target=\"_blank\">Underscores</a>, adding <a href=\"https://getbootstrap.com/\" target=\"_blank\">Bootstrap</a>.</p>",
+        "locale": "en",
+        "sorting": 202201,
+        "url": "https://osteopatapiazza.it"
+    },
+    {
+        "title": "Equos.it",
+        "keywords": "works,portfolio,equos.it,WordPress,Bootstrap,GraphQL,Memberful,FlippingBook",
+        "description": "<p>In 2022 I created Equos.it WordPress theme, starting from <a href=\"https://underscores.me/\" target=\"_blank\" rel=\"nofollow\">Underscores</a>, and adding <a href=\"https://getbootstrap.com/\" target=\"_blank\" rel=\"nofollow\">Bootstrap</a>.</p><p>The website provides horse races stats from a MySQL custom database, using GraphQL. Users management is made with <a href=\"https://memberful.com/\" target=\"_blank\" rel=\"nofollow\">Memberful</a>. Magazine web reader is made with <a href=\"https://flippingbook.com/\" target=\"_blank\" rel=\"nofollow\">FlippingBook</a>.</p>",
+        "locale": "en",
+        "sorting": 202202,
+        "url": null
+    },
+    {
+        "title": "Camping Europa",
+        "keywords": "works,portfolio,camping europa,WordPress,Bootstrap",
+        "description": "<p>In 2022, in collaboration with Hyled S.r.l., I created campingeuropa.com WordPress theme, starting from <a href=\"https://underscores.me/\" target=\"_blank\" rel=\"nofollow\">Underscores</a>, and adding <a href=\"https://getbootstrap.com/\" target=\"_blank\" rel=\"nofollow\">Bootstrap</a>.</p>",
+        "locale": "en",
+        "sorting": 202202,
+        "url": "https://campingeuropa.com"
+    },
+    {
+        "title": "Indeeper.it",
+        "keywords": "works,portfolio,indeeper.it,WordPress,Bootstrap",
+        "description": "<p>In 2022 I created Indeeper.it WordPress theme, starting from <a href=\"https://underscores.me/\" target=\"_blank\" rel=\"nofollow\">Underscores</a>, and adding <a href=\"https://getbootstrap.com/\" target=\"_blank\" rel=\"nofollow\">Bootstrap</a>.</p>",
+        "locale": "en",
+        "sorting": 202204,
+        "url": "https://indeeper.it"
+    },
+    {
+        "title": "The Most Famous Website In The World",
+        "keywords": "works,portfolio,themostfamous,themostfamouswebsiteintheworld,most famous,tmfwitw,Laravel,TALL,TailwindCSS,AlpineJS",
+        "description": "<p>I created The Most Famous Website In The World with <a href=\"https://devdojo.com/thinkverse/getting-started-with-tall-stack\" target=\"_blank\">TALL stack</a>.</p><p>Listed on <a target=\"_blank\" href=\"https://madewithlaravel.com/the-most-famous-website-in-the-world\">Made With Laravel</a>.</p>",
+        "locale": "en",
+        "sorting": 202301,
+        "url": "https://themostfamouswebsiteintheworld.com"
+    },
+    {
+        "title": "Bluerating.com",
+        "keywords": "works,portfolio,bluerating.com,WordPress,Bootstrap",
+        "description": "<p>In 2023 I created Bluerating.com WordPress theme with <a href=\"https://getbootstrap.com/docs/5.2\" target=\"_blank\" rel=\"nofollow\">Bootstrap 5</a>, based on a graphic study created by <a href=\"https://lucaferroni.com/\" target=\"_blank\" rel=\"nofollow\">Luca Ferroni</a>.</p>",
+        "locale": "en",
+        "sorting": 202302,
+        "url": "https://bluerating.com"
+    },
+    {
+        "title": "Forbes (2023)",
+        "keywords": "works,portfolio,forbes.it,WordPress,Bootstrap",
+        "description": "<p>Starting from a design by Men At Code, I created the new Forbes.it WordPress theme 2023, based on Bootstrap 5.3.</p>",
+        "locale": "en",
+        "sorting": 202303,
+        "url": "https://forbes.it"
+    },
+    {
+        "title": "BetAll Bomber Bonus",
+        "keywords": "works,portfolio,BetAllBomber,Laravel,TailwindCSS,AlpineJS,management system",
+        "description": "<p>For WinGames I created the BetAll Bomber Bonus, a custom Laravel web application where users subscribe for a fantasy football tournament, where users selected one football player for the season and get rewards for every goal scored by that player.</p>",
+        "locale": "en",
+        "sorting": 202304,
+        "url": null
+    },
+    {
+        "title": "Pornobello.org",
+        "keywords": "works,portfolio,pornobello.org,Pornobello,WordPress,Bootstrap",
+        "description": "<p>Pornobello is a website dedicated to the collection of artistic works by Claudio Cozzolino. The website is running on a WordPress custom theme, and uses WooCommerce to sell Pornobello's works.</p>",
+        "locale": "en",
+        "sorting": 202304,
+        "url": "https://www.pornobello.org/"
+    },
+    {
+        "title": "Agenzy",
+        "keywords": "works,portfolio,agenzy,Agenzy",
+        "description": "<p>WordPress theme for Agenzy, a former company that was working as a digital talent agency for influencers.</p>",
+        "locale": "en",
+        "sorting": 202401,
+        "url": null
+    },
+    {
+        "title": "GMGreen.it",
+        "keywords": "works,portfolio,gmgreen.it,WordPress,Bootstrap",
+        "description": "<p>WordPress theme made for Gianluigi Morlin's company, GMGreen.it. It's a mono-page website to shocase all the company's services.</p>",
+        "locale": "en",
+        "sorting": 202402,
+        "url": "https://www.gmgreen.it/"
+    },
+    {
+        "title": "Mediakey.it",
+        "keywords": "works,portfolio,mediakey.it,WordPress,TailwindCSS,AlpineJS,management system,WooCommerce,Issuu,CleverReach",
+        "description": "<p>Mediakey is a company specialised in communication, with magazines, digital channels, audio and video production, and events.</p><p>This project involved the creation of a custom WordPress theme, an ecommerce in WooCommerce, interfaces with external services like Issuu and CleverReach, and a custom management system to handle their Awards (subscription, voting system, categories, judges, winners, reporting).</p>",
+        "locale": "en",
+        "sorting": 202403,
+        "url": "https://mediakey.it/"
+    },
+    {
+        "title": "TRIMaterials.com",
+        "keywords": "works,portfolio,trimaterials.com,WordPress,TailwindCSS,AlpineJS,custom Gutenberg components",
+        "description": "<p>Custom WordPress theme for TRIMaterials, a company specialised in the production of special materials for buildings. For this project, I developed custom Gutenberg components.</p>",
+        "locale": "en",
+        "sorting": 202404,
+        "url": "https://trimaterials.com/"
+    },
+    {
+        "title": "NoleggioElettrico.com",
+        "keywords": "works,portfolio,noleggioelettrico.com,WordPress,TailwindCSS,AlpineJS,custom Gutenberg components",
+        "description": "<p>Custom WordPress theme for NoleggioElettrico, whose business is renting electric cars. For this project, I developed custom Gutenberg components.</p>",
+        "locale": "en",
+        "sorting": 202405,
+        "url": "https://www.noleggioelettrico.com/"
+    },
+    {
+        "title": "Movimento Metropolitano",
+        "keywords": "works,portfolio,movimentometropolitano.com,movimento metropolitano,WordPress,WPML,TailwindCSS,AlpineJS",
+        "description": "<p>Subsidiary of Mercato Metropolitano, Movimento Metropolitano is a no profit organisation dedicated to the promotion of healthy food and a healthy lifestyle. The website is a multilanguage WordPress theme, developed with WPML in English, Italian and Japanese.</p>",
+        "locale": "en",
+        "sorting": 202406,
+        "url": "https://movimentometropolitano.com/"
+    }
+]

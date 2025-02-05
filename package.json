@@ -1,32 +1,22 @@
 {
     "private": true,
+    "type": "module",
     "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production",
-        "pint": "./vendor/bin/pint"
+        "build": "vite build",
+        "dev": "vite"
     },
     "devDependencies": {
-        "@tailwindcss/forms": "^0.5.2",
-        "@tailwindcss/typography": "^0.5.2",
-        "alpinejs": "^2.7.3",
-        "autoprefixer": "^10.4.14",
-        "axios": "^0.21",
-        "browser-sync-webpack-plugin": "^2.3.0",
-        "laravel-mix": "^6.0.49",
-        "lodash": "^4.17.19",
-        "postcss": "^8.4.27",
-        "postcss-import": "^12.0.1",
-        "resolve-url-loader": "^3.1.3",
-        "sass": "^1.32.12",
-        "sass-loader": "^11.0.1",
-        "tailwindcss": "^3.3.3"
+        "@tailwindcss/forms": "^0.5.7",
+        "@tailwindcss/typography": "^0.5.10",
+        "autoprefixer": "^10.4.16",
+        "axios": "^1.7.4",
+        "concurrently": "^9.0.1",
+        "laravel-vite-plugin": "^1.0",
+        "postcss": "^8.4.32",
+        "tailwindcss": "^3.4.0",
+        "vite": "^5.0"
     },
     "dependencies": {
-        "@alpinejs/persist": "^3.12.3"
+        "alpinejs": "^3.14.8"
     }
 }

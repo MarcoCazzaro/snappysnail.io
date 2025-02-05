@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ruleset name="Snappysnail">
+    <description>The coding standard for Snappysnail project.</description>
+
+    <!-- Paths to check -->
+    <file>src</file>
+    <file>tests</file>
+
+    <!-- Set the maximum line length -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="absoluteLineLimit" value="120"/>
+            <property name="lineLimit" value="120"/>
+        </properties>
+    </rule>
+</ruleset>

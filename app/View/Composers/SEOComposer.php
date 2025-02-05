@@ -14,59 +14,88 @@ class SEOComposer
     /**
      * Bind data to the view.
      *
-     * @param  View  $view
      * @return void
      */
-    public function compose(View $view)
+    public function compose(View $view): void
     {
         $request = request();
-        $URL_segments = $request->segments();
-        if (request()->is('it') || request()->is('it/*')) {
-            $current_language = 'it_IT';
-        } else {
-            $current_language = 'en_GB';
-        }
-        \Carbon\Carbon::setLocale($current_language);
         try {
+            if ($view->statusCode ?? false) {
+                $SEOKey = 'error_' . $view->statusCode;
+            } else {
+                $SEOKey = optional($request->route())->getName() ?? $view->whatever ?? '';
+                $SEOKey = str_ireplace('.', '_', $SEOKey);
+            }
+            $current_language = config('app.locale');
+            \Carbon\Carbon::setLocale($current_language);
             $seo_args = [
                 'SNAIL_SEO_LANGUAGE' => $current_language,
-                'SNAIL_SEO_TITLE' => trans('seo.default.title'),
-                'SNAIL_SEO_DESCRIPTION' => trans('seo.default.description'),
-                'SNAIL_SEO_KEYWORDS' => trans('seo.default.keywords'),
+                'SNAIL_SEO_TITLE' => trans('seo.default_title'),
+                'SNAIL_SEO_TITLE_FULL' => trans('seo.default_title'),
+                'SNAIL_SEO_DESCRIPTION' => trans('seo.default_description'),
+                'SNAIL_SEO_KEYWORDS' => trans('seo.default_keywords'),
             ];
-
-            $seo_key = 'seo.' . implode(".", explode("/", request()->path()));
+            $seo_key = 'seo.' . $SEOKey;
             $args = ['title', 'description', 'keywords'];
+            $request = request();
+            $bindings = $this->retrieveBindings($request);
+            $fallback_value = false;
             foreach ($args as $arg) {
-                $seo_full_key = $seo_key . "." . $arg;
+                $seo_full_key = $seo_key . '_' . $arg;
                 switch (true) {
                     case \Lang::has($seo_full_key):
-                        $seo_args["SNAIL_SEO_".strtoupper($arg)] = trans($seo_full_key);
-                        break;
-                    case isset($view->active_taxonomy):
-                        /*
-                        $taxonomy_keywords = $view->active_taxonomy->label . ', ' . ($view->root_taxonomy_name ?? '') . ' ' . trans('common.by') . ' Debora Antonello';
-                        $taxonomy_description = $view->active_taxonomy->description ?? $taxonomy_keywords;
-                        $seo_args["SNAIL_SEO_".strtoupper($arg)] = trans('seo.works_taxonomy_' . $arg, [
-                                'active_taxonomy' => $view->active_taxonomy->label,
-                                'taxonomy_description' => strip_tags($taxonomy_description),
-                                'taxonomy_keywords' => $taxonomy_keywords,
-                            ]);
-                        */
+                        $seo_args['SNAIL_SEO_' . strtoupper($arg)] = trans($seo_full_key, $bindings);
+                        if ($arg === 'title') {
+                            $fallback_value = $seo_args['SNAIL_SEO_TITLE'];
+                        }
                         break;
 
                     default:
-                        //
+                        if ($fallback_value) {
+                            $seo_args['SNAIL_SEO_' . strtoupper($arg)] = $fallback_value;
+                        }
                         break;
                 }
+            }
+            $seo_args['SNAIL_SEO_DESCRIPTION'] = \Str::limit($seo_args['SNAIL_SEO_DESCRIPTION'], 151);
+            $seo_args['SNAIL_SEO_TITLE_FULL'] = $seo_args['SNAIL_SEO_TITLE'];
+            if (! \Str::contains($seo_args['SNAIL_SEO_TITLE_FULL'], 'Snappysnail')) {
+                $seo_args['SNAIL_SEO_TITLE_FULL'] = $seo_args['SNAIL_SEO_TITLE_FULL'] . ' | Snappysnail';
+            }
+        } catch (\Exception $e) {
+            report($e);
+            $seo_args = null;
+        }
+        $view->with($seo_args);
+    }
+
+    private function retrieveBindings($request): array
+    {
+        $bindings = [];
+        try {
+            if ($request->user() ?? false) {
+                $bindings['user_full_name'] = $request->user()->name ?? '';
+            }
+            $ad = $request->match->selling_ad ?? $request->ad ?? false;
+            if ($ad) {
+                $bindings['ad_title'] = $ad->title ?? '-';
+            }
+            $taxonomy = $request->taxonomy ?? false;
+            if ($taxonomy) {
+                $bindings['taxonomy_name'] = $taxonomy->name ?? '-';
+            }
+            $user = $request->user ?? false;
+            if ($user) {
+                $bindings['user_name'] = $user->name ?? '-';
+            }
+            $faq = $request->faq ?? false;
+            if ($faq) {
+                $bindings['faq_question'] = $faq->question ?? '-';
             }
         } catch (\Exception $e) {
             report($e);
         }
-        $seo_args['SNAIL_SEO_DESCRIPTION'] = \Str::limit($seo_args['SNAIL_SEO_DESCRIPTION'], 151);
-        if (!\Str::contains($seo_args['SNAIL_SEO_TITLE'], 'Snappysnail')) {
-            $seo_args['SNAIL_SEO_TITLE'] = $seo_args['SNAIL_SEO_TITLE'] . " | Snappysnail";
-        }
-        $view->with($seo_args);
+
+        return $bindings;
     }
 }
