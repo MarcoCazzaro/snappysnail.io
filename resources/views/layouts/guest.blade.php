@@ -24,6 +24,7 @@
     </div>
     <div class="absolute top-0 right-0 px-6 py-4">
         <button
+            aria-label="Toggle dark mode"
             type="button"
             x-data="{
                     currentTheme: 'dark',

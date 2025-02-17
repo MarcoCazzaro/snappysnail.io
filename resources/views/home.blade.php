@@ -18,7 +18,7 @@
                 @if($wrapper_tag === 'a')
                 <a href="{{ url('/') }}">
                     @endif
-                    <{{$first_title_tag}} class="flex justify-center items-center"><img src="{{asset('img/snappysnail-logo.png')}}" class="ssnail-logo mr-3" width="31" height="31" alt="Snappysnail"> Snappysnail</{{$first_title_tag}}>
+                    <{{$first_title_tag}} class="flex justify-center items-center"><img src="{{asset('img/snappysnail-logo.png')}}" class="ssnail-logo mr-3" width="31" height="31" alt=""> Snappysnail</{{$first_title_tag}}>
                     @if($wrapper_tag === 'a')
                 </a>
                 @endif

@@ -3,7 +3,7 @@
         <div class="md:max-w-6xl mx-auto my-9 px-6">
             <div class="ssnail-search">
                 <label for="searchField" class="hidden">Search</label>
-                <input type="search" class="mt-1 block w-full rounded-md bg-white border-transparent focus:border-gray-200 focus:bg-white focus:ring-0 shadow-lg" wire:model.live="searchTerms" id="searchField" x-ref="searchField" autocomplete="off" @keyup="animating = false">
+                <input aria-label="Search" type="search" class="mt-1 block w-full rounded-md bg-white border-transparent focus:border-gray-200 focus:bg-white focus:ring-0 shadow-lg" wire:model.live="searchTerms" id="searchField" x-ref="searchField" autocomplete="off" @keyup="animating = false">
             </div>
         </div>
         <div class="md:max-w-6xl mx-auto text-gray-400 text-center" x-show="animating">
