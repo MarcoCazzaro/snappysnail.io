@@ -4,10 +4,10 @@
         @foreach($suggestion->images as $index => $image)
         <img src="{{ $image->thumbnail_url }}" alt="Suggestion image" class="absolute rounded-lg opacity-0 h-full w-full object-cover transition-all contrast-75 group-hover:contrast-100" x-show="{{ $index }} === currentIndex" x-transition.opacity.duration.500ms :class="{ 'opacity-100': currentIndex === {{ $index }} }">
         @endforeach
-        <button @click="currentIndex = (currentIndex - 1 + {{ count($suggestion->images) }}) % {{ count($suggestion->images) }}" class="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-3/4 w-12 h-12 text-black dark:text-white hover:text-brand hover:dark:text-brand transition-all opacity-25 group-hover:opacity-100">
+        <button aria-label="Previous image" @click="currentIndex = (currentIndex - 1 + {{ count($suggestion->images) }}) % {{ count($suggestion->images) }}" class="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-3/4 w-12 h-12 text-black dark:text-white hover:text-brand hover:dark:text-brand transition-all opacity-25 group-hover:opacity-100">
             <i class="fas fa-chevron-left"></i>
         </button>
-        <button @click="currentIndex = (currentIndex + 1) % {{ count($suggestion->images) }}" class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-3/4 w-12 h-12 text-black dark:text-white hover:text-brand hover:dark:text-brand transition-all opacity-25 group-hover:opacity-100">
+        <button aria-label="Next image" @click="currentIndex = (currentIndex + 1) % {{ count($suggestion->images) }}" class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-3/4 w-12 h-12 text-black dark:text-white hover:text-brand hover:dark:text-brand transition-all opacity-25 group-hover:opacity-100">
             <i class="fas fa-chevron-right"></i>
         </button>
     </div>
