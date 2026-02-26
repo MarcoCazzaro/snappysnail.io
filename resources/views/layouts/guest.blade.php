@@ -47,7 +47,7 @@
             class="border rounded-full px-2 text-brand dark:text-brand border-zinc-400 dark:border-zinc-900"
             @click="toggleTheme"><i class="fas fa-moon mr-2" :class="(currentTheme == 'light') ? 'opacity-25' : 'opacity-100'"></i><i class="fas fa-sun" :class="(currentTheme == 'dark') ? 'opacity-25' : 'opacity-100'"></i></button>
     </div>
-    <div class="md:fixed bottom-0 min-w-full bg-zinc-100 dark:bg-zinc-950 p-4">
+    <div class="min-w-full bg-zinc-100 dark:bg-zinc-950 p-4">
         <x-footer-copyright-line />
     </div>
 
