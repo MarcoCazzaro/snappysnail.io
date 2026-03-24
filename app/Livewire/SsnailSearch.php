@@ -15,16 +15,17 @@ class SsnailSearch extends Component
         $no_results = false;
         $too_short = false;
         $keywords = [];
+        $searchTerms = is_string($this->searchTerms) ? $this->searchTerms : '';
         switch (true) {
-            case (strlen($this->searchTerms) === 0):
+            case (strlen($searchTerms) === 0):
                 break;
 
-            case (strlen($this->searchTerms) < 3) && (strtolower($this->searchTerms) !== 'cv'):
+            case (strlen($searchTerms) < 3) && (strtolower($searchTerms) !== 'cv'):
                 $too_short = true;
                 break;
 
             default:
-                $searchTerms = '%' . $this->searchTerms . '%';
+                $searchTerms = '%' . $searchTerms . '%';
                 $suggestions = Suggestion::where('keywords', 'like', $searchTerms);
                 //$suggestions->orderByRaw('CASE WHEN id=4 THEN 0 ELSE id END ASC');
                 $suggestions->orderBy('sorting', 'DESC');
