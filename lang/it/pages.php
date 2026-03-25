@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'web_development' => 'Sviluppo web',
+    'web_development' => 'Web development',
 
     // Pagina servizi
     'services_what_i_do_heading' => 'Cosa faccio',
     'services_what_i_do_text' => 'Sviluppo siti web, landing page e applicazioni web, e aiuto le aziende esternalizzando i loro progetti esistenti, fornendo consulenza e occupandomi delle loro esigenze di sviluppo web.',
     'services_heading' => 'Servizi',
-    'services_label_web_dev' => 'Sviluppo Web',
+    'services_label_web_dev' => 'Web development',
     'services_label_landing' => 'Landing Page',
     'services_label_outsourcing' => 'Outsourcing',
     'services_label_consulting' => 'Consulenza',
@@ -37,7 +37,7 @@ return [
     'curriculum_google' => 'Google',
     'curriculum_bio_heading' => 'Bio',
     'curriculum_bio_1' => "Nato in Germania (ma non parlo tedesco, mi dispiace) nel 1983. Ho conseguito il Diploma di Perito Informatico all'I.T.I.S. E. Barsanti di Castelfranco Veneto (TV) nel 2002.",
-    'curriculum_bio_2' => 'Da allora ho sempre lavorato come programmatore, principalmente in ambiente desktop. Poi nel 2013 mi sono annoiato a fare sempre le stesse cose e ho iniziato a imparare lo sviluppo web, che nella mia mente doveva essere più stimolante per via della sua natura dinamica, e non sono rimasto deluso.',
+    'curriculum_bio_2' => 'Da allora ho sempre lavorato come programmatore, principalmente in ambiente desktop. Poi nel 2013 mi sono annoiato a fare sempre le stesse cose e ho iniziato a imparare il web development, che nella mia mente doveva essere più stimolante per via della sua natura dinamica, e non sono rimasto deluso.',
     'curriculum_bio_3' => 'Alla fine del 2015 mi sono trasferito a Londra, seguendo mia moglie, e ho iniziato a lavorare per Guru Graphics LTD come sviluppatore front end, fino a luglio 2016, quando sono stato assunto come sviluppatore freelance da Gooruf LTD, controllata da BFC Media S.p.A. (una casa editrice italiana specializzata in finanza). È qui che è nata Snappysnail LTD.',
     'curriculum_bio_4' => 'Ho avuto principalmente 1 cliente, BFC Media. Con il progetto Gooruf, volevano creare una community nel settore finanziario: fornitori, banche, assicurazioni, esperti e persone comuni, con domande, risposte, mini-siti, prodotti, sistema di reputazione e (quasi) una criptovaluta.',
     'curriculum_bio_5' => "All'inizio del 2019 BFC Media mi ha voluto a Milano come sviluppatore principale per tutti i loro siti: Forbes.it, Bluerating.com e molti altri, quindi mi sono trasferito in Italia e ho iniziato a lavorare su tutti i loro progetti. Per esempio ho creato il nuovo tema WordPress per Forbes.it (è un Easter egg, non dirlo a nessuno!).",

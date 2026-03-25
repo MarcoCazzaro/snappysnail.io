@@ -19,7 +19,7 @@ it('serves the English home page', function () {
 it('sets Italian locale and shows Italian text', function () {
     $this->get('/it')
         ->assertOk()
-        ->assertSee('Sviluppo web');
+        ->assertSee('Web development');
 });
 
 it('sets English locale and shows English text', function () {
