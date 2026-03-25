@@ -49,7 +49,7 @@ return [
 
     // Componente di ricerca
     'search_snail_speed' => 'La velocità di una lumaca è 0,013 m/s',
-    'search_loading_faster' => 'Questa barra di ricerca carica molto più velocemente',
+    'search_loading_faster' => 'Questa barra di ricerca si sta caricando molto più velocemente',
     'search_speed_relative' => 'La percezione della velocità è relativa',
     'search_no_results' => 'Nessun risultato per la tua ricerca. Suggerimenti?',
     'search_too_short' => 'Continua...',
