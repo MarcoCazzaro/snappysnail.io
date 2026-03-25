@@ -44,6 +44,21 @@ it('returns 404 for unknown locale prefix', function () {
     $this->get('/fr/services')->assertNotFound();
 });
 
+it('redirects bare paths to the default locale', function () {
+    $this->get('/portfolio')->assertRedirect('/'.config('app.locale').'/portfolio');
+});
+
+it('redirects bare paths to the session locale when set', function () {
+    $this->withSession(['locale' => 'it'])
+        ->get('/portfolio')
+        ->assertRedirect('/it/portfolio');
+});
+
+it('does not redirect bare locale names via catch-all', function () {
+    $this->get('/en')->assertOk();
+    $this->get('/it')->assertOk();
+});
+
 it('serves the Italian dear-googlebot page', function () {
     $this->get('/it/dear-googlebot')->assertOk();
 });
