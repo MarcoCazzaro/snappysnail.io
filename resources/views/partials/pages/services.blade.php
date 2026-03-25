@@ -16,15 +16,15 @@ $jsonData = json_encode([
         asset('img/services/faf73648-16a9-4e85-9bec-ccff55a924a6.jpeg'),
     ],
     'labels' => [
-        'Web Development',
-        'Landing Pages',
-        'Outsourcing',
-        'Consulting',
+        __('pages.services_label_web_dev'),
+        __('pages.services_label_landing'),
+        __('pages.services_label_outsourcing'),
+        __('pages.services_label_consulting'),
     ]
 ]);
 ?>
 <div
-    x-data="{ 
+    x-data="{
         jsonData: JSON.parse('{{ $jsonData }}'),
         tilesIndexes: [],
         theChosenOne: 0,
@@ -36,11 +36,11 @@ $jsonData = json_encode([
     }" x-init="shuffleTiles">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-16" @scroll.window.throttle="shuffleTiles">
         <div class="md:col-span-4">
-            <h2 class="mb-8">What I do</h2>
-            <p>I develop websites, landing pages, and web applications, and I help companies by outsourcing their existing projects, providing consulting and taking care of their web development needs.</p>
+            <h2 class="mb-8">{{ __('pages.services_what_i_do_heading') }}</h2>
+            <p>{{ __('pages.services_what_i_do_text') }}</p>
         </div>
         <div class="md:col-span-4">
-            <h2 class="mb-8">Services</h2>
+            <h2 class="mb-8">{{ __('pages.services_heading') }}</h2>
             <div class="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4">
                 <template x-for="(image, index) in jsonData.images" :key="index">
                     <div class="bg-zinc-100 dark:bg-zinc-800 w-full h-auto aspect-[1/1] transition-[order] rounded-lg overflow-clip" :style="{order:(tilesIndexes[index] - 1)}" :class="{ 'col-span-2': index === theChosenOne }">

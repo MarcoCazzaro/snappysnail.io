@@ -22,7 +22,32 @@
     <div id="ssnailMainWrapper" class="relative px-8 flex items-center justify-center min-h-screen bg-gradient-radial from-transparent to-zinc-100 dark:bg-gradient-radial dark:from-zinc-900 dark:to-zinc-950 py-4 sm:pt-0">
         {{ $slot }}
     </div>
-    <div class="absolute top-0 right-0 px-6 py-4">
+    <div class="absolute top-0 right-0 px-6 py-4 flex items-center gap-3">
+        <?php
+        $currentLocale = app()->getLocale();
+        $currentPath = request()->path();
+        $pathSuffix = ltrim(substr($currentPath, strlen($currentLocale)), '/');
+        $itUrl = url('it' . ($pathSuffix ? '/' . $pathSuffix : ''));
+        $enUrl = url('en' . ($pathSuffix ? '/' . $pathSuffix : ''));
+        ?>
+        <div x-data="{ open: false }" class="relative">
+            <button
+                type="button"
+                aria-label="Switch language"
+                @click="open = !open"
+                @click.outside="open = false"
+                class="border rounded-full px-2 py-[2px] text-brand dark:text-brand border-zinc-400 dark:border-zinc-900 text-sm"
+            >{{ $currentLocale === 'it' ? '🇮🇹' : '🇬🇧' }} {{ strtoupper($currentLocale) }} <i class="fas fa-chevron-down text-xs opacity-60"></i></button>
+            <div
+                x-show="open"
+                x-transition
+                class="absolute right-0 top-8 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg shadow-lg overflow-hidden z-50 min-w-[80px]"
+                style="display: none;"
+            >
+                <a href="{{ $itUrl }}" class="flex items-center gap-2 px-4 py-2 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-700 {{ $currentLocale === 'it' ? 'font-semibold' : '' }}">🇮🇹 IT</a>
+                <a href="{{ $enUrl }}" class="flex items-center gap-2 px-4 py-2 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-700 {{ $currentLocale === 'en' ? 'font-semibold' : '' }}">🇬🇧 EN</a>
+            </div>
+        </div>
         <button
             aria-label="Toggle dark mode"
             type="button"

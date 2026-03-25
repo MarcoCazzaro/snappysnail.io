@@ -1,0 +1,51 @@
+<?php
+
+use App\Models\Suggestion;
+use App\Models\User;
+
+it('duplicates a suggestion with the opposite locale', function () {
+    $user = User::factory()->create();
+    $suggestion = Suggestion::factory()->create(['locale' => 'en', 'title' => 'Original Title']);
+
+    $this->actingAs($user)
+        ->post(route('suggestions.translate', $suggestion))
+        ->assertRedirect();
+
+    $translated = Suggestion::where('title', 'Original Title')
+        ->where('locale', 'it')
+        ->first();
+
+    expect($translated)->not->toBeNull();
+    expect($translated->title)->toBe('Original Title');
+    expect($translated->keywords)->toBe($suggestion->keywords);
+    expect($translated->description)->toBe($suggestion->description);
+});
+
+it('flips locale from it to en when translating', function () {
+    $user = User::factory()->create();
+    $suggestion = Suggestion::factory()->create(['locale' => 'it']);
+
+    $this->actingAs($user)
+        ->post(route('suggestions.translate', $suggestion))
+        ->assertRedirect();
+
+    expect(Suggestion::where('locale', 'en')->where('title', $suggestion->title)->exists())->toBeTrue();
+});
+
+it('redirects to the edit page of the new translated suggestion', function () {
+    $user = User::factory()->create();
+    $suggestion = Suggestion::factory()->create(['locale' => 'en']);
+
+    $response = $this->actingAs($user)
+        ->post(route('suggestions.translate', $suggestion));
+
+    $translated = Suggestion::latest('id')->first();
+    $response->assertRedirect(route('suggestions.edit', $translated));
+});
+
+it('requires authentication to translate a suggestion', function () {
+    $suggestion = Suggestion::factory()->create();
+
+    $this->post(route('suggestions.translate', $suggestion))
+        ->assertRedirect(route('login'));
+});

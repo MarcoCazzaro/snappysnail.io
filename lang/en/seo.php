@@ -25,8 +25,8 @@ return [
     'contact_description' => 'Snappysnail.io | Contact',
     'contact_keywords' => 'Snappysnail,contact',
 
-    'dashboard_title' => 'Pannello di controllo',
-    'dashboard_description' => 'Il tuo pannello di controllo',
+    'dashboard_title' => 'Dashboard',
+    'dashboard_description' => 'Your control panel',
     'dashboard_keywords' => 'dashboard',
 
     'cookies_title' => 'Cookies',
@@ -41,35 +41,35 @@ return [
     'terms_show_description' => 'Terms of Service.',
     'terms_show_keywords' => 'Terms of Service',
 
-    'error_403_title' => 'Accesso negato',
-    'error_403_description' => 'Non hai i permessi per accedere a questa pagina',
-    'error_403_keywords' => '403,accesso negato',
+    'error_403_title' => 'Access Denied',
+    'error_403_description' => 'You do not have permission to access this page',
+    'error_403_keywords' => '403,access denied',
 
-    'error_404_title' => 'Pagina non trovata',
-    'error_404_description' => 'La pagina che stai cercando non esiste o è stata rimossa',
-    'error_404_keywords' => '404,pagina non trovata',
+    'error_404_title' => 'Page Not Found',
+    'error_404_description' => 'The page you are looking for does not exist or has been removed',
+    'error_404_keywords' => '404,page not found',
 
-    'error_4xx_title' => 'Errore del client',
-    'error_4xx_description' => 'Errore del client',
+    'error_4xx_title' => 'Client Error',
+    'error_4xx_description' => 'Client error',
     'error_4xx_keywords' => '4xx,client error',
 
-    'error_5xx_title' => 'Errore del server',
-    'error_5xx_description' => 'Errore del server, riprova più tardi',
+    'error_5xx_title' => 'Server Error',
+    'error_5xx_description' => 'Server error, please try again later',
     'error_5xx_keywords' => '5xx,server error',
 
-    'profile_show_title' => 'Il tuo profilo',
+    'profile_show_title' => 'Your Profile',
 
-    'profile_edit_title' => 'Modifica profilo',
+    'profile_edit_title' => 'Edit Profile',
 
-    'profile_settings_title' => 'Modifica preferenze',
+    'profile_settings_title' => 'Edit Preferences',
 
-    'website_privacy_title' => 'Informativa sulla Privacy',
+    'website_privacy_title' => 'Privacy Policy',
 
-    'website_cookies_title' => 'Cookie policy',
+    'website_cookies_title' => 'Cookie Policy',
 
-    'website_terms_title' => 'Termini e condizioni d\'uso e di servizio',
+    'website_terms_title' => 'Terms and Conditions of Use',
 
-    'website_contact_thankyou_title' => 'Grazie per averci contattati',
+    'website_contact_thankyou_title' => 'Thank you for contacting us',
 
-    'website_contact_title' => 'Contattaci',
+    'website_contact_title' => 'Contact us',
 ];

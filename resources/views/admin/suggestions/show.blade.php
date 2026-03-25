@@ -5,9 +5,17 @@
                 {{ $suggestion->title }}
             </h2>
 
-            <a href="{{ route('suggestions.edit', $suggestion) }}" class="flex gap-2 items-center ssnail-link">
-                <i class="fas fa-edit"></i>{{ __('Edit') }}
-            </a>
+            <div class="flex gap-4">
+                <a href="{{ route('suggestions.edit', $suggestion) }}" class="flex gap-2 items-center ssnail-link">
+                    <i class="fas fa-edit"></i>{{ __('Edit') }}
+                </a>
+                <form method="POST" action="{{ route('suggestions.translate', $suggestion) }}">
+                    @csrf
+                    <button type="submit" class="flex gap-2 items-center ssnail-link">
+                        <i class="fas fa-language"></i>{{ __('Translate') }}
+                    </button>
+                </form>
+            </div>
         </div>
     </x-slot>
 

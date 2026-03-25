@@ -1,7 +1,13 @@
 <?php
 
-it('returns a successful response', function () {
+it('redirects root to Italian locale', function () {
     $response = $this->get('/');
 
-    $response->assertStatus(200);
+    $response->assertRedirect('/it');
+});
+
+it('returns a successful response on the Italian home', function () {
+    $response = $this->get('/it');
+
+    $response->assertOk();
 });

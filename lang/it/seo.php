@@ -9,9 +9,21 @@ return [
     'home_description' => 'Snappysnail.io | Web development',
     'home_keywords' => 'Snappysnail',
 
+    'services_title' => 'Snappysnail | Servizi',
+    'services_description' => 'Snappysnail.io | Servizi web',
+    'services_keywords' => 'Snappysnail,servizi',
+
     'portfolio_title' => 'Snappysnail | Portfolio',
     'portfolio_description' => 'Snappysnail.io | Portfolio | Web development',
     'portfolio_keywords' => 'Snappysnail,portfolio',
+
+    'curriculum_title' => 'Snappysnail | Curriculum',
+    'curriculum_description' => 'Snappysnail.io | Curriculum vitae di Marco Cazzaro',
+    'curriculum_keywords' => 'Snappysnail,curriculum,cv',
+
+    'contact_title' => 'Snappysnail | Contatti',
+    'contact_description' => 'Snappysnail.io | Contatta Marco Cazzaro',
+    'contact_keywords' => 'Snappysnail,contatti,contact',
 
     'dashboard_title' => 'Pannello di controllo',
     'dashboard_description' => 'Il tuo pannello di controllo',

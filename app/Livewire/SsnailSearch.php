@@ -2,8 +2,8 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\Suggestion;
+use Livewire\Component;
 
 class SsnailSearch extends Component
 {
@@ -17,7 +17,7 @@ class SsnailSearch extends Component
         $keywords = [];
         $searchTerms = is_string($this->searchTerms) ? $this->searchTerms : '';
         switch (true) {
-            case (strlen($searchTerms) === 0):
+            case strlen($searchTerms) === 0:
                 break;
 
             case (strlen($searchTerms) < 3) && (strtolower($searchTerms) !== 'cv'):
@@ -25,8 +25,8 @@ class SsnailSearch extends Component
                 break;
 
             default:
-                $searchTerms = '%' . $searchTerms . '%';
-                $suggestions = Suggestion::where('keywords', 'like', $searchTerms);
+                $searchTerms = '%'.$searchTerms.'%';
+                $suggestions = Suggestion::where('locale', app()->getLocale())->where('keywords', 'like', $searchTerms);
                 //$suggestions->orderByRaw('CASE WHEN id=4 THEN 0 ELSE id END ASC');
                 $suggestions->orderBy('sorting', 'DESC');
                 $suggestions = $suggestions->get();
@@ -41,6 +41,7 @@ class SsnailSearch extends Component
                 break;
         }
         $this->dispatch('searchUpdated', array_unique($keywords));
+
         return view('livewire.ssnail-search', compact('suggestions', 'no_results', 'too_short'));
     }
 }

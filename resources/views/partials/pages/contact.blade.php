@@ -1,5 +1,5 @@
 <div>
-    <p class="mb-16">To contact me, please email me at <a href="mailto:info@snappysnail.io" class="ssnail-link" target="_blank">info@snappysnail.io</a></p>
+    <p class="mb-16">{{ __('pages.contact_text') }} <a href="mailto:info@snappysnail.io" class="ssnail-link" target="_blank">info@snappysnail.io</a></p>
     <div class="grid place-items-center">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="300" viewBox="0 0 300 300">
             <rect x="0" y="0" width="300" height="300" fill="#ffffff"></rect>
