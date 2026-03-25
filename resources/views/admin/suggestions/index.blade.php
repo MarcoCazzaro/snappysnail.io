@@ -81,6 +81,15 @@
                                                 <i class="fas fa-language"></i>
                                             </button>
                                         </form>
+                                        <form method="POST" action="{{ route('suggestions.destroy', $suggestion) }}"
+                                              x-data
+                                              @submit.prevent="if (confirm('{{ __('Delete this suggestion?') }}')) $el.submit()">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="flex gap-2 text-zinc-500 hover:text-red-600 transition-colors" title="{{ __('Delete') }}">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap">
