@@ -23,6 +23,7 @@ class SuggestionFactory extends Factory
             'url' => fake()->url(),
             'locale' => fake()->randomElement(['en', 'it']),
             'sorting' => fake()->numberBetween(1, 100),
+            'translation_of' => null,
         ];
     }
 }

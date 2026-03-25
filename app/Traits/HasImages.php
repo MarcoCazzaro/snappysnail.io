@@ -13,6 +13,25 @@ trait HasImages
         return $this->morphMany(Image::class, 'imageable');
     }
 
+    /**
+     * Copy image records from another model, sharing the same physical files.
+     * Uses withoutEvents to avoid re-dispatching the OptimiseImage job.
+     * Safe to call multiple times (idempotent via updateOrCreate).
+     */
+    public function copyImagesFrom(self $source): void
+    {
+        foreach ($source->images as $image) {
+            Image::withoutEvents(fn () => $this->images()->updateOrCreate(
+                ['file_path' => $image->file_path],
+                [
+                    'thumbnail_file_path' => $image->thumbnail_file_path,
+                    'caption' => $image->caption,
+                    'optimised_at' => $image->optimised_at,
+                ]
+            ));
+        }
+    }
+
     public function latestImage()
     {
         return $this->morphOne(Image::class, 'imageable')->latestOfMany();
@@ -84,7 +103,7 @@ trait HasImages
     private static function saveImageAndOptimisations($temp_image_path)
     {
         try {
-            $image_handler = new ImageOptimisation();
+            $image_handler = new ImageOptimisation;
             $file_paths = $image_handler->generate($temp_image_path);
             $image_handler = null;
         } catch (\Exception $e) {

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Scopes\SuggestionsSortingScope;
 use App\Models\Suggestion;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -95,7 +94,10 @@ class SuggestionController extends Controller
 
         $translated = $suggestion->replicate();
         $translated->locale = $targetLocale;
+        $translated->translation_of = $suggestion->id;
         $translated->save();
+
+        $translated->copyImagesFrom($suggestion);
 
         return redirect()->route('suggestions.edit', $translated);
     }
@@ -105,14 +107,8 @@ class SuggestionController extends Controller
      */
     public function exportUntranslated(): StreamedResponse
     {
-        $titlesWithBothLocales = Suggestion::withoutGlobalScope(SuggestionsSortingScope::class)
-            ->selectRaw('title, COUNT(DISTINCT locale) as locale_count')
-            ->groupBy('title')
-            ->having('locale_count', '>=', 2)
-            ->pluck('title');
-
-        $suggestions = Suggestion::query()
-            ->whereNotIn('title', $titlesWithBothLocales)
+        $suggestions = Suggestion::whereNull('translation_of')
+            ->doesntHave('translations')
             ->get(['id', 'title', 'keywords', 'description', 'url', 'sorting', 'locale']);
 
         $data = $suggestions->map(fn (Suggestion $s) => [
@@ -158,25 +154,32 @@ class SuggestionController extends Controller
 
             $source = Suggestion::find($item['source_id']);
 
+            if (! $source) {
+                continue;
+            }
+
             $data = [
                 'title' => $item['title'],
                 'keywords' => $item['keywords'],
                 'description' => $item['description'],
-                'url' => $item['url'] ?? $source?->url,
-                'sorting' => $item['sorting'] ?? $source?->sorting ?? 0,
+                'url' => $item['url'] ?? $source->url,
+                'sorting' => $item['sorting'] ?? $source->sorting,
                 'locale' => $item['target_locale'],
+                'translation_of' => $source->id,
             ];
 
             $existing = Suggestion::query()
+                ->where('translation_of', $source->id)
                 ->where('locale', $item['target_locale'])
-                ->where('title', $item['source_title'])
                 ->first();
 
             if ($existing) {
                 $existing->update($data);
+                $existing->copyImagesFrom($source);
                 $updated++;
             } else {
-                Suggestion::create($data);
+                $newSuggestion = Suggestion::create($data);
+                $newSuggestion->copyImagesFrom($source);
                 $created++;
             }
         }

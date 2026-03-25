@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Image;
 use App\Models\Suggestion;
 use App\Models\User;
 
@@ -19,6 +20,18 @@ it('duplicates a suggestion with the opposite locale', function () {
     expect($translated->title)->toBe('Original Title');
     expect($translated->keywords)->toBe($suggestion->keywords);
     expect($translated->description)->toBe($suggestion->description);
+});
+
+it('sets translation_of on the translated suggestion', function () {
+    $user = User::factory()->create();
+    $suggestion = Suggestion::factory()->create(['locale' => 'en']);
+
+    $this->actingAs($user)
+        ->post(route('suggestions.translate', $suggestion));
+
+    $translated = Suggestion::latest('id')->first();
+
+    expect($translated->translation_of)->toBe($suggestion->id);
 });
 
 it('flips locale from it to en when translating', function () {
@@ -41,6 +54,25 @@ it('redirects to the edit page of the new translated suggestion', function () {
 
     $translated = Suggestion::latest('id')->first();
     $response->assertRedirect(route('suggestions.edit', $translated));
+});
+
+it('copies images to the translated suggestion', function () {
+    $user = User::factory()->create();
+    $suggestion = Suggestion::factory()->create(['locale' => 'en']);
+
+    Image::withoutEvents(fn () => $suggestion->images()->create([
+        'file_path' => 'suggestions/images/test.jpg',
+        'thumbnail_file_path' => 'suggestions/images/test_thumb.jpg',
+        'optimised_at' => now(),
+    ]));
+
+    $this->actingAs($user)
+        ->post(route('suggestions.translate', $suggestion));
+
+    $translated = Suggestion::latest('id')->first();
+
+    expect($translated->images)->toHaveCount(1);
+    expect($translated->images->first()->file_path)->toBe('suggestions/images/test.jpg');
 });
 
 it('requires authentication to translate a suggestion', function () {
