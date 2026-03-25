@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Scopes\SuggestionsSortingScope;
 use App\Models\Suggestion;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class SuggestionController extends Controller
 {
@@ -81,6 +84,105 @@ class SuggestionController extends Controller
         $suggestion->syncImages($request);
 
         return redirect()->route('suggestions.index');
+    }
+
+    /**
+     * Duplicate the suggestion for translation into the other locale.
+     */
+    public function translate(Suggestion $suggestion): RedirectResponse
+    {
+        $targetLocale = $suggestion->locale === 'en' ? 'it' : 'en';
+
+        $translated = $suggestion->replicate();
+        $translated->locale = $targetLocale;
+        $translated->save();
+
+        return redirect()->route('suggestions.edit', $translated);
+    }
+
+    /**
+     * Download a JSON file of all suggestions that have no translation counterpart.
+     */
+    public function exportUntranslated(): StreamedResponse
+    {
+        $titlesWithBothLocales = Suggestion::withoutGlobalScope(SuggestionsSortingScope::class)
+            ->selectRaw('title, COUNT(DISTINCT locale) as locale_count')
+            ->groupBy('title')
+            ->having('locale_count', '>=', 2)
+            ->pluck('title');
+
+        $suggestions = Suggestion::query()
+            ->whereNotIn('title', $titlesWithBothLocales)
+            ->get(['id', 'title', 'keywords', 'description', 'url', 'sorting', 'locale']);
+
+        $data = $suggestions->map(fn (Suggestion $s) => [
+            'source_id' => $s->id,
+            'source_locale' => $s->locale,
+            'source_title' => $s->title,
+            'target_locale' => $s->locale === 'en' ? 'it' : 'en',
+            'title' => $s->title,
+            'keywords' => $s->keywords,
+            'description' => $s->description,
+            'url' => $s->url,
+            'sorting' => $s->sorting,
+        ])->values()->all();
+
+        return response()->streamDownload(
+            fn () => print (json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)),
+            'untranslated-suggestions.json',
+            ['Content-Type' => 'application/json'],
+        );
+    }
+
+    /**
+     * Import a translated JSON file and upsert suggestion translations.
+     */
+    public function importTranslations(Request $request): RedirectResponse
+    {
+        $request->validate(['file' => 'required|file|mimes:json,txt']);
+
+        $items = json_decode(file_get_contents($request->file('file')->path()), true);
+
+        if (! is_array($items)) {
+            return redirect()->route('suggestions.index')->with('error', __('Invalid JSON file.'));
+        }
+
+        $created = 0;
+        $updated = 0;
+
+        foreach ($items as $item) {
+            $required = ['source_id', 'source_title', 'target_locale', 'title', 'keywords', 'description'];
+            if (count(array_intersect_key(array_flip($required), $item)) !== count($required)) {
+                continue;
+            }
+
+            $source = Suggestion::find($item['source_id']);
+
+            $data = [
+                'title' => $item['title'],
+                'keywords' => $item['keywords'],
+                'description' => $item['description'],
+                'url' => $item['url'] ?? $source?->url,
+                'sorting' => $item['sorting'] ?? $source?->sorting ?? 0,
+                'locale' => $item['target_locale'],
+            ];
+
+            $existing = Suggestion::query()
+                ->where('locale', $item['target_locale'])
+                ->where('title', $item['source_title'])
+                ->first();
+
+            if ($existing) {
+                $existing->update($data);
+                $updated++;
+            } else {
+                Suggestion::create($data);
+                $created++;
+            }
+        }
+
+        return redirect()->route('suggestions.index')
+            ->with('status', __('Import complete: :created created, :updated updated.', compact('created', 'updated')));
     }
 
     /**
