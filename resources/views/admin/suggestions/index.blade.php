@@ -31,14 +31,14 @@
     <div class="py-12">
         @if (session('status'))
             <div class="mx-auto sm:px-6 lg:px-8 mb-4">
-                <div class="bg-green-100 text-green-800 px-4 py-2 rounded">{{ session('status') }}</div>
+                <div class="bg-green-100 text-green-800 px-4 py-2 rounded-sm">{{ session('status') }}</div>
             </div>
         @endif
 
         <div class="mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-xs sm:rounded-lg">
                 <div class="bg-white overflow-x-auto">
-                    <table class="table-fixed w-full min-w-[1024px] break-words">
+                    <table class="table-fixed w-full min-w-[1024px] wrap-break-word">
                         <thead>
                             <tr>
                                 <th class="px-6 py-3 text-left text-xs leading-4 font-medium text-zinc-500 uppercase tracking-wider">
@@ -103,7 +103,7 @@
                                         {{ \Str::limit(strip_tags($suggestion->description), 250) }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap">
-                                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold uppercase bg-zinc-800 text-white">
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-bold uppercase bg-zinc-800 text-white">
                                             {{ $suggestion->locale }}
                                         </span>
                                     </td>
@@ -152,7 +152,7 @@
                                             {{ \Str::limit(strip_tags($translation->description), 250) }}
                                         </td>
                                         <td class="px-6 py-3 whitespace-no-wrap">
-                                            <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold uppercase bg-brand text-zinc-900">
+                                            <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-bold uppercase bg-brand text-zinc-900">
                                                 {{ $translation->locale }}
                                             </span>
                                         </td>

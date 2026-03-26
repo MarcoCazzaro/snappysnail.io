@@ -43,13 +43,13 @@ $jsonData = json_encode([
             <h2 class="mb-8">{{ __('pages.services_heading') }}</h2>
             <div class="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4">
                 <template x-for="(image, index) in jsonData.images" :key="index">
-                    <div class="bg-zinc-100 dark:bg-zinc-800 w-full h-auto aspect-[1/1] transition-[order] rounded-lg overflow-clip" :style="{order:(tilesIndexes[index] - 1)}" :class="{ 'col-span-2': index === theChosenOne }">
+                    <div class="bg-zinc-100 dark:bg-zinc-800 w-full h-auto aspect-square transition-[order] rounded-lg overflow-clip" :style="{order:(tilesIndexes[index] - 1)}" :class="{ 'col-span-2': index === theChosenOne }">
                         <img :src="image" alt="Services" class="object-cover w-full h-full">
                     </div>
                 </template>
                 <template x-for="(label, index) in jsonData.labels" :key="index">
-                    <div class="bg-zinc-100 dark:bg-zinc-800 p-2 lg:p-4text-center w-full h-auto aspect-[1/1] rounded-lg overflow-clip grid place-items-center" :style="{order:(tilesIndexes[index + jsonData.images.length] - 1)}" :class="{ 'col-span-2': index + jsonData.images.length === theChosenOne }">
-                        <label x-text="label" class="break-words text-xs lg:text-lg"></label>
+                    <div class="bg-zinc-100 dark:bg-zinc-800 p-2 lg:p-4text-center w-full h-auto aspect-square rounded-lg overflow-clip grid place-items-center" :style="{order:(tilesIndexes[index + jsonData.images.length] - 1)}" :class="{ 'col-span-2': index + jsonData.images.length === theChosenOne }">
+                        <label x-text="label" class="wrap-break-word text-xs lg:text-lg"></label>
                     </div>
                 </template>
             </div>

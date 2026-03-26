@@ -13,7 +13,7 @@ $images = $suggestion->images ?? null;
 
     <div class="py-12">
         <div class="mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-xs sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form method="POST" action="{{ route('suggestions.' . $action, ($suggestion->id ?? null)) }}" class="space-y-6">
                         @csrf

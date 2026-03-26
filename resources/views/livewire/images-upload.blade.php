@@ -30,7 +30,7 @@
             <input id="{{ $input_id }}" type="file" wire:model.live="tempImages" multiple accept=".png,.jpg,.jpeg" class="-z-10 absolute opacity-0">
             <input type="hidden" name="modelImagesIds" value="{{ $this->modelImagesIds }}">
             <input type="hidden" name="tempImagesPaths" value="{{ $this->tempImagesPaths }}">
-            <input type="number" wire:model.live="validationTrigger" {{ ($minImagesCount > 0) ? 'required' : '' }} class="opacity-0 h-[1px]">
+            <input type="number" wire:model.live="validationTrigger" {{ ($minImagesCount > 0) ? 'required' : '' }} class="opacity-0 h-px">
     </div>
     <x-input-error for="validationTrigger" class="mt-2" />
     <x-input-error for="modelImagesIds" class="mt-2" />
