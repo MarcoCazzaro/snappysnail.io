@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
+use App\Jobs\OptimiseImage;
 use App\Models\Suggestion;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
-use App\Jobs\OptimiseImage;
 
 class SuggestionsSeeder extends Seeder
 {
@@ -17,7 +17,7 @@ class SuggestionsSeeder extends Seeder
      */
     public function run()
     {
-        $json = File::get("database/seeders/data/suggestions.json");
+        $json = File::get('database/seeders/data/suggestions.json');
         $suggestions = json_decode($json);
 
         foreach ($suggestions as $suggestion) {
@@ -26,12 +26,15 @@ class SuggestionsSeeder extends Seeder
                 // Get the view content
                 $data['description'] = (string) View::make(str_replace('views.', '', $data['description']));
             }
-            $suggestion  = Suggestion::create($data);
+            $suggestion = Suggestion::firstOrCreate(['title' => $data['title']], $data);
+            if (! $suggestion->wasRecentlyCreated) {
+                continue;
+            }
             $keywords = explode(',', $data['keywords'] ?? '');
             $request = ['tempImagesPaths' => []];
             if ($keywords && in_array('works', $keywords) && count($keywords) > 2) {
                 $folder_name = $keywords[2];
-                $path = database_path('seeders/data/images/works/' . $folder_name);
+                $path = database_path('seeders/data/images/works/'.$folder_name);
                 if (File::exists($path)) {
                     $files = File::files($path);
                     foreach ($files as $file) {

@@ -14,7 +14,9 @@ class SuggestionController extends Controller
      */
     public function index()
     {
-        $suggestions = Suggestion::all();
+        $suggestions = Suggestion::whereNull('translation_of')
+            ->with('translations')
+            ->get();
 
         return view('admin.suggestions.index', compact('suggestions'));
     }
