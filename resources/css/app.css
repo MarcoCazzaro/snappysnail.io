@@ -11,21 +11,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Define gradient variables globally for utility classes */
-:root {
-    --background-image-gradient-radial: radial-gradient(
-        var(--tw-gradient-stops)
-    );
-}
-
 @theme {
     --font-sans:
         Nunito, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-
-    --background-image-gradient-radial: radial-gradient(
-        var(--tw-gradient-stops)
-    );
 
     --color-brand: #fcbe03;
     --color-brand-hover: #fc8003;
@@ -47,10 +36,6 @@
     ::file-selector-button {
         border-color: var(--color-gray-200, currentcolor);
     }
-}
-
-.bg-gradient-radial {
-    background-image: var(--background-image-gradient-radial);
 }
 
 /* Custom heading sizes — inlined from custom/typography.css.

@@ -19,7 +19,7 @@
 </head>
 
 <body class="relative antialiased ssnail-page-{{ $page_name ?? 'guest'}}">
-    <div id="ssnailMainWrapper" class="relative px-8 flex items-center justify-center min-h-screen bg-gradient-radial from-transparent to-zinc-100 dark:bg-gradient-radial dark:from-zinc-900 dark:to-zinc-950 py-4 sm:pt-0">
+    <div id="ssnailMainWrapper" class="relative px-8 flex items-center justify-center min-h-screen bg-radial from-transparent to-zinc-100 dark:bg-radial dark:from-zinc-900 dark:to-zinc-950 py-4 sm:pt-0">
         {{ $slot }}
     </div>
     <div class="absolute top-0 right-0 px-6 py-4 flex items-center gap-3">
@@ -36,7 +36,7 @@
                 aria-label="Switch language"
                 @click="open = !open"
                 @click.outside="open = false"
-                class="border rounded-full px-2 py-[2px] text-brand dark:text-brand border-zinc-400 dark:border-zinc-900 text-sm"
+                class="cursor-pointer border rounded-full px-2 py-[2px] text-brand dark:text-brand border-zinc-400 dark:border-zinc-900 text-sm"
             >{{ $currentLocale === 'it' ? '🇮🇹' : '🇬🇧' }} {{ strtoupper($currentLocale) }} <i class="fas fa-chevron-down text-xs opacity-60"></i></button>
             <div
                 x-show="open"
@@ -69,7 +69,7 @@
                     }
                 }"
             x-init="applyTheme()"
-            class="border rounded-full px-2 text-brand dark:text-brand border-zinc-400 dark:border-zinc-900"
+            class="cursor-pointer border rounded-full px-2 text-brand dark:text-brand border-zinc-400 dark:border-zinc-900"
             @click="toggleTheme"><i class="fas fa-moon mr-2" :class="(currentTheme == 'light') ? 'opacity-25' : 'opacity-100'"></i><i class="fas fa-sun" :class="(currentTheme == 'dark') ? 'opacity-25' : 'opacity-100'"></i></button>
     </div>
     <div class="min-w-full bg-zinc-100 dark:bg-zinc-950 p-4">
