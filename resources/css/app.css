@@ -1,6 +1,6 @@
-@import './custom/home.css';
+@import "./custom/home.css";
 
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
@@ -12,14 +12,16 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans:
-    Nunito, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans:
+        Nunito, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+    --background-image-gradient-radial: radial-gradient(
+        var(--tw-gradient-stops)
+    );
 
-  --color-brand: #fcbe03;
-  --color-brand-hover: #fc8003;
+    --color-brand: #fcbe03;
+    --color-brand-hover: #fc8003;
 }
 
 /*
@@ -31,13 +33,17 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
+}
+
+.bg-gradient-radial {
+    background-image: var(--background-image-gradient-radial);
 }
 
 /* Custom heading sizes — inlined from custom/typography.css.
@@ -87,7 +93,7 @@ html,
 body {
     @apply text-[#131313] dark:text-[#c1c3c1];
     background-color: #fcfdfe;
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
     margin: 0;
 }
 
