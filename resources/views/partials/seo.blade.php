@@ -18,3 +18,12 @@
 @yield('open-graph')
 <link rel="favicon" href="{{asset('favicon.ico')}}" type="image/x-icon"/>
 <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon"/>
+<?php
+$_hreflangLocale = app()->getLocale();
+$_hreflangSuffix = ltrim(substr(request()->path(), strlen($_hreflangLocale)), '/');
+$_hreflangItUrl = url('it' . ($_hreflangSuffix ? '/' . $_hreflangSuffix : ''));
+$_hreflangEnUrl = url('en' . ($_hreflangSuffix ? '/' . $_hreflangSuffix : ''));
+?>
+<link rel="alternate" hreflang="it" href="{{ $_hreflangItUrl }}" />
+<link rel="alternate" hreflang="en" href="{{ $_hreflangEnUrl }}" />
+<link rel="alternate" hreflang="x-default" href="{{ $_hreflangItUrl }}" />

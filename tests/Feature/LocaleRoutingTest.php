@@ -67,3 +67,46 @@ it('sets the html lang attribute to the active locale', function () {
     $this->get('/it')->assertOk()->assertSee('lang="it"', false);
     $this->get('/en')->assertOk()->assertSee('lang="en"', false);
 });
+
+it('outputs hreflang tags on the Italian home page', function () {
+    $response = $this->get('/it')->assertOk();
+
+    $response->assertSee('hreflang="it"', false);
+    $response->assertSee('hreflang="en"', false);
+    $response->assertSee('hreflang="x-default"', false);
+});
+
+it('outputs hreflang tags on the English home page', function () {
+    $response = $this->get('/en')->assertOk();
+
+    $response->assertSee('hreflang="it"', false);
+    $response->assertSee('hreflang="en"', false);
+    $response->assertSee('hreflang="x-default"', false);
+});
+
+it('hreflang alternate URLs point to correct locale on root pages', function () {
+    $response = $this->get('/it')->assertOk();
+
+    $response->assertSee('hreflang="it" href="' . url('it') . '"', false);
+    $response->assertSee('hreflang="en" href="' . url('en') . '"', false);
+});
+
+it('hreflang alternate URLs swap locale prefix on subpages', function (string $locale, string $page) {
+    $response = $this->get("/{$locale}/{$page}")->assertOk();
+
+    $response->assertSee('hreflang="it" href="' . url("it/{$page}") . '"', false);
+    $response->assertSee('hreflang="en" href="' . url("en/{$page}") . '"', false);
+})->with([
+    'it curriculum' => ['it', 'curriculum'],
+    'en curriculum' => ['en', 'curriculum'],
+    'it services'   => ['it', 'services'],
+    'en services'   => ['en', 'services'],
+    'it contact'    => ['it', 'contact'],
+    'en contact'    => ['en', 'contact'],
+]);
+
+it('x-default hreflang always points to the Italian URL', function (string $locale) {
+    $response = $this->get("/{$locale}/curriculum")->assertOk();
+
+    $response->assertSee('hreflang="x-default" href="' . url('it/curriculum') . '"', false);
+})->with(['it', 'en']);
