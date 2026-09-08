@@ -2,9 +2,9 @@
 
 namespace App\Traits;
 
+use App\Contracts\ImageOptimisationContract;
 use App\Jobs\DeletePhisicalImages;
 use App\Models\Image;
-use App\Services\ImageOptimisation;
 
 trait HasImages
 {
@@ -15,20 +15,18 @@ trait HasImages
 
     /**
      * Copy image records from another model, sharing the same physical files.
-     * Uses withoutEvents to avoid re-dispatching the OptimiseImage job.
      * Safe to call multiple times (idempotent via updateOrCreate).
      */
     public function copyImagesFrom(self $source): void
     {
         foreach ($source->images as $image) {
-            Image::withoutEvents(fn () => $this->images()->updateOrCreate(
+            $this->images()->updateOrCreate(
                 ['file_path' => $image->file_path],
                 [
                     'thumbnail_file_path' => $image->thumbnail_file_path,
                     'caption' => $image->caption,
-                    'optimised_at' => $image->optimised_at,
                 ]
-            ));
+            );
         }
     }
 
@@ -78,6 +76,9 @@ trait HasImages
                 foreach ($temp_images_paths as $temp_image_path) {
                     if (trim($temp_image_path) !== '') {
                         $file_paths = self::saveImageAndOptimisations($temp_image_path);
+                        if ($file_paths === false) {
+                            continue;
+                        }
                         $new_images->add([
                             'file_path' => $file_paths['full'],
                             'thumbnail_file_path' => $file_paths['thumbnail'],
@@ -100,17 +101,14 @@ trait HasImages
         DeletePhisicalImages::$dispatch_method($files);
     }
 
-    private static function saveImageAndOptimisations($temp_image_path)
+    private static function saveImageAndOptimisations(string $temp_image_path): array|false
     {
         try {
-            $image_handler = new ImageOptimisation;
-            $file_paths = $image_handler->generate($temp_image_path);
-            $image_handler = null;
+            return app(ImageOptimisationContract::class)->generate($temp_image_path);
         } catch (\Exception $e) {
             report($e);
-            $file_paths = false;
-        }
 
-        return $file_paths;
+            return false;
+        }
     }
 }

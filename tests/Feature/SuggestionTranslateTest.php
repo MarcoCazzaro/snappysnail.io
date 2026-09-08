@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Image;
 use App\Models\Suggestion;
 use App\Models\User;
 
@@ -60,11 +59,10 @@ it('copies images to the translated suggestion', function () {
     $user = User::factory()->create();
     $suggestion = Suggestion::factory()->create(['locale' => 'en']);
 
-    Image::withoutEvents(fn () => $suggestion->images()->create([
+    $suggestion->images()->create([
         'file_path' => 'suggestions/images/test.jpg',
         'thumbnail_file_path' => 'suggestions/images/test_thumb.jpg',
-        'optimised_at' => now(),
-    ]));
+    ]);
 
     $this->actingAs($user)
         ->post(route('suggestions.translate', $suggestion));

@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Image;
 use App\Models\Suggestion;
 use App\Models\User;
 use Illuminate\Http\UploadedFile;
@@ -135,11 +134,10 @@ it('copies images to the translated suggestion on import', function () {
     $user = User::factory()->create();
     $source = Suggestion::factory()->create(['locale' => 'en']);
 
-    Image::withoutEvents(fn () => $source->images()->create([
+    $source->images()->create([
         'file_path' => 'suggestions/images/test.jpg',
         'thumbnail_file_path' => 'suggestions/images/test_thumb.jpg',
-        'optimised_at' => now(),
-    ]));
+    ]);
 
     $json = json_encode([[
         'source_id' => $source->id,

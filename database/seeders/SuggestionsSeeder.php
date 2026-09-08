@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Jobs\OptimiseImage;
 use App\Models\Suggestion;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
@@ -72,8 +71,8 @@ class SuggestionsSeeder extends Seeder
 
     /**
      * Copy every image in database/seeders/data/images/works/{folder} onto the
-     * suggestion, then optimise it. Skipped when the suggestion already has
-     * images so re-seeding does not churn storage.
+     * suggestion; syncImages() optimises each one. Skipped when the suggestion
+     * already has images so re-seeding does not churn storage.
      */
     private function attachImages(Suggestion $suggestion, ?string $folder): void
     {
@@ -97,9 +96,5 @@ class SuggestionsSeeder extends Seeder
         }
 
         $suggestion->syncImages((object) ['tempImagesPaths' => $paths->implode(',')]);
-
-        foreach ($suggestion->images as $image) {
-            OptimiseImage::dispatchSync($image);
-        }
     }
 }

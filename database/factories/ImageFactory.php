@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Services\ImageOptimisation;
+use App\Contracts\ImageOptimisationContract;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ImageFactory extends Factory
@@ -15,9 +15,7 @@ class ImageFactory extends Factory
     public function definition()
     {
         $fake_image_path = 'database/data/faker_images/stock-image-house-'.rand(1, 5).'.jpg';
-        $image_handler = new ImageOptimisation();
-        $file_paths = $image_handler->generate($fake_image_path);
-        $image_handler = null;
+        $file_paths = app(ImageOptimisationContract::class)->generate($fake_image_path);
 
         return [
             'caption' => fake()->sentence(),

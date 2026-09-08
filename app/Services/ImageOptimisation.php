@@ -2,36 +2,50 @@
 
 namespace App\Services;
 
-use Illuminate\Http\File;
+use App\Contracts\ImageOptimisationContract;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\ImageManager;
 
-class ImageOptimisation
+class ImageOptimisation implements ImageOptimisationContract
 {
-    public function generate($source_image): array
-    {
-        $image_paths = [
-            'full' => null,
-            'thumbnail' => null,
-        ];
-        try {
-            $image_file = new File($source_image);
-            $full_image_name = str_replace($image_file->extension(), 'webp', time() . $image_file->hashName());
-            $full_path = Storage::disk('public')->putFileAs('suggestions/images', $image_file, $full_image_name, 'public');
-            $thumbnail_image_name = str_replace('.webp', '_200_200.webp', $full_image_name);
-            $thumbnail_path = Storage::disk('public')->putFileAs('suggestions/images', $image_file, $thumbnail_image_name, 'public');
-            $image_paths = [
-                'full' => $full_path,
-                'thumbnail' => $thumbnail_path,
-            ];
-        } catch (\Exception $e) {
-            report($e);
-        }
+    private const DIRECTORY = 'suggestions/images';
 
-        return $image_paths;
+    private const MAX_WIDTH = 1920;
+
+    private const MAX_HEIGHT = 1080;
+
+    private const THUMBNAIL_SIZE = 400;
+
+    public const QUALITY = 90;
+
+    public function __construct(private readonly ImageManager $manager) {}
+
+    public function generate(string $sourcePath): array
+    {
+        $name = time().Str::random(12);
+        $fullPath = self::DIRECTORY.'/'.$name.'.webp';
+        $thumbnailPath = self::DIRECTORY.'/'.$name.'_thumb.webp';
+
+        $full = $this->manager->read($sourcePath)
+            ->scaleDown(self::MAX_WIDTH, self::MAX_HEIGHT)
+            ->toWebp(self::QUALITY);
+
+        $thumbnail = $this->manager->read($sourcePath)
+            ->cover(self::THUMBNAIL_SIZE, self::THUMBNAIL_SIZE)
+            ->toWebp(self::QUALITY);
+
+        Storage::disk('public')->put($fullPath, (string) $full);
+        Storage::disk('public')->put($thumbnailPath, (string) $thumbnail);
+
+        return [
+            'full' => $fullPath,
+            'thumbnail' => $thumbnailPath,
+        ];
     }
 
-    public static function getPublicUrl($partial_file_path)
+    public static function getPublicUrl(string $partialFilePath): string
     {
-        return asset(Storage::url($partial_file_path));
+        return asset(Storage::url($partialFilePath));
     }
 }
