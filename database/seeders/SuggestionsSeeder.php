@@ -15,7 +15,8 @@ class SuggestionsSeeder extends Seeder
      *
      * Idempotent: each (key, locale) row is upserted, so re-running applies
      * content edits without creating duplicates. Images are attached to the
-     * English source once and shared by reference with each translation.
+     * English source only — Suggestion::images() delegates a translation to
+     * its source, so nothing needs to be copied onto the translation.
      */
     public function run(): void
     {
@@ -30,8 +31,7 @@ class SuggestionsSeeder extends Seeder
                     continue;
                 }
 
-                $this->upsertLocale($group, $locale, $source->id)
-                    ->copyImagesFrom($source);
+                $this->upsertLocale($group, $locale, $source->id);
             }
         }
     }

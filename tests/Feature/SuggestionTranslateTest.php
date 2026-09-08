@@ -55,11 +55,11 @@ it('redirects to the edit page of the new translated suggestion', function () {
     $response->assertRedirect(route('suggestions.edit', $translated));
 });
 
-it('copies images to the translated suggestion', function () {
+it('shares the source suggestion\'s images with the translated suggestion, by reference', function () {
     $user = User::factory()->create();
     $suggestion = Suggestion::factory()->create(['locale' => 'en']);
 
-    $suggestion->images()->create([
+    $image = $suggestion->images()->create([
         'file_path' => 'suggestions/images/test.jpg',
         'thumbnail_file_path' => 'suggestions/images/test_thumb.jpg',
     ]);
@@ -69,8 +69,8 @@ it('copies images to the translated suggestion', function () {
 
     $translated = Suggestion::latest('id')->first();
 
-    expect($translated->images)->toHaveCount(1);
-    expect($translated->images->first()->file_path)->toBe('suggestions/images/test.jpg');
+    expect($translated->images)->toHaveCount(1)
+        ->and($translated->images->first()->id)->toBe($image->id);
 });
 
 it('requires authentication to translate a suggestion', function () {

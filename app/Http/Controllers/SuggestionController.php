@@ -99,8 +99,6 @@ class SuggestionController extends Controller
         $translated->translation_of = $suggestion->id;
         $translated->save();
 
-        $translated->copyImagesFrom($suggestion);
-
         return redirect()->route('suggestions.edit', $translated);
     }
 
@@ -177,11 +175,9 @@ class SuggestionController extends Controller
 
             if ($existing) {
                 $existing->update($data);
-                $existing->copyImagesFrom($source);
                 $updated++;
             } else {
-                $newSuggestion = Suggestion::create($data);
-                $newSuggestion->copyImagesFrom($source);
+                Suggestion::create($data);
                 $created++;
             }
         }

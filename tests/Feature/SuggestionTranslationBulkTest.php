@@ -130,11 +130,11 @@ it('imports and updates an existing suggestion matched by translation_of', funct
     expect($existing->title)->toBe('Ciao aggiornato');
 });
 
-it('copies images to the translated suggestion on import', function () {
+it('shares the source\'s images with the translated suggestion created on import', function () {
     $user = User::factory()->create();
     $source = Suggestion::factory()->create(['locale' => 'en']);
 
-    $source->images()->create([
+    $image = $source->images()->create([
         'file_path' => 'suggestions/images/test.jpg',
         'thumbnail_file_path' => 'suggestions/images/test_thumb.jpg',
     ]);
@@ -158,8 +158,8 @@ it('copies images to the translated suggestion on import', function () {
 
     $translated = Suggestion::where('locale', 'it')->first();
 
-    expect($translated->images)->toHaveCount(1);
-    expect($translated->images->first()->file_path)->toBe('suggestions/images/test.jpg');
+    expect($translated->images)->toHaveCount(1)
+        ->and($translated->images->first()->id)->toBe($image->id);
 });
 
 it('skips entries with missing required keys', function () {

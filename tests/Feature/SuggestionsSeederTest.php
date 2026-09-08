@@ -67,7 +67,7 @@ it('upserts content edits onto the existing row instead of duplicating', functio
         ->and($row->first()->sorting)->toBe(202501);
 });
 
-it('renders a "views." description reference and shares source images with the translation', function () {
+it('renders a "views." description reference and delegates the translation\'s images to its source', function () {
     $this->seed(SuggestionsSeeder::class);
 
     $contact = seededSuggestions()->where(['key' => 'contact', 'locale' => 'en'])->firstOrFail();
@@ -78,6 +78,6 @@ it('renders a "views." description reference and shares source images with the t
     $it = seededSuggestions()->where(['key' => 'bertone-design', 'locale' => 'it'])->firstOrFail();
 
     expect($en->images()->count())->toBeGreaterThan(0)
-        ->and($it->images()->pluck('file_path')->sort()->values()->all())
-        ->toBe($en->images()->pluck('file_path')->sort()->values()->all());
+        ->and($it->images()->pluck('id')->sort()->values()->all())
+        ->toBe($en->images()->pluck('id')->sort()->values()->all());
 });

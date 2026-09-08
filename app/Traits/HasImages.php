@@ -5,37 +5,22 @@ namespace App\Traits;
 use App\Contracts\ImageOptimisationContract;
 use App\Jobs\DeletePhisicalImages;
 use App\Models\Image;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 trait HasImages
 {
-    public function images()
+    public function images(): MorphMany
     {
         return $this->morphMany(Image::class, 'imageable');
     }
 
-    /**
-     * Copy image records from another model, sharing the same physical files.
-     * Safe to call multiple times (idempotent via updateOrCreate).
-     */
-    public function copyImagesFrom(self $source): void
-    {
-        foreach ($source->images as $image) {
-            $this->images()->updateOrCreate(
-                ['file_path' => $image->file_path],
-                [
-                    'thumbnail_file_path' => $image->thumbnail_file_path,
-                    'caption' => $image->caption,
-                ]
-            );
-        }
-    }
-
-    public function latestImage()
+    public function latestImage(): MorphOne
     {
         return $this->morphOne(Image::class, 'imageable')->latestOfMany();
     }
 
-    public function oldestImage()
+    public function oldestImage(): MorphOne
     {
         return $this->morphOne(Image::class, 'imageable')->oldestOfMany();
     }
@@ -97,11 +82,11 @@ trait HasImages
     }
 
     /**
-     * A file_path/thumbnail_file_path can be shared by more than one Image row
-     * — a translation's row points at the same physical file as its source's
-     * (see copyImagesFrom()). Only queue a file for deletion once no remaining
-     * Image row references it, so removing one suggestion's image can't break
-     * a translation still using the same file.
+     * Defensive: a file_path/thumbnail_file_path should no longer be shared by
+     * more than one Image row (Suggestion::images() now delegates a
+     * translation to its source instead of copying rows), but only queue a
+     * file for deletion once no remaining Image row references it, as a
+     * guard against any leftover legacy data that still does.
      */
     private static function deletePhisicalFiles(array $files)
     {

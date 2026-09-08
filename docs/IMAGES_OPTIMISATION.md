@@ -1,7 +1,8 @@
 # Image optimisation: refactor plan
 
 **Date:** 2026-09-08
-**Status:** implemented; three bugs found and fixed post-deploy (see §2)
+**Status:** implemented; three bugs found and fixed post-deploy (see §2), then
+the root design that caused them was replaced (see §3)
 
 ## TL;DR
 
@@ -79,14 +80,15 @@ to this app's polymorphic, multi-image-per-model `Image` model.
   optimisation itself, so seeded and admin-uploaded images are produced by
   identical code.
 - **Backfill command** `snappysnail:optimise-images`: groups existing `Image`
-  rows by shared physical `file_path` (a translation's row points at the same
-  file as its source's, per `copyImagesFrom()`), re-runs `generate()` against
-  each distinct file once, updates every row in that group, then deletes the
-  old physical files. Skips a group already carrying the `_thumb.webp`
-  filename suffix the pipeline produces, so reruns are cheap; `--force`
-  bypasses the check. See §2 for two bugs found in this command's first
-  version and fixed post-deploy — read it before relying on the description
-  above as "this always worked."
+  rows by shared physical `file_path`, re-runs `generate()` against each
+  distinct file once, updates every row in that group, then deletes the old
+  physical files. Skips a group already carrying the `_thumb.webp` filename
+  suffix the pipeline produces, so reruns are cheap; `--force` bypasses the
+  check. See §2 for two bugs found in this command's first version and fixed
+  post-deploy — read it before relying on the description above as "this
+  always worked." (The grouping this command does is now belt-and-braces
+  rather than load-bearing — as of §3, a translation no longer has its own
+  `Image` rows to group in the first place.)
 
 ---
 
@@ -330,3 +332,65 @@ as two elements instead of flattening them (the "remove all images" branch of
 `syncImages()`), which would have made `DeletePhisicalImages` try to delete an
 array as if it were a file path. Covered by
 `tests/Feature/HasImagesTest.php`.
+
+---
+
+## §3. Root design fix: a translation no longer owns its own images (2026-09-08)
+
+Bugs 1–3 were all patches over the same underlying design flaw: a
+translation's `Image` rows were **copies** of its source's rows
+(`Suggestion::copyImagesFrom()`), independent database rows that happened to
+start out pointing at the same `file_path`. Nothing kept them in sync after
+that. Every one of the three bugs above was a different way for those two
+copies to drift apart — reprocess one, the other goes stale; delete one, the
+other's file disappears. Patching each symptom (grouping, reference-counting)
+worked around the copies drifting; it didn't stop them from being copies.
+
+**The actual fix: stop copying.** A translation now has **zero `Image` rows
+of its own**. `Suggestion::images()` (and `latestImage()`/`oldestImage()`)
+delegate to the translation's source when `translation_of` is set:
+
+```php
+public function images(): MorphMany
+{
+    return $this->translation_of !== null
+        ? $this->translationSource->images()
+        : $this->ownImages(); // HasImages::images(), aliased on import
+}
+```
+
+One set of rows, one set of files, structurally impossible to desync because
+there is nothing to desync — not "kept in sync by more careful code," just
+not duplicated in the first place. `HasImages::copyImagesFrom()` is deleted;
+every call site (`SuggestionController::translate()`, `::importTranslations()`,
+`SuggestionsSeeder`) simply stops calling it — setting `translation_of` is now
+sufficient for a translation to show its source's images, nothing else to do.
+
+**Trade-off:** calling `$suggestion->images()->create(...)` on a translation
+attaches the new image to its **source**, not the translation — this is the
+intended behaviour (images are shared, not per-locale), but it means editing
+images from a translation's admin page silently edits the source's image set.
+Also, this relation does not support Eloquent eager loading
+(`Suggestion::with('images')`) correctly across a mixed collection of sources
+and translations — `addEagerConstraints()` would constrain by each model's
+own id, not its delegated source's id. Nothing in the codebase currently does
+this (every existing usage is a single suggestion's `->images` at a time,
+checked before implementing), so it's a latent limitation, not a live bug —
+worth remembering if a future feature wants to eager-load images across a
+suggestion listing.
+
+**Data cleanup:** migration
+`2026_09_08_102105_delete_translation_owned_images.php` deletes every `Image`
+row directly owned by a translation in the existing database — both the
+(now redundant) correct copies and the ones broken by Bug 2. It's a metadata-
+only delete (`DB::table('images')->delete()`), no physical files are touched:
+every file those rows referenced is either still referenced by the source's
+row, or was already gone (Bug 2's orphaned rows). This is what actually
+resolves "all the Italian images are old" on production — after this
+migration runs, a translation reads its source's (already correctly
+optimised) `Image` rows live, every time.
+
+Covered by `tests/Feature/SuggestionImageDelegationTest.php` (delegation
+itself) and updated assertions in `SuggestionTranslateTest`,
+`SuggestionTranslationBulkTest`, and `SuggestionsSeederTest` (now asserting
+shared row identity, not just equal `file_path` values).
