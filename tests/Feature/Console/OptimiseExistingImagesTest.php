@@ -84,6 +84,38 @@ it('reprocesses a legacy image even if its old-named thumbnail happens to alread
         ->and($image->thumbnail_file_path)->toEndWith('_thumb.webp');
 });
 
+it('reprocesses a file shared by a translation and its source together, without breaking the second row', function () {
+    // Regression test: Suggestion::copyImagesFrom() gives a translation its own
+    // Image row pointing at the *same* file_path as the source's row. Processing
+    // rows one at a time deleted the shared file after the first row, leaving
+    // the second row (e.g. the Italian translation) pointing at nothing.
+    $source = Suggestion::factory()->create(['locale' => 'en']);
+    $translation = Suggestion::factory()->create(['locale' => 'it']);
+
+    putRawImage(1200, 800, 'suggestions/images/shared.jpg');
+
+    $sourceImage = $source->images()->create([
+        'file_path' => 'suggestions/images/shared.jpg',
+        'thumbnail_file_path' => 'suggestions/images/shared.jpg',
+    ]);
+    $translationImage = $translation->images()->create([
+        'file_path' => 'suggestions/images/shared.jpg',
+        'thumbnail_file_path' => 'suggestions/images/shared.jpg',
+    ]);
+
+    $this->artisan('snappysnail:optimise-images')->assertExitCode(0);
+
+    $sourceImage->refresh();
+    $translationImage->refresh();
+
+    expect($sourceImage->file_path)->not->toBe('suggestions/images/shared.jpg')
+        ->and($translationImage->file_path)->not->toBe('suggestions/images/shared.jpg')
+        ->and($translationImage->file_path)->toBe($sourceImage->file_path)
+        ->and($translationImage->thumbnail_file_path)->toBe($sourceImage->thumbnail_file_path)
+        ->and(Storage::disk('public')->exists($sourceImage->file_path))->toBeTrue()
+        ->and(Storage::disk('public')->exists($sourceImage->thumbnail_file_path))->toBeTrue();
+});
+
 it('reports failure and continues when the source file is missing', function () {
     $suggestion = Suggestion::factory()->create();
 

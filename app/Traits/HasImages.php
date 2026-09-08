@@ -57,10 +57,11 @@ trait HasImages
                     }
                 }
             } else {
-                $images_to_delete = array_merge($images_to_delete, [
+                $images_to_delete = array_merge(
+                    $images_to_delete,
                     $this->images()->pluck('file_path')->toArray(),
                     $this->images()->pluck('thumbnail_file_path')->toArray(),
-                ]);
+                );
                 $this->images()->delete();
             }
             if (count($images_to_delete) > 0) {
@@ -95,8 +96,34 @@ trait HasImages
         return true;
     }
 
+    /**
+     * A file_path/thumbnail_file_path can be shared by more than one Image row
+     * — a translation's row points at the same physical file as its source's
+     * (see copyImagesFrom()). Only queue a file for deletion once no remaining
+     * Image row references it, so removing one suggestion's image can't break
+     * a translation still using the same file.
+     */
     private static function deletePhisicalFiles(array $files)
     {
+        $files = array_values(array_unique(array_filter($files)));
+
+        if (empty($files)) {
+            return;
+        }
+
+        $stillReferenced = Image::query()
+            ->where(fn ($query) => $query->whereIn('file_path', $files)->orWhereIn('thumbnail_file_path', $files))
+            ->get()
+            ->flatMap(fn (Image $image) => [$image->file_path, $image->thumbnail_file_path])
+            ->filter()
+            ->all();
+
+        $files = array_values(array_diff($files, $stillReferenced));
+
+        if (empty($files)) {
+            return;
+        }
+
         $dispatch_method = (app()->environment('local') ? 'dispatchSync' : 'dispatch');
         DeletePhisicalImages::$dispatch_method($files);
     }

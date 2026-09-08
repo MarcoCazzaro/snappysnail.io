@@ -1,7 +1,7 @@
 # Image optimisation: refactor plan
 
 **Date:** 2026-09-08
-**Status:** decisions locked — implementing
+**Status:** implemented; three bugs found and fixed post-deploy (see §2)
 
 ## TL;DR
 
@@ -78,11 +78,15 @@ to this app's polymorphic, multi-image-per-model `Image` model.
   `OptimiseImage::dispatchSync()` loop — `syncImages()` now does the full
   optimisation itself, so seeded and admin-uploaded images are produced by
   identical code.
-- **Backfill command** `snappysnail:optimise-images`: iterates existing
-  `Image` rows, re-runs `generate()` against the current `file_path`, swaps in
-  the new paths, deletes the old physical files. Skips rows whose thumbnail
-  is already exactly 400×400 (cheap `getimagesize()` check) so reruns are
-  cheap; `--force` bypasses the check.
+- **Backfill command** `snappysnail:optimise-images`: groups existing `Image`
+  rows by shared physical `file_path` (a translation's row points at the same
+  file as its source's, per `copyImagesFrom()`), re-runs `generate()` against
+  each distinct file once, updates every row in that group, then deletes the
+  old physical files. Skips a group already carrying the `_thumb.webp`
+  filename suffix the pipeline produces, so reruns are cheap; `--force`
+  bypasses the check. See §2 for two bugs found in this command's first
+  version and fixed post-deploy — read it before relying on the description
+  above as "this always worked."
 
 ---
 
@@ -245,3 +249,84 @@ single-call-site design makes them unnecessary.
   (including the test suite) via a relative path — fixed 2026-09-07 to skip
   during tests and use an absolute path. See
   `database/migrations/2025_01_07_141315_create_images_table.php`.
+
+---
+
+## §2. Post-deploy bugs (2026-09-08)
+
+Bugs 1 and 2 surfaced running the backfill command against real production
+data (`images` table dump); Bug 3 is the same root cause found by inspection
+in a second code path. All three are fixed. Recorded here because 1 and 2 are
+the kind of "worked in every test I wrote, broke on real data" bug worth
+remembering, and all three share one lesson: an `Image` row's `file_path` is
+not 1:1 with the row — translations share physical files by design
+(`copyImagesFrom()`), so any code that mutates or deletes a file based on one
+row has to account for every other row that might still point at it.
+
+### Bug 1: dimensions-based "already done" check silently skipped everything
+
+**First version** decided a row was already migrated by checking whether its
+on-disk thumbnail was exactly 400×400 pixels (`getimagesize()`). Reasonable-
+looking, wrong in practice: per §1, some production images had already been
+resized to a real 400×400 **in place**, under the **old** `_200_200.webp`
+filename, by a one-off script that predates this whole refactor and no longer
+exists. That coincidence — right pixels, old filename — made the check treat
+every one of those rows as "already optimised" and skip it.
+
+**Symptom:** running the command reported success (`Reprocessed 0, skipped
+19`) but the `images` table dump showed every row's `file_path` still on the
+pre-refactor `_200_200` naming, and — the real tell — `updated_at` unchanged
+for months. Nothing was ever written. The command didn't error; it just
+quietly did nothing, which is why it looked like the command itself had
+failed rather than "succeeded at skipping everything."
+
+**Fix:** check the filename instead of pixel dimensions —
+`str_ends_with($image->thumbnail_file_path, '_thumb.webp')`. Only the current
+`ImageOptimisation::generate()` ever produces that suffix, so it can't
+false-positive against old data the way "is it 400×400" can. See
+`OptimiseExistingImages::alreadyMigrated()`.
+
+### Bug 2: reprocessing one row deleted the file a sibling row still needed
+
+**Symptom:** after fixing Bug 1 and re-running, English suggestions showed
+correctly optimised images; Italian translations of the *same* suggestions
+still showed old ones.
+
+**Cause:** `Suggestion::copyImagesFrom()` — used when a translation is
+created — gives the translation its own `Image` row, but that row's
+`file_path`/`thumbnail_file_path` point at the **same physical file** as the
+source's row (translations share files, they don't duplicate them). The
+first version of the backfill command processed `Image` rows one at a time:
+for each row it read the source file, generated new optimised files, updated
+that one row, and **deleted the old physical file**. The English row (lower
+id, inserted first) was processed first — succeeded, then deleted the shared
+original. When the command reached the Italian row next, the file it needed
+to read no longer existed, reprocessing threw, and that row was left
+pointing at a path that had just been deleted out from under it — worse than
+stale, actually broken.
+
+**Fix:** group `Image` rows by `file_path` before processing. Each group is
+reprocessed exactly once — one call to `generate()`, every row in the group
+updated to the same new paths, and the old files deleted only after every
+row referencing them has moved on. See
+`OptimiseExistingImages::reprocessGroup()`. Covered by a regression test:
+`tests/Feature/Console/OptimiseExistingImagesTest.php` — "reprocesses a file
+shared by a translation and its source together, without breaking the second
+row."
+
+### Bug 3: the same "shared file" issue also existed in the live delete path
+
+`HasImages::syncImages()` had the same root issue as Bug 2, in the *live*
+admin-panel delete path rather than the backfill command: removing an image
+from a suggestion deleted its physical file immediately, with no awareness
+that a translation's `Image` row might still point at that same file.
+
+**Fix (2026-09-08):** `syncImages()`'s `deletePhisicalFiles()` now queries for
+any remaining `Image` row (across all suggestions) still referencing a given
+`file_path`/`thumbnail_file_path` before queuing it for physical deletion —
+only files nothing points to anymore actually get deleted. Also fixed, in the
+same method, a pre-existing `array_merge()` bug that nested two path arrays
+as two elements instead of flattening them (the "remove all images" branch of
+`syncImages()`), which would have made `DeletePhisicalImages` try to delete an
+array as if it were a file path. Covered by
+`tests/Feature/HasImagesTest.php`.

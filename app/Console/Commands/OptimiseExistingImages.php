@@ -7,49 +7,54 @@ use App\Models\Image;
 use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
 use RuntimeException;
 use Throwable;
 
-#[Signature('snappysnail:optimise-images {--force : Reprocess every row, including ones that already look optimised}')]
+#[Signature('snappysnail:optimise-images {--force : Reprocess every group, including ones that already look optimised}')]
 #[Description('Reprocess existing Image rows through the current optimisation pipeline')]
 class OptimiseExistingImages extends Command
 {
     /**
      * Backfill for images uploaded before the optimisation pipeline covered the
      * controller path (admin-panel uploads used to be stored raw, at native
-     * dimensions, with a byte-identical "thumbnail"). Reruns every Image row
-     * through ImageOptimisationContract::generate(), replacing its file paths
-     * and deleting the stale files. Safe to rerun: a row already carrying the
-     * `_thumb.webp` filename this pipeline produces is skipped unless --force
-     * is passed.
+     * dimensions, with a byte-identical "thumbnail"). Reruns every distinct
+     * physical file through ImageOptimisationContract::generate() once,
+     * replacing the file paths on every Image row that shares it (a
+     * translation's row points at the same file as its source's — see
+     * Suggestion::copyImagesFrom()), then deletes the stale files. Safe to
+     * rerun: a group already carrying the `_thumb.webp` filename this
+     * pipeline produces is skipped unless --force is passed.
      */
     public function handle(ImageOptimisationContract $optimiser): int
     {
-        $images = Image::query()->get();
         $force = (bool) $this->option('force');
+        $groups = Image::query()->get()->groupBy('file_path');
 
-        $reprocessed = 0;
-        $skipped = 0;
+        $reprocessedFiles = 0;
+        $reprocessedRows = 0;
+        $skippedRows = 0;
 
-        foreach ($images as $image) {
+        foreach ($groups as $filePath => $images) {
             try {
-                if (! $force && $this->alreadyMigrated($image)) {
-                    $skipped++;
+                if (! $force && $this->alreadyMigrated($images->first())) {
+                    $skippedRows += $images->count();
 
                     continue;
                 }
 
-                $this->reprocess($image, $optimiser);
-                $reprocessed++;
-                $this->info("Reprocessed: image #{$image->id}");
+                $this->reprocessGroup($images, $optimiser);
+                $reprocessedFiles++;
+                $reprocessedRows += $images->count();
+                $this->info("Reprocessed: {$filePath} ({$images->count()} row(s))");
             } catch (Throwable $exception) {
-                $this->error("Failed to reprocess image #{$image->id}: {$exception->getMessage()}");
+                $this->error("Failed to reprocess {$filePath}: {$exception->getMessage()}");
                 report($exception);
             }
         }
 
-        $this->info("Done. Reprocessed {$reprocessed}, skipped {$skipped} (already optimised).");
+        $this->info("Done. Reprocessed {$reprocessedFiles} file(s) across {$reprocessedRows} row(s), skipped {$skippedRows} row(s) (already optimised).");
 
         return self::SUCCESS;
     }
@@ -67,10 +72,13 @@ class OptimiseExistingImages extends Command
         return str_ends_with($image->thumbnail_file_path ?? '', '_thumb.webp');
     }
 
-    private function reprocess(Image $image, ImageOptimisationContract $optimiser): void
+    /**
+     * @param  Collection<int, Image>  $images  every row sharing one physical file
+     */
+    private function reprocessGroup(Collection $images, ImageOptimisationContract $optimiser): void
     {
-        $oldFullPath = $image->file_path;
-        $oldThumbnailPath = $image->thumbnail_file_path;
+        $oldFullPath = $images->first()->file_path;
+        $oldThumbnailPath = $images->first()->thumbnail_file_path;
 
         $sourcePath = Storage::disk('public')->path($oldFullPath);
 
@@ -80,9 +88,11 @@ class OptimiseExistingImages extends Command
 
         $newPaths = $optimiser->generate($sourcePath);
 
-        $image->file_path = $newPaths['full'];
-        $image->thumbnail_file_path = $newPaths['thumbnail'];
-        $image->save();
+        foreach ($images as $image) {
+            $image->file_path = $newPaths['full'];
+            $image->thumbnail_file_path = $newPaths['thumbnail'];
+            $image->save();
+        }
 
         Storage::disk('public')->delete(array_filter([$oldFullPath, $oldThumbnailPath]));
     }
