@@ -7,52 +7,99 @@ use App\Models\Suggestion;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 
 class SuggestionsSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seed every suggestion in every locale from the single merged data file.
      *
-     * @return void
+     * Idempotent: each (key, locale) row is upserted, so re-running applies
+     * content edits without creating duplicates. Images are attached to the
+     * English source once and shared by reference with each translation.
      */
-    public function run()
+    public function run(): void
     {
-        $json = File::get('database/seeders/data/suggestions.json');
-        $suggestions = json_decode($json);
+        $groups = json_decode(File::get(database_path('seeders/data/suggestions.json')), true);
 
-        foreach ($suggestions as $suggestion) {
-            $data = (array) $suggestion;
-            if (\Str::startsWith($data['description'] ?? '', 'views.')) {
-                // Get the view content
-                $data['description'] = (string) View::make(str_replace('views.', '', $data['description']));
-            }
-            $suggestion = Suggestion::firstOrCreate(['title' => $data['title']], $data);
-            if (! $suggestion->wasRecentlyCreated) {
-                continue;
-            }
-            $keywords = explode(',', $data['keywords'] ?? '');
-            $request = ['tempImagesPaths' => []];
-            if ($keywords && in_array('works', $keywords) && count($keywords) > 2) {
-                $folder_name = $keywords[2];
-                $path = database_path('seeders/data/images/works/'.$folder_name);
-                if (File::exists($path)) {
-                    $files = File::files($path);
-                    foreach ($files as $file) {
-                        if (in_array($file->getExtension(), ['jpg', 'jpeg', 'png', 'gif', 'webp'])) {
-                            $request['tempImagesPaths'][] = $file->getRealPath();
-                        }
-                    }
+        foreach ($groups as $group) {
+            $source = $this->upsertLocale($group, 'en', null);
+            $this->attachImages($source, $group['images'] ?? null);
+
+            foreach (array_keys($group['translations']) as $locale) {
+                if ($locale === 'en') {
+                    continue;
                 }
+
+                $this->upsertLocale($group, $locale, $source->id)
+                    ->copyImagesFrom($source);
             }
-            if (count($request['tempImagesPaths']) > 0) {
-                $request['tempImagesPaths'] = implode(',', $request['tempImagesPaths']);
-                // Convert into an object
-                $request = (object) $request;
-                $suggestion->syncImages($request);
-                foreach ($suggestion->images as $image) {
-                    OptimiseImage::dispatchSync($image);
-                }
-            }
+        }
+    }
+
+    /**
+     * @param  array{key: string, sorting?: int, url?: string|null, translations: array<string, array{title: string, keywords: string, description: string}>}  $group
+     */
+    private function upsertLocale(array $group, string $locale, ?int $translationOf): Suggestion
+    {
+        $fields = $group['translations'][$locale];
+
+        return Suggestion::updateOrCreate(
+            ['key' => $group['key'], 'locale' => $locale],
+            [
+                'title' => $fields['title'],
+                'keywords' => $fields['keywords'],
+                'description' => $this->resolveDescription($fields['description']),
+                'url' => $group['url'] ?? null,
+                'sorting' => $group['sorting'] ?? 0,
+                'translation_of' => $translationOf,
+            ],
+        );
+    }
+
+    /**
+     * A description of "views.some.view" is rendered from that Blade view;
+     * anything else is stored verbatim.
+     */
+    private function resolveDescription(string $description): string
+    {
+        if (Str::startsWith($description, 'views.')) {
+            return (string) View::make(Str::after($description, 'views.'));
+        }
+
+        return $description;
+    }
+
+    /**
+     * Copy every image in database/seeders/data/images/works/{folder} onto the
+     * suggestion, then optimise it. Skipped when the suggestion already has
+     * images so re-seeding does not churn storage.
+     */
+    private function attachImages(Suggestion $suggestion, ?string $folder): void
+    {
+        if ($folder === null || $suggestion->images()->exists()) {
+            return;
+        }
+
+        $path = database_path('seeders/data/images/works/'.$folder);
+
+        if (! File::isDirectory($path)) {
+            return;
+        }
+
+        $paths = collect(File::files($path))
+            ->filter(fn ($file) => in_array(strtolower($file->getExtension()), ['jpg', 'jpeg', 'png', 'gif', 'webp']))
+            ->map(fn ($file) => $file->getRealPath())
+            ->values();
+
+        if ($paths->isEmpty()) {
+            return;
+        }
+
+        $suggestion->syncImages((object) ['tempImagesPaths' => $paths->implode(',')]);
+
+        foreach ($suggestion->images as $image) {
+            OptimiseImage::dispatchSync($image);
         }
     }
 }

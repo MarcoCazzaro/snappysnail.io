@@ -23,9 +23,11 @@ class CreateImagesTable extends Migration
             $table->string('thumbnail_file_path')->nullable();
             $table->dateTime('optimised_at')->nullable()->index();
         });
-        if (! app()->environment('production')) {
-            $file_worker = new Filesystem;
-            $file_worker->cleanDirectory('storage/app/public/suggestions/images');
+        // Local convenience: clear image files left over from a previous database
+        // so `migrate:fresh --seed` starts clean. Never while testing — the test
+        // suite runs migrations but shares this directory with local dev.
+        if (! app()->environment('production') && ! app()->runningUnitTests()) {
+            (new Filesystem)->cleanDirectory(storage_path('app/public/suggestions/images'));
         }
     }
 

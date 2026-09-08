@@ -15,7 +15,7 @@ class Suggestion extends Model
 {
     use HasFactory, HasImages;
 
-    protected $fillable = ['title', 'keywords', 'description', 'url', 'locale', 'sorting', 'translation_of'];
+    protected $fillable = ['key', 'title', 'keywords', 'description', 'url', 'locale', 'sorting', 'translation_of'];
 
     public function translationSource(): BelongsTo
     {

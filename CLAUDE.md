@@ -37,8 +37,10 @@ vendor/bin/phpcs          # check only
 The app is primarily a **suggestion CRUD system** with polymorphic image attachments.
 
 **Models:**
-- `Suggestion` — has a global scope `SuggestionsSortingScope` (always ordered by `sorting` DESC) and uses the `HasImages` trait
+- `Suggestion` — has a global scope `SuggestionsSortingScope` (always ordered by `sorting` DESC) and uses the `HasImages` trait. Each translation of a suggestion is its own row; `translation_of` points at the English source and `key` (a slug) is the identity shared by every locale of one suggestion.
 - `Image` — polymorphic attachment model; fires `ImageSaved` / `ImageDeleting` events that trigger queued jobs
+
+**Seeding:** `SuggestionsSeeder` reads one merged file, `database/seeders/data/suggestions.json` (all locales, nested under `translations.<locale>`), and upserts each `(key, locale)` row — `php artisan db:seed` is idempotent. Old EN-only / `source_id`-linked data and its docs are archived under `database/seeders/data/legacy/`.
 
 **Traits:**
 - `HasImages` (`app/Traits/HasImages.php`) — provides `images()` morphMany, `syncImages()`, and convenience accessors; add to any model needing image attachments
