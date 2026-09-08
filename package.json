@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "playwright:install": "PLAYWRIGHT_BROWSERS_PATH=/mnt/ddev-global-cache/playwright playwright install chromium"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.7",
@@ -12,6 +13,7 @@
         "axios": "^1.7.4",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^3.0",
+        "playwright": "^1.63.0",
         "postcss": "^8.4.32",
         "tailwindcss": "^4.2.2",
         "vite": "^8.0"
