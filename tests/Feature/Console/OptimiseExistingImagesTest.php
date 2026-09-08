@@ -42,25 +42,46 @@ it('reprocesses a legacy raw image, replacing its file paths and deleting the ol
     expect($thumbnailDimensions[0])->toBe(400)->and($thumbnailDimensions[1])->toBe(400);
 });
 
-it('skips an image already processed into a 400x400 thumbnail unless --force is passed', function () {
+it('skips a row already carrying the _thumb.webp filename the pipeline produces, unless --force is passed', function () {
     $suggestion = Suggestion::factory()->create();
-    putRawImage(400, 400, 'suggestions/images/already-thumb.webp');
+    putRawImage(400, 400, 'suggestions/images/abc123_thumb.webp');
+    putRawImage(1000, 700, 'suggestions/images/abc123.webp');
 
     $image = $suggestion->images()->create([
-        'file_path' => 'suggestions/images/full.webp',
-        'thumbnail_file_path' => 'suggestions/images/already-thumb.webp',
+        'file_path' => 'suggestions/images/abc123.webp',
+        'thumbnail_file_path' => 'suggestions/images/abc123_thumb.webp',
     ]);
-    putRawImage(1000, 700, 'suggestions/images/full.webp');
 
     $this->artisan('snappysnail:optimise-images')->assertExitCode(0);
 
     $image->refresh();
-    expect($image->thumbnail_file_path)->toBe('suggestions/images/already-thumb.webp');
+    expect($image->thumbnail_file_path)->toBe('suggestions/images/abc123_thumb.webp');
 
     $this->artisan('snappysnail:optimise-images --force')->assertExitCode(0);
 
     $image->refresh();
-    expect($image->thumbnail_file_path)->not->toBe('suggestions/images/already-thumb.webp');
+    expect($image->thumbnail_file_path)->not->toBe('suggestions/images/abc123_thumb.webp');
+});
+
+it('reprocesses a legacy image even if its old-named thumbnail happens to already be 400x400', function () {
+    // Regression test: some production images were resized to a real 400x400
+    // in place by a long-removed one-off script, but kept the *old* `_200_200`
+    // filename. A dimensions-based "already done" check would wrongly skip
+    // these forever — only the `_thumb.webp` filename marks true completion.
+    $suggestion = Suggestion::factory()->create();
+    putRawImage(1200, 800, 'suggestions/images/legacy.webp');
+    putRawImage(400, 400, 'suggestions/images/legacy_200_200.webp');
+
+    $image = $suggestion->images()->create([
+        'file_path' => 'suggestions/images/legacy.webp',
+        'thumbnail_file_path' => 'suggestions/images/legacy_200_200.webp',
+    ]);
+
+    $this->artisan('snappysnail:optimise-images')->assertExitCode(0);
+
+    $image->refresh();
+    expect($image->thumbnail_file_path)->not->toBe('suggestions/images/legacy_200_200.webp')
+        ->and($image->thumbnail_file_path)->toEndWith('_thumb.webp');
 });
 
 it('reports failure and continues when the source file is missing', function () {

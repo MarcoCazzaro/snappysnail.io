@@ -20,8 +20,9 @@ class OptimiseExistingImages extends Command
      * controller path (admin-panel uploads used to be stored raw, at native
      * dimensions, with a byte-identical "thumbnail"). Reruns every Image row
      * through ImageOptimisationContract::generate(), replacing its file paths
-     * and deleting the stale files. Safe to rerun: a row whose thumbnail is
-     * already a 400x400 square is skipped unless --force is passed.
+     * and deleting the stale files. Safe to rerun: a row already carrying the
+     * `_thumb.webp` filename this pipeline produces is skipped unless --force
+     * is passed.
      */
     public function handle(ImageOptimisationContract $optimiser): int
     {
@@ -33,7 +34,7 @@ class OptimiseExistingImages extends Command
 
         foreach ($images as $image) {
             try {
-                if (! $force && $this->alreadyOptimised($image)) {
+                if (! $force && $this->alreadyMigrated($image)) {
                     $skipped++;
 
                     continue;
@@ -53,17 +54,17 @@ class OptimiseExistingImages extends Command
         return self::SUCCESS;
     }
 
-    private function alreadyOptimised(Image $image): bool
+    /**
+     * The only reliable signal that a row has already gone through the current
+     * ImageOptimisation::generate() is its `_thumb.webp` filename suffix, which
+     * only that method ever produces. Checking pixel dimensions instead is not
+     * safe: some legacy images were resized to a real 400x400 in place by a
+     * long-removed one-off script, under the *old* `_200_200` filename — that
+     * coincidence made an earlier version of this check wrongly skip them.
+     */
+    private function alreadyMigrated(Image $image): bool
     {
-        $path = Storage::disk('public')->path($image->thumbnail_file_path);
-
-        if (! is_file($path)) {
-            return false;
-        }
-
-        $dimensions = getimagesize($path);
-
-        return $dimensions !== false && $dimensions[0] === 400 && $dimensions[1] === 400;
+        return str_ends_with($image->thumbnail_file_path ?? '', '_thumb.webp');
     }
 
     private function reprocess(Image $image, ImageOptimisationContract $optimiser): void
