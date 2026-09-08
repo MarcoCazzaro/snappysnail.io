@@ -61,6 +61,51 @@ Look in the target project's `public/` for `logo.*`, `favicon.svg`, `apple-touch
 (svg > png; a file literally named "logo" over a generic favicon). Show the user which file
 you found and get confirmation before using it — don't use it silently.
 
+**Background: flatten, don't leave transparent.** Checked every existing `01-*-logo.webp`
+across current image folders (gooruf.com, equos.it, mediakey.it, Bertone, forbes.it-2021) —
+none carry an alpha channel; all are flat, opaque, single-color backgrounds
+(`magick identify -format "%[channels] alpha=%A"` reports `srgb ... alpha=Undefined` on every
+one). The background color is picked per-project to match that project's own brand/header
+tone (e.g. forbes.it-2021 is pure black, equos.it is its brand blue), not a uniform white.
+So: if the source logo is SVG/transparent-PNG, sample the target site's actual dark/brand
+background color from a screenshot (`magick <screenshot> -format "%[pixel:p{X,Y}]" info:` on
+a header/nav pixel) and flatten onto it. Don't ship a transparent logo PNG.
+
+**Square canvas, logo contained with margin — never ship the raw aspect ratio.** Same check
+as above: every existing `01-*-logo.webp` is a perfect square (768×768, 768×768, 800×800,
+1080×1080, 700×700) — never the logo's native (often wide, wordmark-shaped) aspect ratio. This
+matters mechanically, not just cosmetically: `ImageOptimisation::generate()`
+(`app/Services/ImageOptimisation.php`) makes the gallery thumbnail with `cover(400, 400)` —
+Intervention's `cover()` always **center-crops**, no gravity option. Feed it a wide banner
+logo and the thumb crops off most of the wordmark; feed it an already-square, padded image and
+`cover()` has nothing to crop — the whole logo shows, in both the 400×400 thumb and the
+`scaleDown(1920,1080)` full/lightbox view. So always compose a square canvas yourself: contain
+the logo within an inner box sized so it keeps **at least a 20% margin on every side**, centered,
+flattened onto the sampled brand background color, alpha stripped. One command chain:
+```bash
+magick -background none -density 300 logo.svg -trim +repage \
+  -resize 648x648 \
+  -background "rgb(R,G,B)" -gravity center -extent 1080x1080 \
+  -alpha remove -alpha off \
+  01-<slug>-logo.png
+```
+(`648 = 1080 * 0.6`, i.e. the inner box after a 20%-per-side margin; `-resize WxH` without `!`
+is a contain-fit, so it only shrinks the constraining dimension — a wide logo ends up with much
+bigger top/bottom margins than 20%, which is correct: 20% is a *minimum* guarantee on the
+tighter axis, not an exact margin on every axis.) `-trim +repage` first removes any incidental
+whitespace baked into the source SVG's own canvas, so the margin is measured against the actual
+visual logo, not an arbitrary viewBox.
+
+**If you reseed a logo/image after the suggestion was already seeded once**: `attachImages()`
+in `SuggestionsSeeder` skips the whole image-sync step when `$suggestion->images()->exists()`
+is true — it's all-or-nothing per suggestion, not a per-file diff. To pick up a corrected file,
+delete the suggestion's existing `Image` rows first so the sync runs again:
+```bash
+ddev artisan tinker --execute '$s = App\Models\Suggestion::find(<id>); foreach ($s->images as $img) { $img->delete(); }'
+```
+(delete via Eloquent, not raw SQL, so the `ImageDeleting` event cleans up the physical files
+too) then re-run `ddev artisan db:seed --class=SuggestionsSeeder`.
+
 ### 5. Make sure the target site is reachable
 
 Check `ddev list`. If the target project isn't `running`/`OK`, ask the user to start it
@@ -82,6 +127,34 @@ ddev exec -- bash -c 'PLAYWRIGHT_BROWSERS_PATH=/mnt/ddev-global-cache/playwright
 - Homepage mobile: 390×844.
 - Each extra page: 1440×900 (desktop only — confirmed with the user, no mobile shot for
   these).
+
+**Never capture full-page (`--full-page`) screenshots — always plain viewport shots.**
+`ImageOptimisation::generate()` (`app/Services/ImageOptimisation.php`) derives *both* the
+`full` and `thumbnail` variant from the same source image: `full` is `scaleDown(1920, 1080)`
+(shrinks to fit, never crops — a tall full-page image gets squashed into an illegible strip),
+`thumbnail` is `cover(400, 400)` (always a **center crop**, no gravity option). A full-page
+screenshot's thumb would show whatever happened to be in the vertical middle of the page, not
+the top/hero. There's no per-image way around this without changing that shared, site-wide
+service — out of scope for this skill. If the user wants more of a homepage shown than one
+viewport, take **additional separate viewport screenshots of further-down sections** instead —
+each one gets its own representative thumb and a crisp, undistorted full view in the
+gallery/lightbox. To pick which sections: check the homepage's **main navigation** — if its
+links are in-page anchors (`#come-funziona`, `#pricing`, etc., rather than separate routes),
+those anchors *are* the site's own answer to "what are this page's notable sections" — grep the
+nav component/markup for `href="#..."` or matching `id="..."` section attributes, then capture
+one viewport shot per anchor (`<url>#anchor-name`, scroll the element into view, screenshot).
+Only fall back to asking the user when the nav doesn't expose anchors this way.
+
+Every one of these viewport captures should also **dismiss the site's cookie-consent banner
+first** (if any) — otherwise it's stuck open in the corner of every screenshot. `capture.mjs`
+does not do this itself (it's the shared, minimal script); do it inline, best-effort, before
+the screenshot in whatever script/invocation you're using:
+```js
+try {
+    await page.getByText('Accetta tutti', { exact: true }).click({ timeout: 3000 }); // adjust label per site's language/copy
+    await page.waitForTimeout(500); // let the fade-out finish before the screenshot
+} catch {}
+```
 
 Save outputs into `database/seeders/data/images/works/{folder}/`, following the existing
 numeric-prefix naming convention seen in current folders (`01-<slug>-logo.webp`,

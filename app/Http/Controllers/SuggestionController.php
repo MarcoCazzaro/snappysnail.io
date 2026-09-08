@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Suggestion;
+use Database\Seeders\SuggestionsSeeder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\StreamedResponse;
+use Illuminate\Support\Facades\Artisan;
 
 class SuggestionController extends Controller
 {
@@ -103,87 +104,16 @@ class SuggestionController extends Controller
     }
 
     /**
-     * Download a JSON file of all suggestions that have no translation counterpart.
+     * Run SuggestionsSeeder and flash its console output back to the index view.
      */
-    public function exportUntranslated(): StreamedResponse
+    public function runSeeder(): RedirectResponse
     {
-        $suggestions = Suggestion::whereNull('translation_of')
-            ->doesntHave('translations')
-            ->get(['id', 'title', 'keywords', 'description', 'url', 'sorting', 'locale']);
+        Artisan::call('db:seed', [
+            '--class' => SuggestionsSeeder::class,
+            '--force' => true,
+        ]);
 
-        $data = $suggestions->map(fn (Suggestion $s) => [
-            'source_id' => $s->id,
-            'source_locale' => $s->locale,
-            'source_title' => $s->title,
-            'target_locale' => $s->locale === 'en' ? 'it' : 'en',
-            'title' => $s->title,
-            'keywords' => $s->keywords,
-            'description' => $s->description,
-            'url' => $s->url,
-            'sorting' => $s->sorting,
-        ])->values()->all();
-
-        return response()->streamDownload(
-            fn () => print (json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)),
-            'untranslated-suggestions.json',
-            ['Content-Type' => 'application/json'],
-        );
-    }
-
-    /**
-     * Import a translated JSON file and upsert suggestion translations.
-     */
-    public function importTranslations(Request $request): RedirectResponse
-    {
-        $request->validate(['file' => 'required|file|mimes:json,txt']);
-
-        $items = json_decode(file_get_contents($request->file('file')->path()), true);
-
-        if (! is_array($items)) {
-            return redirect()->route('suggestions.index')->with('error', __('Invalid JSON file.'));
-        }
-
-        $created = 0;
-        $updated = 0;
-
-        foreach ($items as $item) {
-            $required = ['source_id', 'source_title', 'target_locale', 'title', 'keywords', 'description'];
-            if (count(array_intersect_key(array_flip($required), $item)) !== count($required)) {
-                continue;
-            }
-
-            $source = Suggestion::find($item['source_id']);
-
-            if (! $source) {
-                continue;
-            }
-
-            $data = [
-                'title' => $item['title'],
-                'keywords' => $item['keywords'],
-                'description' => $item['description'],
-                'url' => $item['url'] ?? $source->url,
-                'sorting' => $item['sorting'] ?? $source->sorting,
-                'locale' => $item['target_locale'],
-                'translation_of' => $source->id,
-            ];
-
-            $existing = Suggestion::query()
-                ->where('translation_of', $source->id)
-                ->where('locale', $item['target_locale'])
-                ->first();
-
-            if ($existing) {
-                $existing->update($data);
-                $updated++;
-            } else {
-                Suggestion::create($data);
-                $created++;
-            }
-        }
-
-        return redirect()->route('suggestions.index')
-            ->with('status', __('Import complete: :created created, :updated updated.', compact('created', 'updated')));
+        return redirect()->route('suggestions.index')->with('seederOutput', Artisan::output());
     }
 
     /**

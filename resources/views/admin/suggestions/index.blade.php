@@ -10,20 +10,12 @@
                     <i class="fas fa-plus"></i>{{ __('Create') }}
                 </a>
 
-                <a href="{{ route('suggestions.export-untranslated') }}" class="flex gap-2 items-center ssnail-link">
-                    <i class="fas fa-file-export"></i>{{ __('Generate translation JSON') }}
-                </a>
-
-                <div x-data>
-                    <button type="button" @click="$refs.importFile.click()" class="flex gap-2 items-center ssnail-link font-bold">
-                        <i class="fas fa-file-import"></i>{{ __('Upload translated JSON') }}
+                <form method="POST" action="{{ route('suggestions.run-seeder') }}">
+                    @csrf
+                    <button type="submit" class="flex gap-2 items-center ssnail-link font-bold">
+                        <i class="fas fa-seedling"></i>{{ __('Run SuggestionSeeder') }}
                     </button>
-                    <form method="POST" action="{{ route('suggestions.import-translations') }}" enctype="multipart/form-data" x-ref="importForm">
-                        @csrf
-                        <input type="file" x-ref="importFile" name="file" accept=".json" class="hidden"
-                               @change="$refs.importForm.submit()">
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
     </x-slot>
@@ -32,6 +24,12 @@
         @if (session('status'))
             <div class="mx-auto sm:px-6 lg:px-8 mb-4">
                 <div class="bg-green-100 text-green-800 px-4 py-2 rounded-sm">{{ session('status') }}</div>
+            </div>
+        @endif
+
+        @if (session('seederOutput'))
+            <div class="mx-auto sm:px-6 lg:px-8 mb-4">
+                <pre class="bg-zinc-900 text-zinc-100 text-sm px-4 py-3 rounded-sm overflow-x-auto">{{ session('seederOutput') }}</pre>
             </div>
         @endif
 

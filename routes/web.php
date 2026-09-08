@@ -13,8 +13,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::post('suggestions/{suggestion}/translate', [SuggestionController::class, 'translate'])->name('suggestions.translate');
-    Route::get('suggestions/export-untranslated', [SuggestionController::class, 'exportUntranslated'])->name('suggestions.export-untranslated');
-    Route::post('suggestions/import-translations', [SuggestionController::class, 'importTranslations'])->name('suggestions.import-translations');
+    Route::post('suggestions/run-seeder', [SuggestionController::class, 'runSeeder'])->name('suggestions.run-seeder');
     Route::resource('suggestions', SuggestionController::class);
 });
 
@@ -33,5 +32,5 @@ Route::prefix('{locale}')
 Route::get('/{path}', function (Request $request, string $path) {
     $locale = session('locale', config('app.locale'));
 
-    return redirect('/' . $locale . '/' . $path, 302);
+    return redirect('/'.$locale.'/'.$path, 302);
 })->where('path', '^(?!en$|it$)[^/]+');

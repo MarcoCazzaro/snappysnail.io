@@ -412,5 +412,23 @@
                 "description": "<p>Bertone Design è un'azienda che fornisce soluzioni e servizi di design, con focus su creatività e innovazione. L'azienda, con sede a Monza, Italia, e filiali a Londra, Shanghai e New York, ha completato oltre 2.520 progetti per più di 550 clienti premium in 83 paesi. Il sito web è un tema WordPress multilingua, sviluppato con WPML in italiano e inglese.</p>"
             }
         }
+    },
+    {
+        "key": "ncc-official",
+        "sorting": 202608,
+        "url": "https://nccofficial.com/it",
+        "images": "nccofficial.com",
+        "translations": {
+            "en": {
+                "title": "NCC Official",
+                "keywords": "works,portfolio,nccofficial.com,Laravel,Vue,Inertia,Stripe",
+                "description": "<p>In 2026 I built NCC Official, an Italian vertical portal connecting private users with licensed NCC (chauffeur-driven car hire) operators. Private users submit trip quote requests and receive competing offers from approved operators, who get a private forum, real-time notifications and an annual subscription plan. The platform is built with <a href=\"https://laravel.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Laravel</a>, <a href=\"https://vuejs.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Vue 3</a> and <a href=\"https://inertiajs.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Inertia.js</a>, with Stripe subscriptions and Pusher-powered real-time notifications.</p>"
+            },
+            "it": {
+                "title": "NCC Official",
+                "keywords": "lavori,portfolio,nccofficial.com,Laravel,Vue,Inertia,Stripe",
+                "description": "<p>Nel 2026 ho realizzato NCC Official, un portale verticale italiano che mette in contatto utenti privati con operatori NCC (Noleggio con Conducente) autorizzati. Gli utenti privati inviano richieste di preventivo per i loro viaggi e ricevono offerte da operatori approvati, che dispongono di un forum privato, notifiche in tempo reale e un abbonamento annuale. La piattaforma è sviluppata con <a href=\"https://laravel.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Laravel</a>, <a href=\"https://vuejs.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Vue 3</a> e <a href=\"https://inertiajs.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Inertia.js</a>, con abbonamenti Stripe e notifiche in tempo reale basate su Pusher.</p>"
+            }
+        }
     }
 ]
