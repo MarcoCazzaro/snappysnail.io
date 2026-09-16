@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Contracts\ImageOptimisationContract;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\Encoders\WebpEncoder;
 use Intervention\Image\ImageManager;
 
 class ImageOptimisation implements ImageOptimisationContract
@@ -27,13 +28,13 @@ class ImageOptimisation implements ImageOptimisationContract
         $fullPath = self::DIRECTORY.'/'.$name.'.webp';
         $thumbnailPath = self::DIRECTORY.'/'.$name.'_thumb.webp';
 
-        $full = $this->manager->read($sourcePath)
+        $full = $this->manager->decode($sourcePath)
             ->scaleDown(self::MAX_WIDTH, self::MAX_HEIGHT)
-            ->toWebp(self::QUALITY);
+            ->encode(new WebpEncoder(quality: self::QUALITY));
 
-        $thumbnail = $this->manager->read($sourcePath)
+        $thumbnail = $this->manager->decode($sourcePath)
             ->cover(self::THUMBNAIL_SIZE, self::THUMBNAIL_SIZE)
-            ->toWebp(self::QUALITY);
+            ->encode(new WebpEncoder(quality: self::QUALITY));
 
         Storage::disk('public')->put($fullPath, (string) $full);
         Storage::disk('public')->put($thumbnailPath, (string) $thumbnail);

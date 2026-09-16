@@ -2,6 +2,7 @@
 
 use App\Contracts\ImageOptimisationContract;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 
 beforeEach(function () {
@@ -12,7 +13,7 @@ function makeSourceImage(int $width, int $height): string
 {
     $path = tempnam(sys_get_temp_dir(), 'ssnail-source-').'.png';
 
-    ImageManager::gd()->create($width, $height)->fill('ff0000')->save($path);
+    (new ImageManager(new Driver))->createImage($width, $height)->fill('ff0000')->save($path);
 
     return $path;
 }

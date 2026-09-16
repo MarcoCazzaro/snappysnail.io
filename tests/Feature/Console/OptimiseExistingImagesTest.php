@@ -3,6 +3,7 @@
 use App\Models\Image;
 use App\Models\Suggestion;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 
 beforeEach(function () {
@@ -12,7 +13,7 @@ beforeEach(function () {
 function putRawImage(int $width, int $height, string $relativePath): void
 {
     $tmp = tempnam(sys_get_temp_dir(), 'ssnail-raw-').'.png';
-    ImageManager::gd()->create($width, $height)->fill('00ff00')->save($tmp);
+    (new ImageManager(new Driver))->createImage($width, $height)->fill('00ff00')->save($tmp);
 
     Storage::disk('public')->put($relativePath, file_get_contents($tmp));
     unlink($tmp);

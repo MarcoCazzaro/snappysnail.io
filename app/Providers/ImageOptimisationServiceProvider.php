@@ -6,6 +6,7 @@ use App\Contracts\ImageOptimisationContract;
 use App\Services\ImageOptimisation;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
+use Intervention\Image\ImageManager;
 
 class ImageOptimisationServiceProvider extends ServiceProvider implements DeferrableProvider
 {
@@ -13,11 +14,10 @@ class ImageOptimisationServiceProvider extends ServiceProvider implements Deferr
     {
         $this->app->singleton(
             ImageOptimisationContract::class,
-            // Intervention's ImageManager is bound under the 'image' key by
-            // intervention/image-laravel (Facades\Image::BINDING), not its FQCN —
-            // resolving the class name directly would try to auto-build it without
-            // the required $driver constructor arg and fail.
-            fn ($app): ImageOptimisation => new ImageOptimisation($app->make('image'))
+            // Resolve by Intervention's FQCN, not the 'image' string key: since
+            // Laravel 13.x ships its own Illuminate\Image\ImageManager under that
+            // same 'image' alias, and whichever provider registers last wins it.
+            fn ($app): ImageOptimisation => new ImageOptimisation($app->make(ImageManager::class))
         );
     }
 
