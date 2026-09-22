@@ -430,5 +430,23 @@
                 "description": "<p>Nel 2026 ho realizzato NCC Official, un portale verticale italiano che mette in contatto utenti privati con operatori NCC (Noleggio con Conducente) autorizzati. Gli utenti privati inviano richieste di preventivo per i loro viaggi e ricevono offerte da operatori approvati, che dispongono di un forum privato, notifiche in tempo reale e un abbonamento annuale. La piattaforma è sviluppata con <a href=\"https://laravel.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Laravel</a>, <a href=\"https://vuejs.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Vue 3</a> e <a href=\"https://inertiajs.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Inertia.js</a>, con abbonamenti Stripe e notifiche in tempo reale basate su Pusher.</p>"
             }
         }
+    },
+    {
+        "key": "osteopata-piazza-2026",
+        "sorting": 202609,
+        "url": "https://osteopatapiazza.it",
+        "images": "osteopatapiazza.it-2026",
+        "translations": {
+            "en": {
+                "title": "Osteopata Piazza (2026 restyling)",
+                "keywords": "works,portfolio,osteopatapiazza.it-2026,WordPress,TailwindCSS,AlpineJS,ACF",
+                "description": "<p>In 2026 I restyled Osteopatapiazza.it from the ground up, rebuilding it as a custom WordPress theme with <a href=\"https://tailwindcss.com/\" target=\"_blank\" rel=\"noopener noreferrer\">TailwindCSS 4</a> and <a href=\"https://alpinejs.dev/\" target=\"_blank\" rel=\"noopener noreferrer\">Alpine.js</a>, with custom ACF blocks for every homepage section and a self-service content-import tool to seed demo data on new environments.</p>"
+            },
+            "it": {
+                "title": "Osteopata Piazza (restyling 2026)",
+                "keywords": "lavori,portfolio,osteopatapiazza.it-2026,WordPress,TailwindCSS,AlpineJS,ACF",
+                "description": "<p>Nel 2026 ho ridisegnato Osteopatapiazza.it da zero, ricostruendolo come tema WordPress personalizzato con <a href=\"https://tailwindcss.com/\" target=\"_blank\" rel=\"noopener noreferrer\">TailwindCSS 4</a> e <a href=\"https://alpinejs.dev/\" target=\"_blank\" rel=\"noopener noreferrer\">Alpine.js</a>, con blocchi ACF personalizzati per ogni sezione della homepage e uno strumento di importazione contenuti per popolare dati demo su nuovi ambienti.</p>"
+            }
+        }
     }
 ]
