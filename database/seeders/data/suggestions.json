@@ -448,5 +448,23 @@
                 "description": "<p>Nel 2026 ho ridisegnato Osteopatapiazza.it da zero, ricostruendolo come tema WordPress personalizzato con <a href=\"https://tailwindcss.com/\" target=\"_blank\" rel=\"noopener noreferrer\">TailwindCSS 4</a> e <a href=\"https://alpinejs.dev/\" target=\"_blank\" rel=\"noopener noreferrer\">Alpine.js</a>, con blocchi ACF personalizzati per ogni sezione della homepage e uno strumento di importazione contenuti per popolare dati demo su nuovi ambienti.</p>"
             }
         }
+    },
+    {
+        "key": "anna-acoleo",
+        "sorting": 202610,
+        "url": "https://annaacoleo.it",
+        "images": "annaacoleo.it",
+        "translations": {
+            "en": {
+                "title": "Anna Acoleo - Crescendo in musica (2026)",
+                "keywords": "works,portfolio,annaacoleo.it,WordPress,TailwindCSS,AlpineJS,ACF",
+                "description": "<p>In 2026 I built the website of pianist and teacher Anna Acoleo and her music school \"Crescendo in musica\" as a custom WordPress theme with <a href=\"https://tailwindcss.com/\" target=\"_blank\" rel=\"noopener noreferrer\">TailwindCSS 4</a> and <a href=\"https://alpinejs.dev/\" target=\"_blank\" rel=\"noopener noreferrer\">Alpine.js</a>, with a library of custom <a href=\"https://www.advancedcustomfields.com/\" target=\"_blank\" rel=\"noopener noreferrer\">ACF</a> blocks to compose its pages.</p>"
+            },
+            "it": {
+                "title": "Anna Acoleo - Crescendo in musica (2026)",
+                "keywords": "lavori,portfolio,annaacoleo.it,WordPress,TailwindCSS,AlpineJS,ACF",
+                "description": "<p>Nel 2026 ho realizzato il sito della pianista e insegnante Anna Acoleo e della sua scuola di musica \"Crescendo in musica\" come tema WordPress personalizzato con <a href=\"https://tailwindcss.com/\" target=\"_blank\" rel=\"noopener noreferrer\">TailwindCSS 4</a> e <a href=\"https://alpinejs.dev/\" target=\"_blank\" rel=\"noopener noreferrer\">Alpine.js</a>, con una libreria di blocchi <a href=\"https://www.advancedcustomfields.com/\" target=\"_blank\" rel=\"noopener noreferrer\">ACF</a> personalizzati per comporre le pagine.</p>"
+            }
+        }
     }
 ]
