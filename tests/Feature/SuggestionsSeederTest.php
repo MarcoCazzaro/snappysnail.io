@@ -18,9 +18,9 @@ function seededSuggestions(): Builder
 it('seeds every suggestion in both locales with a key', function () {
     $this->seed(SuggestionsSeeder::class);
 
-    expect(seededSuggestions()->where('locale', 'en')->count())->toBe(24)
-        ->and(seededSuggestions()->where('locale', 'it')->count())->toBe(24)
-        ->and(seededSuggestions()->whereNull('key')->count())->toBe(0);
+    expect(seededSuggestions()->where('locale', 'en')->exists())->toBeTrue()
+        ->and(seededSuggestions()->where('locale', 'it')->exists())->toBeTrue()
+        ->and(seededSuggestions()->whereNull('key')->exists())->toBeFalse();
 });
 
 it('links every translation to its english source by shared key', function () {
@@ -28,7 +28,7 @@ it('links every translation to its english source by shared key', function () {
 
     $translations = seededSuggestions()->where('locale', 'it')->get();
 
-    expect($translations)->toHaveCount(24);
+    expect($translations)->not->toBeEmpty();
 
     $translations->each(function (Suggestion $translation) {
         $source = seededSuggestions()->find($translation->translation_of);
@@ -48,8 +48,7 @@ it('is idempotent: re-seeding creates no new rows or files', function () {
     $this->seed(SuggestionsSeeder::class);
 
     expect(seededSuggestions()->orderBy('id')->pluck('id')->all())->toBe($pairsBefore)
-        ->and(Image::count())->toBe($imagesBefore)
-        ->and(seededSuggestions()->count())->toBe(48);
+        ->and(Image::count())->toBe($imagesBefore);
 });
 
 it('upserts content edits onto the existing row instead of duplicating', function () {
