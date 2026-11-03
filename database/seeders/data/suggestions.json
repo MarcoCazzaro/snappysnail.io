@@ -466,5 +466,23 @@
                 "description": "<p>Nel 2026 ho realizzato il sito della pianista e insegnante Anna Acoleo e della sua scuola di musica \"Crescendo in musica\" come tema WordPress personalizzato con <a href=\"https://tailwindcss.com/\" target=\"_blank\" rel=\"noopener noreferrer\">TailwindCSS 4</a> e <a href=\"https://alpinejs.dev/\" target=\"_blank\" rel=\"noopener noreferrer\">Alpine.js</a>, con una libreria di blocchi <a href=\"https://www.advancedcustomfields.com/\" target=\"_blank\" rel=\"noopener noreferrer\">ACF</a> personalizzati per comporre le pagine.</p>"
             }
         }
+    },
+    {
+        "key": "debora-antonello-2026",
+        "sorting": 202611,
+        "url": "https://deboraantonello.com",
+        "images": "deboraantonello.com-2026",
+        "translations": {
+            "en": {
+                "title": "Debora Antonello (2026 remake)",
+                "keywords": "works,portfolio,deboraantonello.com-2026,debora antonello,Laravel,Inertia,Vue,TailwindCSS,SSR,management system",
+                "description": "<p>In 2026 I rebuilt the website of contemporary artist Debora Antonello from scratch on <a href=\"https://laravel.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Laravel 13</a>, <a href=\"https://inertiajs.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Inertia</a> and <a href=\"https://vuejs.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Vue 3</a> with server-side rendering, in Italian and English, with a new admin CMS for works, news, bio and catalogues.</p>"
+            },
+            "it": {
+                "title": "Debora Antonello (remake 2026)",
+                "keywords": "lavori,portfolio,deboraantonello.com-2026,debora antonello,Laravel,Inertia,Vue,TailwindCSS,SSR,sistema di gestione",
+                "description": "<p>Nel 2026 ho ricostruito da zero il sito dell'artista contemporanea Debora Antonello con <a href=\"https://laravel.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Laravel 13</a>, <a href=\"https://inertiajs.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Inertia</a> e <a href=\"https://vuejs.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Vue 3</a> con rendering lato server, in italiano e inglese, e un nuovo CMS di amministrazione per opere, news, bio e cataloghi.</p>"
+            }
+        }
     }
 ]
