@@ -9,7 +9,6 @@ use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
-use RuntimeException;
 use Throwable;
 
 #[Signature('snappysnail:optimise-images {--force : Reprocess every group, including ones that already look optimised}')]
@@ -35,11 +34,21 @@ class OptimiseExistingImages extends Command
         $reprocessedFiles = 0;
         $reprocessedRows = 0;
         $skippedRows = 0;
+        $missingFiles = 0;
 
         foreach ($groups as $filePath => $images) {
             try {
                 if (! $force && $this->alreadyMigrated($images->first())) {
                     $skippedRows += $images->count();
+
+                    continue;
+                }
+
+                $sourcePath = Storage::disk('public')->path($filePath);
+
+                if (! is_file($sourcePath)) {
+                    $missingFiles++;
+                    $this->warn("Source file missing, skipped: {$sourcePath}");
 
                     continue;
                 }
@@ -54,7 +63,7 @@ class OptimiseExistingImages extends Command
             }
         }
 
-        $this->info("Done. Reprocessed {$reprocessedFiles} file(s) across {$reprocessedRows} row(s), skipped {$skippedRows} row(s) (already optimised).");
+        $this->info("Done. Reprocessed {$reprocessedFiles} file(s) across {$reprocessedRows} row(s), skipped {$skippedRows} row(s) (already optimised), {$missingFiles} file(s) missing on disk.");
 
         return self::SUCCESS;
     }
@@ -80,13 +89,7 @@ class OptimiseExistingImages extends Command
         $oldFullPath = $images->first()->file_path;
         $oldThumbnailPath = $images->first()->thumbnail_file_path;
 
-        $sourcePath = Storage::disk('public')->path($oldFullPath);
-
-        if (! is_file($sourcePath)) {
-            throw new RuntimeException("Source file missing at {$sourcePath}");
-        }
-
-        $newPaths = $optimiser->generate($sourcePath);
+        $newPaths = $optimiser->generate(Storage::disk('public')->path($oldFullPath));
 
         foreach ($images as $image) {
             $image->file_path = $newPaths['full'];

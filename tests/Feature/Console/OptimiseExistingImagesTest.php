@@ -2,6 +2,7 @@
 
 use App\Models\Image;
 use App\Models\Suggestion;
+use Illuminate\Support\Facades\Exceptions;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
@@ -117,7 +118,7 @@ it('reprocesses a file shared by a translation and its source together, without 
         ->and(Storage::disk('public')->exists($sourceImage->thumbnail_file_path))->toBeTrue();
 });
 
-it('reports failure and continues when the source file is missing', function () {
+it('warns and continues, without reporting an exception, when the source file is missing', function () {
     $suggestion = Suggestion::factory()->create();
 
     $suggestion->images()->create([
@@ -125,7 +126,12 @@ it('reports failure and continues when the source file is missing', function () 
         'thumbnail_file_path' => 'suggestions/images/missing.jpg',
     ]);
 
-    $this->artisan('snappysnail:optimise-images')->assertExitCode(0);
+    Exceptions::fake();
 
+    $this->artisan('snappysnail:optimise-images')
+        ->expectsOutputToContain('Source file missing, skipped')
+        ->assertExitCode(0);
+
+    Exceptions::assertNothingReported();
     expect(Image::count())->toBe(1);
 });
